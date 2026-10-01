@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In | MIRA</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body class="login-page">
+    <main class="login-card">
+
+        <a href="index.html"
+           class="back-button"
+           aria-label="Return to homepage">
+            &times;
+        </a>
+
+        <section class="login-panel" aria-labelledby="loginTitle">
+            <img src="./Assets/logo without bg.jpeg"
+                 alt="MIRA"
+                 class="login-logo">
+
+            <h1 id="loginTitle">Welcome to MIRA</h1>
+            <p class="subtitle">Log in to explore student creativity.</p>
+
+            <form id="loginForm">
+                <label for="email">Email</label>
+                <input type="email"
+                       id="email"
+                       name="email"
+                       placeholder="Enter your email"
+                       autocomplete="username"
+                       required>
+
+                <label for="password">Password</label>
+
+                <div class="password-box">
+                    <input type="password"
+                           id="password"
+                           name="password"
+                           placeholder="Enter your password"
+                           autocomplete="current-password"
+                           required>
+
+                    <button type="button"
+                            id="showPassword"
+                            class="show-password"
+                            aria-controls="password"
+                            aria-pressed="false">
+                        Show
+                    </button>
+                </div>
+
+                <a href="forgot-password.html" class="forgot-link">
+                    Forgot password?
+                </a>
+
+                <button type="submit" class="submit-login">
+                    Log In
+                </button>
+
+                <p id="loginStatus" role="status"></p>
+            </form>
+
+            <p class="signup-text">
+                New to MIRA?
+                <a href="signin.html">Create an account</a>
+            </p>
+        </section>
+
+        <aside class="side-panel">
+            <div class="qr-placeholder">
+                QR code login<br>
+                coming soon
+            </div>
+
+            <h2>Your creativity belongs here.</h2>
+            <p>
+                Discover artwork, share your creations,
+                and connect with student artists.
+            </p>
+        </aside>
+
+    </main>
+</body>
+</html>
