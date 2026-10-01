@@ -462,6 +462,584 @@ input {
     outline-offset: 3px;
 }
 
+/* =========================================
+   JOIN MIRA - PINTEREST STYLE
+   ========================================= */
+
+.mira-join {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    max-width: 1400px;
+    min-height: 720px;
+
+    margin: 100px auto;
+    padding: 60px 80px;
+
+    overflow: hidden;
+
+    border-radius: 35px;
+
+    /* Background covers the ENTIRE section */
+    background-image: url("./Assests/bgimage.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* =========================================
+   DARK TRANSPARENT BACKGROUND
+   ========================================= */
+
+.join-overlay {
+    position: absolute;
+    inset: 0;
+
+    /* Similar dimmed effect to Pinterest */
+    background: rgba(0, 0, 0, 0.48);
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   LEFT TEXT
+   ========================================= */
+
+.join-message {
+    position: relative;
+    z-index: 2;
+
+    width: 45%;
+
+    color: white;
+}
+
+
+.join-message p {
+    margin-bottom: 18px;
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 4px;
+}
+
+
+.join-message h2 {
+    margin: 0;
+
+    color: white;
+
+    font-size: clamp(42px, 5vw, 72px);
+    font-weight: 700;
+
+    line-height: 1.08;
+}
+
+
+/* =========================================
+   WHITE SIGNUP CARD
+   ========================================= */
+
+.join-card {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 480px;
+
+    padding: 45px 45px 40px;
+
+    border-radius: 32px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================
+   LOGO
+   ========================================= */
+
+.join-logo {
+    display: block;
+
+    width: 75px;
+    height: auto;
+
+    margin: 0 auto 15px;
+}
+
+
+/* =========================================
+   FORM HEADING
+   ========================================= */
+
+.join-card h2 {
+    margin: 0 0 10px;
+
+    color: #2e1e5d;
+
+    font-size: 34px;
+
+    text-align: center;
+}
+
+
+.join-subtitle {
+    max-width: 330px;
+
+    margin: 0 auto 28px;
+
+    color: #756c81;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   FORM LABELS
+   ========================================= */
+
+#homeSignupForm label {
+    display: block;
+
+    margin: 15px 0 7px;
+
+    color: #2e1e5d;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   INPUTS
+   ========================================= */
+
+#homeSignupForm input {
+    width: 100%;
+
+    padding: 15px 17px;
+
+    border: 1px solid #d7cce4;
+    border-radius: 14px;
+
+    background: white;
+
+    color: #2e1e5d;
+
+    font: inherit;
+    font-size: 14px;
+}
+
+
+#homeSignupForm input:focus {
+    outline: none;
+
+    border-color: #7654bb;
+
+    box-shadow: 0 0 0 3px rgba(118, 84, 187, 0.12);
+}
+
+
+/* =========================================
+   JOIN BUTTON
+   ========================================= */
+
+.join-button {
+    width: 100%;
+
+    margin-top: 25px;
+    padding: 15px;
+
+    border: none;
+    border-radius: 25px;
+
+    background: linear-gradient(
+        135deg,
+        #ff8a3d,
+        #e04b7a
+    );
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.join-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(224, 75, 122, 0.3);
+}
+
+
+/* =========================================
+   OR DIVIDER
+   ========================================= */
+
+.join-divider {
+    display: flex;
+
+    align-items: center;
+    gap: 15px;
+
+    margin: 25px 0 20px;
+
+    color: #9a929f;
+
+    font-size: 12px;
+}
+
+
+.join-divider::before,
+.join-divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #ddd5e5;
+}
+
+
+/* =========================================
+   LOGIN
+   ========================================= */
+
+.join-login {
+    margin: 0;
+
+    color: #756c81;
+
+    font-size: 14px;
+
+    text-align: center;
+}
+
+
+.join-login a {
+    color: #a44272;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+.join-login a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .mira-join {
+        flex-direction: column;
+
+        gap: 50px;
+
+        margin: 70px 24px;
+        padding: 60px 35px;
+    }
+
+    .join-message {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .join-card {
+        max-width: 480px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 550px) {
+
+    .mira-join {
+        margin: 50px 15px;
+        padding: 45px 20px;
+
+        border-radius: 25px;
+    }
+
+    .join-message h2 {
+        font-size: 40px;
+    }
+
+    .join-card {
+        padding: 35px 25px;
+
+        border-radius: 25px;
+    }
+
+    .join-card h2 {
+        font-size: 28px;
+    }
+}
+
+
+/* Logo */
+
+.join-logo {
+    display: block;
+
+    width: 70px;
+    height: auto;
+
+    margin: 0 auto 18px;
+}
+
+
+/* Heading */
+
+.join-card h2 {
+    margin-bottom: 10px;
+
+    color: #2e1e5d;
+
+    font-size: 34px;
+
+    text-align: center;
+}
+
+
+/* Description */
+
+.join-subtitle {
+    margin-bottom: 30px;
+
+    color: #756c81;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+
+/* Labels */
+
+#homeSignupForm label {
+    display: block;
+
+    margin: 15px 0 7px;
+
+    color: #2e1e5d;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* Inputs */
+
+#homeSignupForm input {
+    width: 100%;
+
+    padding: 15px 17px;
+
+    border: 1px solid #d7cce4;
+    border-radius: 14px;
+
+    background: white;
+
+    color: #2e1e5d;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+#homeSignupForm input:focus {
+    outline: none;
+
+    border-color: #7654bb;
+
+    box-shadow: 0 0 0 3px rgba(118, 84, 187, 0.12);
+}
+
+
+/* =========================================
+   JOIN BUTTON
+   ========================================= */
+
+.join-button {
+    width: 100%;
+
+    margin-top: 25px;
+    padding: 15px;
+
+    border: none;
+    border-radius: 25px;
+
+    background: linear-gradient(
+        135deg,
+        #ff8a3d,
+        #e04b7a
+    );
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.join-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(224, 75, 122, 0.25);
+}
+
+
+/* =========================================
+   OR DIVIDER
+   ========================================= */
+
+.join-divider {
+    display: flex;
+
+    align-items: center;
+    gap: 15px;
+
+    margin: 25px 0;
+
+    color: #9a929f;
+
+    font-size: 12px;
+}
+
+
+.join-divider::before,
+.join-divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #ddd5e5;
+}
+
+
+/* =========================================
+   LOGIN LINK
+   ========================================= */
+
+.join-login {
+    color: #756c81;
+
+    font-size: 14px;
+
+    text-align: center;
+}
+
+
+.join-login a {
+    color: #a44272;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+.join-login a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   TABLET / MOBILE
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .mira-join {
+        grid-template-columns: 1fr;
+
+        margin: 70px 24px;
+    }
+
+    .join-artwork {
+        min-height: 450px;
+
+        padding: 40px;
+    }
+
+    .join-form-area {
+        padding: 50px 25px;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .mira-join {
+        margin: 50px 15px;
+
+        border-radius: 25px;
+    }
+
+    .join-artwork {
+        min-height: 350px;
+
+        padding: 30px;
+    }
+
+    .join-message h2 {
+        font-size: 36px;
+    }
+
+    .join-form-area {
+        padding: 35px 15px;
+    }
+
+    .join-card {
+        padding: 20px;
+    }
+}
+
 /* Slogan at the bottom, without overlapping content */
 /* =========================================
    MIRA FOOTER
