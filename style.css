@@ -443,13 +443,13 @@ input {
 }
 
 .mira-motion-button {
-    padding: 10px 22px;
+    padding: 6px 14px;   /* smaller button */
     border: 1px solid #d7cce4;
-    border-radius: 25px;
+    border-radius: 20px;
     background: white;
     color: #2e1e5d;
     font: inherit;
-    font-size: 13px;
+    font-size: 11px;     /* smaller text */
     cursor: pointer;
 }
 
