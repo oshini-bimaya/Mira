@@ -25,33 +25,44 @@ loginForm.addEventListener("submit", function (event) {
         "Demo only: connect this form to your backend to log in.";
 });
 
-const categoryCards = document.querySelectorAll(".category-card");
+/* ==============================
+   CATEGORY ENTRANCE ANIMATION
+   ============================== */
 
-const categoryObserver = new IntersectionObserver(
-    (entries) => {
+const categoriesGrid = document.querySelector(".categories-grid");
 
-        entries.forEach((entry) => {
+if (categoriesGrid) {
 
-            if (entry.isIntersecting) {
+    const cards = categoriesGrid.querySelectorAll(".category-card");
 
-                const cards = [...categoryCards];
-                const index = cards.indexOf(entry.target);
+    // Prepare cards for animation
+    categoriesGrid.classList.add("animate-ready");
 
-                setTimeout(() => {
-                    entry.target.classList.add("show-category");
-                }, index * 150);
+    const observer = new IntersectionObserver(
+        (entries, observer) => {
 
-                categoryObserver.unobserve(entry.target);
-            }
+            entries.forEach(entry => {
 
-        });
+                if (entry.isIntersecting) {
 
-    },
-    {
-        threshold: 0.2
-    }
-);
+                    cards.forEach((card, index) => {
 
-categoryCards.forEach((card) => {
-    categoryObserver.observe(card);
-});
+                        setTimeout(() => {
+                            card.classList.add("show");
+                        }, index * 250);
+
+                    });
+
+                    observer.unobserve(entry.target);
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    observer.observe(categoriesGrid);
+}
