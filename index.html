@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MIRA | NSBM</title>
+
+    <title>MIRA | NSBM ArtCraft</title>
+
     <link rel="stylesheet" href="style.css">
+    <script src="carousel.js" defer></script>
 </head>
 
-<body>
+<body class="mira-home">
+
     <header class="header">
         <a href="index.html">
             <img src="./Assets/logo without bg.jpeg"
@@ -16,13 +20,72 @@
         </a>
 
         <nav class="header-buttons">
-            <a href="login.html" class="button login-link">Log In</a>
-            <a href="signin.html" class="button signup-link">Sign Up</a>
+            <a href="login.html" class="button login-link">
+                Log In
+            </a>
+
+            <a href="signin.html" class="button signup-link">
+                Sign Up
+            </a>
         </nav>
     </header>
 
-    <main class="home-content">
-        <h1>WHERE STUDENT CREATIVITY COMES TO LIFE</h1>
+    <main class="mira-showcase">
+
+        <div class="showcase-intro">
+            <p class="showcase-label">NSBM ARTCRAFT</p>
+            <h1>A space for your imagination.</h1>
+            <p>Explore art, handcrafts, and ideas by our student creators.</p>
+        </div>
+
+        <section class="mira-stage" aria-label="Featured student artworks">
+            <div class="mira-orbit" id="artOrbit">
+
+                <figure class="mira-art">
+                    <img src="./Assets/art1.jpg" alt="Student painting">
+                    <figcaption>Painting</figcaption>
+                </figure>
+
+                <figure class="mira-art">
+                    <img src="./Assets/art2.jpg" alt="Student pencil sketch">
+                    <figcaption>Sketching</figcaption>
+                </figure>
+
+                <figure class="mira-art">
+                    <img src="./Assets/art3.jpg" alt="Student handcrafted item">
+                    <figcaption>Handcraft</figcaption>
+                </figure>
+
+                <figure class="mira-art">
+                    <img src="./Assets/art4.jpg" alt="Student photography">
+                    <figcaption>Photography</figcaption>
+                </figure>
+
+                <figure class="mira-art">
+                    <img src="./Assets/art5.jpg" alt="Student digital artwork">
+                    <figcaption>Digital Art</figcaption>
+                </figure>
+
+                <figure class="mira-art">
+                    <img src="./Assets/art6.jpg" alt="Student creative project">
+                    <figcaption>Creative Projects</figcaption>
+                </figure>
+
+            </div>
+        </section>
+
+        <button type="button"
+                class="mira-motion-button"
+                id="motionButton"
+                aria-controls="artOrbit">
+            Pause animation
+        </button>
+
     </main>
+
+    <footer class="mira-home-footer">
+        <p>WHERE STUDENT CREATIVITY COMES TO LIFE</p>
+    </footer>
+
 </body>
 </html>

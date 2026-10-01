@@ -324,3 +324,191 @@ input {
     font-size: 14px;
     line-height: 1.5;
 }
+
+/* Homepage layout */
+.mira-home {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    background: #fcfbfa;
+}
+
+.mira-home .header {
+    flex-shrink: 0;
+}
+
+/* Main showcase fills the space above the footer */
+.mira-showcase {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 0 20px;
+}
+
+.showcase-intro {
+    padding: 0 20px;
+    text-align: center;
+}
+
+.showcase-label {
+    margin-bottom: 10px;
+    color: #a44272;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.showcase-intro h1 {
+    margin-bottom: 12px;
+    color: #2e1e5d;
+    font-size: clamp(26px, 4vw, 44px);
+}
+
+.showcase-intro > p:last-child {
+    color: #756c81;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* 3D space */
+.mira-stage {
+    width: 100%;
+    max-width: 1100px;
+    height: 410px;
+    position: relative;
+    perspective: 1100px;
+    overflow: hidden;
+
+    background: radial-gradient(
+        ellipse at center,
+        rgba(224, 75, 122, 0.07),
+        transparent 65%
+    );
+}
+
+.mira-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform-style: preserve-3d;
+}
+
+/* Artwork cards */
+.mira-art {
+    position: absolute;
+    top: -120px;
+    left: -90px;
+    width: 180px;
+    height: 240px;
+    margin: 0;
+    overflow: hidden;
+
+    border: 5px solid white;
+    border-radius: 16px;
+    background: #eee8f7;
+    box-shadow: 0 15px 30px rgba(46, 30, 93, 0.18);
+
+    backface-visibility: hidden;
+}
+
+.mira-art img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mira-art figcaption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 28px 10px 12px;
+
+    background: linear-gradient(
+        transparent,
+        rgba(25, 14, 43, 0.8)
+    );
+
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.mira-motion-button {
+    padding: 10px 22px;
+    border: 1px solid #d7cce4;
+    border-radius: 25px;
+    background: white;
+    color: #2e1e5d;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.mira-motion-button:hover {
+    background: #f1edf8;
+}
+
+.mira-motion-button:focus-visible {
+    outline: 3px solid #7654bb;
+    outline-offset: 3px;
+}
+
+/* Slogan at the bottom, without overlapping content */
+.mira-home-footer {
+    padding: 25px 20px;
+    border-top: 1px solid rgba(224, 75, 122, 0.12);
+
+    background: linear-gradient(
+        135deg,
+        rgba(46, 30, 93, 0.04),
+        rgba(255, 138, 61, 0.06)
+    );
+
+    text-align: center;
+}
+
+.mira-home-footer p {
+    margin: 0;
+    color: #2e1e5d;
+    font-size: clamp(14px, 2vw, 22px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1.6;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .mira-showcase {
+        padding-top: 25px;
+    }
+
+    .mira-stage {
+        height: 310px;
+    }
+
+    .mira-art {
+        top: -85px;
+        left: -60px;
+        width: 120px;
+        height: 170px;
+        border-width: 3px;
+        border-radius: 12px;
+    }
+
+    .mira-art figcaption {
+        font-size: 11px;
+    }
+
+    .showcase-intro > p:last-child {
+        font-size: 13px;
+    }
+}
