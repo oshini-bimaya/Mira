@@ -24,3 +24,34 @@ loginForm.addEventListener("submit", function (event) {
     loginStatus.textContent =
         "Demo only: connect this form to your backend to log in.";
 });
+
+const categoryCards = document.querySelectorAll(".category-card");
+
+const categoryObserver = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                const cards = [...categoryCards];
+                const index = cards.indexOf(entry.target);
+
+                setTimeout(() => {
+                    entry.target.classList.add("show-category");
+                }, index * 150);
+
+                categoryObserver.unobserve(entry.target);
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.2
+    }
+);
+
+categoryCards.forEach((card) => {
+    categoryObserver.observe(card);
+});

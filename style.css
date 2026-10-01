@@ -516,3 +516,192 @@ input {
 .mira-art {
     border: none;
 }
+
+/* Categories section */
+.mira-categories {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 65px 40px 80px;
+}
+
+.categories-heading {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.categories-heading > p {
+    margin-bottom: 10px;
+    color: #a44272;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.categories-heading h2 {
+    margin: 0;
+    color: #2e1e5d;
+    font-size: clamp(26px, 3vw, 38px);
+}
+
+/* Three columns on desktop */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 32px;
+    row-gap: 60px;
+}
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+/* Large rounded images like your reference */
+.category-card > img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 6 / 5;
+    object-fit: cover;
+
+    border: none;
+    border-radius: 25px;
+    background: #eee8f7;
+    box-shadow: none;
+
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover > img {
+    transform: translateY(-5px);
+}
+
+.category-card h3 {
+    margin: 25px 0 12px;
+    color: #2e1e5d;
+    font-size: clamp(23px, 2.3vw, 30px);
+    font-weight: 600;
+}
+
+.category-card > p {
+    margin: 0 0 22px;
+    color: #68616f;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Links stay aligned at the bottom of each row */
+.category-card > a {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+
+    color: #2e1e5d;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+.category-card > a span {
+    display: inline-block;
+    font-size: 23px;
+    transition: transform 0.25s ease;
+}
+
+.category-card > a:hover {
+    color: #b33968;
+}
+
+.category-card > a:hover span {
+    transform: translateX(5px);
+}
+
+.category-card > a:focus-visible {
+    outline: 3px solid #7654bb;
+    outline-offset: 6px;
+    border-radius: 3px;
+}
+
+/* Two columns on tablets */
+@media (max-width: 900px) {
+    .categories-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .mira-categories {
+        padding: 50px 24px;
+    }
+}
+
+/* One column on phones */
+@media (max-width: 550px) {
+    .categories-grid {
+        grid-template-columns: 1fr;
+        row-gap: 40px;
+    }
+
+    .mira-categories {
+        padding: 40px 20px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .category-card > img,
+    .category-card > a span {
+        transition: none;
+    }
+
+    .category-card:hover > img,
+    .category-card > a:hover span {
+        transform: none;
+    }
+}
+
+/* =========================================
+   CATEGORY SCROLL ENTRANCE ANIMATION
+   ========================================= */
+
+.category-card {
+    opacity: 1;
+    transform: none;
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Different starting directions */
+.category-card:nth-child(1) {
+    transform: translateX(-80px) translateY(40px) scale(0.92);
+}
+
+.category-card:nth-child(2) {
+    transform: translateY(100px) scale(0.92);
+}
+
+.category-card:nth-child(3) {
+    transform: translateX(80px) translateY(40px) scale(0.92);
+}
+
+.category-card:nth-child(4) {
+    transform: translateX(-80px) translateY(40px) scale(0.92);
+}
+
+.category-card:nth-child(5) {
+    transform: translateY(100px) scale(0.92);
+}
+
+.category-card:nth-child(6) {
+    transform: translateX(80px) translateY(40px) scale(0.92);
+}
+
+/* Final position */
+.category-card.show-category {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
