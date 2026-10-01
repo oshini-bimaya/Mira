@@ -463,26 +463,203 @@ input {
 }
 
 /* Slogan at the bottom, without overlapping content */
-.mira-home-footer {
-    padding: 25px 20px;
-    border-top: 1px solid rgba(224, 75, 122, 0.12);
+/* =========================================
+   MIRA FOOTER
+   ========================================= */
 
-    background: linear-gradient(
-        135deg,
-        rgba(46, 30, 93, 0.04),
-        rgba(255, 138, 61, 0.06)
-    );
-
-    text-align: center;
+.mira-footer {
+    margin-top: 80px;
+    background: #171044;
+    color: white;
 }
 
-.mira-home-footer p {
+/* Main footer */
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+    gap: 60px;
+
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 65px 40px;
+}
+
+
+/* Footer headings */
+
+.footer-section h3 {
+    margin-bottom: 22px;
+
+    color: white;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+/* About MIRA */
+
+.footer-about p {
+    max-width: 300px;
+
+    color: #c8c3d8;
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* Links */
+
+.footer-section ul {
     margin: 0;
-    color: #2e1e5d;
-    font-size: clamp(14px, 2vw, 22px);
-    font-weight: 700;
+    padding: 0;
+
+    list-style: none;
+}
+
+.footer-section li {
+    margin-bottom: 12px;
+}
+
+.footer-section a {
+    color: #c8c3d8;
+
+    font-size: 14px;
+    text-decoration: none;
+
+    transition: color 0.25s ease;
+}
+
+.footer-section a:hover {
+    color: #ff8a3d;
+}
+
+
+/* Social media */
+
+.footer-socials {
+    display: flex;
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.footer-socials a {
+    display: flex;
+
+    width: 34px;
+    height: 34px;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.footer-socials a:hover {
+    background: #a44272;
+    color: white;
+
+    transform: translateY(-3px);
+}
+
+
+/* Contact */
+
+.footer-contact p {
+    margin-bottom: 16px;
+
+    color: #c8c3d8;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* Bottom copyright area */
+
+.footer-bottom {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px 40px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    background: #100a35;
+}
+
+.footer-bottom p {
+    margin: 0;
+
+    color: #bcb6cc;
+
+    font-size: 13px;
+}
+
+.footer-slogan {
     letter-spacing: 2px;
-    line-height: 1.6;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 45px;
+
+        padding: 50px 30px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 550px) {
+
+    .footer-container {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        padding: 45px 25px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        padding: 20px;
+
+        text-align: center;
+    }
+
+    .footer-slogan {
+        font-size: 11px;
+    }
 }
 
 /* Mobile adjustments */
