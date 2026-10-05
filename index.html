@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MIRA | NSBM ArtCraft</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="carousel.js" defer></script>
+</head>
+
+<body class="mira-home">
+
+    <header class="header">
+        <a href="index.html">
+            <img src="./Assests\Logo.jpeg"
+                 alt="MIRA NSBM"
+                 class="header-logo">
+        </a>
+
+        <nav class="header-buttons">
+            <a href="login.html" class="button login-link">
+                Log In
+            </a>
+
+            <a href="signin.html" class="button signup-link">
+                Sign Up
+            </a>
+        </nav>
+    </header>
+
+    <main class="mira-showcase">
+
+        <div class="showcase-intro">
+            <p class="showcase-label">NSBM ART & CRAFT CAFE</p>
+            <h1>A space for your imagination.</h1>
+            <p>Explore art, handcrafts, and ideas by our student creators.</p>
+        </div>
+
+        <section class="mira-stage" aria-label="Featured student artworks">
+            <div class="mira-orbit" id="artOrbit">
+
+                <figure class="mira-art">
+                    <img src="./Assests\art1.jpeg" alt="Student painting">
+                </figure>
+
+                <figure class="mira-art">
+                    <img src="./Assests\art2.jpeg" alt="Student pencil sketch">
+                </figure>
+
+                <figure class="mira-art">
+                    <img src="./Assests\art3.jpeg" alt="Student handcrafted item">
+                </figure>
+
+                <figure class="mira-art">
+                    <img src="./Assests\art4.jpeg" alt="Student photography">
+                </figure>
+
+                <figure class="mira-art">
+                    <img src="./Assests\art5.jpeg" alt="Student digital artwork">
+                </figure>
+
+                <figure class="mira-art">
+                    <img src="./Assests\art6.jpeg" alt="Student creative project">
+                </figure>
+
+            </div>
+        </section>
+
+        <button type="button"
+                class="mira-motion-button"
+                id="motionButton"
+                aria-controls="artOrbit">
+            Pause animation
+        </button>
+
+    </main>
+
+    <section class="mira-about">
+
+    <p class="about-label">ABOUT MIRA</p>
+
+    <h2>A creative space for NSBM student artists.</h2>
+
+    <p class="about-description">
+        MIRA is a creative platform for NSBM students to showcase their
+        talents in art and handcraft. It provides a space for student creators
+        to share their artwork, handmade creations, and creative ideas with
+        the wider NSBM community. Students can discover talented creators,
+        explore different forms of art, and participate in exhibitions and
+        creative showcases.
+    </p>
+
+    <div class="about-features">
+        <span>Showcase Your Talent</span>
+        <span>Discover Creators</span>
+        <span>Join Exhibitions</span>
+    </div>
+
+</section>
+
+<section class="vc-message">
+
+    <div class="vc-message-container">
+
+        <!-- Photo stays fixed -->
+        <div class="vc-image">
+            <img src="./Assests\vcsir.webp"
+                 alt="Vice Chancellor of NSBM Green University">
+        </div>
+
+        <!-- Only this side scrolls -->
+        <div class="vc-content">
+
+            <p class="vc-label">MESSAGE FROM THE VICE CHANCELLOR</p>
+
+            <h2>Celebrating creativity beyond the classroom.</h2>
+
+            <div class="vc-scroll-content">
+
+                <p class="vc-quote">
+                    “At NSBM, we believe that student talent extends far
+                    beyond academics. MIRA provides a platform for our
+                    students to express their creativity, showcase their
+                    talents in art and handcraft, and inspire the wider
+                    university community through their imagination and
+                    passion.
+                </p>
+
+                <p class="vc-quote">
+                    Through creativity, students have the opportunity to
+                    express their ideas, develop confidence, and connect
+                    with others who share similar interests.
+                </p>
+
+                <p class="vc-quote">
+                    MIRA celebrates the artistic talents of NSBM students
+                    and encourages them to continue exploring their
+                    creativity beyond the classroom.”
+                </p>
+
+                <div class="vc-name">
+                    <strong>Vice Chancellor - Prof. E. A. Weerasinghe</strong>
+                    <span>NSBM Green University</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <section class="mira-categories" aria-labelledby="categoriesTitle">
+
+    <div class="categories-heading">
+        <p>FIND YOUR INSPIRATION</p>
+        <h2 id="categoriesTitle">Explore our categories</h2>
+    </div>
+
+    <div class="categories-grid">
+
+        <!-- Painting -->
+        <article class="category-card">
+            <img src="./Assests\painting1.jpg"
+                 alt="Colourful painting"
+                 loading="lazy">
+
+            <h3>Painting</h3>
+
+            <p>
+                Discover stories told through watercolour,
+                acrylic, and oil paintings by student artists.
+            </p>
+
+            <a href="gallery.html?category=painting">
+                Explore Painting <span aria-hidden="true">→</span>
+            </a>
+        </article>
+
+        <!-- Sketching -->
+        <article class="category-card">
+            <img src="./Assests\sketching1.jpg"
+                 alt="Detailed pencil sketch"
+                 loading="lazy">
+
+            <h3>Sketching</h3>
+
+            <p>
+                Explore pencil, charcoal, and ink drawings
+                that bring imagination to life through every line.
+            </p>
+
+            <a href="gallery.html?category=sketching">
+                Explore Sketching <span aria-hidden="true">→</span>
+            </a>
+        </article>
+
+        <!-- Handcraft -->
+        <article class="category-card">
+            <img src="./Assests\handcraft1.jpg"
+                 alt="Handmade craft creation"
+                 loading="lazy">
+
+            <h3>Handcraft</h3>
+
+            <p>
+                Find handmade decorations, paper crafts,
+                and unique creations made with care and creativity.
+            </p>
+
+            <a href="gallery.html?category=handcraft">
+                Explore Handcraft <span aria-hidden="true">→</span>
+            </a>
+        </article>
+
+        <!-- Photography -->
+        <article class="category-card">
+            <img src="./Assests\photography1.jpg"
+                 alt="Creative student photograph"
+                 loading="lazy">
+
+            <h3>Photography</h3>
+
+            <p>
+                See the world through a different lens with
+                student portraits, landscapes, and everyday moments.
+            </p>
+
+            <a href="gallery.html?category=photography">
+                Explore Photography <span aria-hidden="true">→</span>
+            </a>
+        </article>
+
+        <!-- Digital art -->
+        <article class="category-card">
+            <img src="./Assests\digiart1.jpg"
+                 alt="Digital illustration"
+                 loading="lazy">
+
+            <h3>Digital Art</h3>
+
+            <p>
+                Explore digital paintings, illustrations,
+                and designs where creativity meets technology.
+            </p>
+
+            <a href="gallery.html?category=digital-art">
+                Explore Digital Art <span aria-hidden="true">→</span>
+            </a>
+        </article>
+
+        <!-- Sculpture -->
+        <article class="category-card">
+            <img src="./Assests\3dart.webp"
+                 alt="Handmade sculpture"
+                 loading="lazy">
+
+            <h3>Sculpture</h3>
+
+            <p>
+                Discover three-dimensional creations shaped
+                from clay, wood, and other imaginative materials.
+            </p>
+
+            <a href="gallery.html?category=sculpture">
+                Explore Sculpture <span aria-hidden="true">→</span>
+            </a>
+        </article>
+
+    </div>
+</section>
+
+<section class="mira-join">
+
+    <!-- Dark transparent layer over the background -->
+    <div class="join-overlay"></div>
+
+    <!-- Left text -->
+    <div class="join-message">
+        <p>JOIN OUR CREATIVE COMMUNITY</p>
+
+        <h2>
+            Share your creativity<br>
+            with NSBM.
+        </h2>
+    </div>
+
+
+    <!-- Floating signup card -->
+    <div class="join-card">
+
+        <img
+            src="./Assests\Logo.jpeg"
+            alt="MIRA Logo"
+            class="join-logo"
+        >
+
+        <h2>Welcome to MIRA</h2>
+
+        <p class="join-subtitle">
+            Join MIRA to showcase your art and discover
+            talented creators at NSBM.
+        </p>
+
+
+        <form id="homeSignupForm">
+
+            <label for="joinName">Full Name</label>
+
+            <input
+                type="text"
+                id="joinName"
+                placeholder="Enter your full name"
+                required
+            >
+
+
+            <label for="joinEmail">NSBM Email</label>
+
+            <input
+                type="email"
+                id="joinEmail"
+                placeholder="Enter your NSBM email"
+                required
+            >
+
+
+            <label for="joinPassword">Password</label>
+
+            <input
+                type="password"
+                id="joinPassword"
+                placeholder="Create a password"
+                required
+            >
+
+
+            <button type="submit" class="join-button">
+                Join MIRA
+            </button>
+
+        </form>
+
+
+        <div class="join-divider">
+            <span>OR</span>
+        </div>
+
+
+        <p class="join-login">
+            Already part of MIRA?
+            <a href="login.html">Log in</a>
+        </p>
+
+    </div>
+
+</section>
+
+    <footer class="mira-footer">
+
+    <div class="footer-container">
+
+        <!-- About MIRA -->
+        <div class="footer-section footer-about">
+
+            <h3>MIRA</h3>
+
+            <p>
+                A creative platform for NSBM students to showcase
+                their talents in art and handcraft, discover creators,
+                and participate in exhibitions.
+            </p>
+
+            <div class="footer-socials">
+                <a href="#" aria-label="Facebook">f</a>
+                <a href="#" aria-label="Instagram">◎</a>
+                <a href="#" aria-label="LinkedIn">in</a>
+            </div>
+
+        </div>
+
+
+        <!-- Quick Links -->
+        <div class="footer-section">
+
+            <h3>Quick Links</h3>
+
+            <ul>
+                <li><a href="index.html">› Home</a></li>
+                <li><a href="#categories">› Categories</a></li>
+                <li><a href="gallery.html">› Gallery</a></li>
+                <li><a href="events.html">› Exhibitions</a></li>
+                <li><a href="login.html">› Login</a></li>
+                <li><a href="signup.html">› Register</a></li>
+            </ul>
+
+        </div>
+
+
+        <!-- Explore -->
+        <div class="footer-section">
+
+            <h3>Explore</h3>
+
+            <ul>
+                <li><a href="gallery.html?category=painting">› Painting</a></li>
+                <li><a href="gallery.html?category=sketching">› Sketching</a></li>
+                <li><a href="gallery.html?category=handcraft">› Handcraft</a></li>
+                <li><a href="gallery.html?category=photography">› Photography</a></li>
+                <li><a href="gallery.html?category=digital-art">› Digital Art</a></li>
+                <li><a href="gallery.html?category=sculpture">› Sculpture</a></li>
+            </ul>
+
+        </div>
+
+
+        <!-- Contact -->
+        <div class="footer-section">
+
+            <h3>Contact Us</h3>
+
+            <div class="footer-contact">
+
+                <p>
+                    📍 Mahenwaththa, Pitipana,<br>
+                    Homagama, Sri Lanka
+                </p>
+
+                <p>
+                    ✉ mira@nsbm.ac.lk
+                </p>
+
+                <p>
+                    🌐 NSBM Green University
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 MIRA – NSBM ArtCraft
+        </p>
+
+        <p class="footer-slogan">
+            WHERE STUDENT CREATIVITY COMES TO LIFE
+        </p>
+
+    </div>
+
+</footer>
+
+    <script src="script.js" defer></script>
+
+</body>
+</html>

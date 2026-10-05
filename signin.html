@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | MIRA</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="signup.js" defer></script>
+</head>
+
+<body class="login-page">
+    <main class="login-card">
+
+        <a href="index.html"
+           class="back-button"
+           aria-label="Return to homepage">
+            &times;
+        </a>
+
+        <section class="login-panel" aria-labelledby="signupTitle">
+            <img src="./Assets/logo without bg.jpeg"
+                 alt="MIRA"
+                 class="login-logo">
+
+            <h1 id="signupTitle">Join MIRA</h1>
+            <p class="subtitle">Create an account to share your creativity.</p>
+
+            <form id="signupForm">
+                <label for="fullName">Full Name</label>
+                <input type="text"
+                       id="fullName"
+                       name="fullName"
+                       placeholder="Enter your full name"
+                       autocomplete="name"
+                       required>
+
+                <label for="email">Email</label>
+                <input type="email"
+                       id="email"
+                       name="email"
+                       placeholder="Enter your email"
+                       autocomplete="email"
+                       required>
+
+                <label for="password">Password</label>
+                <div class="password-box">
+                    <input type="password"
+                           id="password"
+                           name="password"
+                           placeholder="At least 8 characters"
+                           autocomplete="new-password"
+                           minlength="8"
+                           required>
+
+                    <button type="button"
+                            id="showPassword"
+                            class="show-password"
+                            aria-controls="password"
+                            aria-pressed="false">
+                        Show
+                    </button>
+                </div>
+
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password"
+                       id="confirmPassword"
+                       name="confirmPassword"
+                       placeholder="Enter your password again"
+                       autocomplete="new-password"
+                       minlength="8"
+                       required>
+
+                <button type="submit" class="submit-login signup-submit">
+                    Create Account
+                </button>
+
+                <p id="signupStatus" role="status"></p>
+            </form>
+
+            <p class="signup-text">
+                Already have an account?
+                <a href="login.html">Log In</a>
+            </p>
+        </section>
+
+        <aside class="side-panel">
+            <h2>Let your creativity shine.</h2>
+            <p>
+                Showcase your artwork, discover student creations,
+                and become part of the MIRA community.
+            </p>
+        </aside>
+
+    </main>
+</body>
+</html>

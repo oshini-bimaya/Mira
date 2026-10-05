@@ -1,0 +1,1726 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #fcfbfa;
+    color: #2e1e5d;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+/* Homepage header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 40px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(46, 30, 93, 0.05),
+        rgba(224, 75, 122, 0.08),
+        rgba(255, 138, 61, 0.08)
+    );
+
+    border-bottom: 1px solid rgba(224, 75, 122, 0.15);
+}
+
+.header-logo {
+    display: block;
+    width: 85px;
+    height: auto;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 14px;
+}
+
+.button {
+    display: inline-block;
+    padding: 11px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.login-link {
+    border: 1px solid #2e1e5d;
+    color: #2e1e5d;
+}
+
+.login-link:hover {
+    background: #eee8f7;
+}
+
+.signup-link {
+    background: linear-gradient(135deg, #ff8a3d, #e04b7a);
+    color: white;
+    box-shadow: 0 4px 12px rgba(224, 75, 122, 0.2);
+}
+
+.signup-link:hover {
+    filter: brightness(0.95);
+}
+
+/* Homepage content */
+.home-content {
+    min-height: calc(100vh - 90px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+}
+
+.home-content h1 {
+    font-size: 26px;
+    letter-spacing: 2px;
+}
+
+/* Separate login page */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    background: linear-gradient(135deg, #eee8f7, #fff0e8);
+}
+
+.login-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 900px;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 24px;
+    background: white;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+.back-button {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    color: #2e1e5d;
+    font-size: 34px;
+    text-decoration: none;
+    z-index: 1;
+}
+
+.login-panel {
+    padding: 40px 32px;
+}
+
+.login-logo {
+    width: 85px;
+    height: auto;
+    margin-bottom: 18px;
+}
+
+.login-panel h1 {
+    margin-bottom: 8px;
+    font-size: 30px;
+}
+
+.subtitle {
+    margin-bottom: 25px;
+    color: #666;
+}
+
+#loginForm label {
+    display: block;
+    margin: 15px 0 6px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#loginForm input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 16px;
+}
+
+#loginForm input:focus {
+    outline: 2px solid #7654bb;
+    outline-offset: 2px;
+}
+
+.password-box {
+    position: relative;
+}
+
+#loginForm .password-box input {
+    padding-right: 75px;
+}
+
+.show-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    color: #2e1e5d;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.forgot-link {
+    display: inline-block;
+    margin: 12px 0 20px;
+    color: #6240a0;
+    font-size: 14px;
+}
+
+.submit-login {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ff8a3d, #e04b7a);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.submit-login:hover {
+    filter: brightness(0.95);
+}
+
+#loginStatus {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.signup-text {
+    margin-top: 25px;
+    font-size: 14px;
+}
+
+.signup-text a {
+    color: #6240a0;
+    font-weight: 600;
+}
+
+/* Login right panel */
+.side-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 55px 32px;
+    background: linear-gradient(135deg, #f1edf8, #fff1eb);
+    text-align: center;
+}
+
+.qr-placeholder {
+    display: grid;
+    place-items: center;
+    width: 190px;
+    height: 190px;
+    margin-bottom: 24px;
+    border: 2px dashed #b4a4cf;
+    border-radius: 20px;
+    background: white;
+    color: #75658b;
+    line-height: 1.6;
+}
+
+.side-panel h2 {
+    margin-bottom: 12px;
+    font-size: 22px;
+}
+
+.side-panel p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Mobile layout */
+@media (max-width: 650px) {
+    .header {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .header-buttons {
+        gap: 8px;
+    }
+
+    .button {
+        padding: 10px 16px;
+    }
+
+    .home-content h1 {
+        font-size: 20px;
+    }
+
+    .login-page {
+        padding: 16px;
+    }
+
+    .login-card {
+        grid-template-columns: 1fr;
+    }
+
+    .login-panel {
+        padding: 40px 24px;
+    }
+
+    .side-panel {
+        display: none;
+    }
+}
+
+#signupForm label {
+    display: block;
+    margin: 15px 0 6px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#signupForm input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 16px;
+}
+
+#signupForm input:focus {
+    outline: 2px solid #7654bb;
+    outline-offset: 2px;
+}
+
+#signupForm .password-box input {
+    padding-right: 75px;
+}
+
+.signup-submit {
+    margin-top: 24px;
+}
+
+#signupStatus {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Homepage layout */
+.mira-home {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    background: #fcfbfa;
+}
+
+.mira-home .header {
+    flex-shrink: 0;
+}
+
+/* Main showcase fills the space above the footer */
+.mira-showcase {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 0 20px;
+}
+
+.showcase-intro {
+    padding: 0 20px;
+    text-align: center;
+}
+
+.showcase-label {
+    margin-bottom: 10px;
+    color: #a44272;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.showcase-intro h1 {
+    margin-bottom: 12px;
+    color: #2e1e5d;
+    font-size: clamp(26px, 4vw, 44px);
+}
+
+.showcase-intro > p:last-child {
+    color: #756c81;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* 3D space */
+.mira-stage {
+    width: 100%;
+    max-width: 1100px;
+    height: 410px;
+    position: relative;
+    perspective: 1100px;
+    overflow: hidden;
+
+    background: radial-gradient(
+        ellipse at center,
+        rgba(224, 75, 122, 0.07),
+        transparent 65%
+    );
+}
+
+.mira-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform-style: preserve-3d;
+}
+
+/* Artwork cards */
+.mira-art {
+    position: absolute;
+    top: -120px;
+    left: -90px;
+    width: 180px;
+    height: 240px;
+    margin: 0;
+    overflow: hidden;
+
+    border: 5px solid white;
+    border-radius: 16px;
+    background: #eee8f7;
+    box-shadow: 0 15px 30px rgba(46, 30, 93, 0.18);
+
+    backface-visibility: hidden;
+}
+
+.mira-art img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mira-art figcaption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 28px 10px 12px;
+
+    background: linear-gradient(
+        transparent,
+        rgba(25, 14, 43, 0.8)
+    );
+
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.mira-motion-button {
+    padding: 6px 14px;   /* smaller button */
+    border: 1px solid #d7cce4;
+    border-radius: 20px;
+    background: white;
+    color: #2e1e5d;
+    font: inherit;
+    font-size: 11px;     /* smaller text */
+    cursor: pointer;
+}
+
+.mira-motion-button:hover {
+    background: #f1edf8;
+}
+
+.mira-motion-button:focus-visible {
+    outline: 3px solid #7654bb;
+    outline-offset: 3px;
+}
+
+/* =========================================
+   JOIN MIRA - PINTEREST STYLE
+   ========================================= */
+
+.mira-join {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    max-width: 1400px;
+    min-height: 720px;
+
+    margin: 100px auto;
+    padding: 60px 80px;
+
+    overflow: hidden;
+
+    border-radius: 35px;
+
+    /* Background covers the ENTIRE section */
+    background-image: url("./Assests/bgimage.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* =========================================
+   DARK TRANSPARENT BACKGROUND
+   ========================================= */
+
+.join-overlay {
+    position: absolute;
+    inset: 0;
+
+    /* Similar dimmed effect to Pinterest */
+    background: rgba(0, 0, 0, 0.48);
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   LEFT TEXT
+   ========================================= */
+
+.join-message {
+    position: relative;
+    z-index: 2;
+
+    width: 45%;
+
+    color: white;
+}
+
+
+.join-message p {
+    margin-bottom: 18px;
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 4px;
+}
+
+
+.join-message h2 {
+    margin: 0;
+
+    color: white;
+
+    font-size: clamp(42px, 5vw, 72px);
+    font-weight: 700;
+
+    line-height: 1.08;
+}
+
+
+/* =========================================
+   WHITE SIGNUP CARD
+   ========================================= */
+
+.join-card {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 480px;
+
+    padding: 45px 45px 40px;
+
+    border-radius: 32px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================
+   LOGO
+   ========================================= */
+
+.join-logo {
+    display: block;
+
+    width: 75px;
+    height: auto;
+
+    margin: 0 auto 15px;
+}
+
+
+/* =========================================
+   FORM HEADING
+   ========================================= */
+
+.join-card h2 {
+    margin: 0 0 10px;
+
+    color: #2e1e5d;
+
+    font-size: 34px;
+
+    text-align: center;
+}
+
+
+.join-subtitle {
+    max-width: 330px;
+
+    margin: 0 auto 28px;
+
+    color: #756c81;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   FORM LABELS
+   ========================================= */
+
+#homeSignupForm label {
+    display: block;
+
+    margin: 15px 0 7px;
+
+    color: #2e1e5d;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   INPUTS
+   ========================================= */
+
+#homeSignupForm input {
+    width: 100%;
+
+    padding: 15px 17px;
+
+    border: 1px solid #d7cce4;
+    border-radius: 14px;
+
+    background: white;
+
+    color: #2e1e5d;
+
+    font: inherit;
+    font-size: 14px;
+}
+
+
+#homeSignupForm input:focus {
+    outline: none;
+
+    border-color: #7654bb;
+
+    box-shadow: 0 0 0 3px rgba(118, 84, 187, 0.12);
+}
+
+
+/* =========================================
+   JOIN BUTTON
+   ========================================= */
+
+.join-button {
+    width: 100%;
+
+    margin-top: 25px;
+    padding: 15px;
+
+    border: none;
+    border-radius: 25px;
+
+    background: linear-gradient(
+        135deg,
+        #ff8a3d,
+        #e04b7a
+    );
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.join-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(224, 75, 122, 0.3);
+}
+
+
+/* =========================================
+   OR DIVIDER
+   ========================================= */
+
+.join-divider {
+    display: flex;
+
+    align-items: center;
+    gap: 15px;
+
+    margin: 25px 0 20px;
+
+    color: #9a929f;
+
+    font-size: 12px;
+}
+
+
+.join-divider::before,
+.join-divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #ddd5e5;
+}
+
+
+/* =========================================
+   LOGIN
+   ========================================= */
+
+.join-login {
+    margin: 0;
+
+    color: #756c81;
+
+    font-size: 14px;
+
+    text-align: center;
+}
+
+
+.join-login a {
+    color: #a44272;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+.join-login a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .mira-join {
+        flex-direction: column;
+
+        gap: 50px;
+
+        margin: 70px 24px;
+        padding: 60px 35px;
+    }
+
+    .join-message {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .join-card {
+        max-width: 480px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 550px) {
+
+    .mira-join {
+        margin: 50px 15px;
+        padding: 45px 20px;
+
+        border-radius: 25px;
+    }
+
+    .join-message h2 {
+        font-size: 40px;
+    }
+
+    .join-card {
+        padding: 35px 25px;
+
+        border-radius: 25px;
+    }
+
+    .join-card h2 {
+        font-size: 28px;
+    }
+}
+
+
+/* Logo */
+
+.join-logo {
+    display: block;
+
+    width: 70px;
+    height: auto;
+
+    margin: 0 auto 18px;
+}
+
+
+/* Heading */
+
+.join-card h2 {
+    margin-bottom: 10px;
+
+    color: #2e1e5d;
+
+    font-size: 34px;
+
+    text-align: center;
+}
+
+
+/* Description */
+
+.join-subtitle {
+    margin-bottom: 30px;
+
+    color: #756c81;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+
+/* Labels */
+
+#homeSignupForm label {
+    display: block;
+
+    margin: 15px 0 7px;
+
+    color: #2e1e5d;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* Inputs */
+
+#homeSignupForm input {
+    width: 100%;
+
+    padding: 15px 17px;
+
+    border: 1px solid #d7cce4;
+    border-radius: 14px;
+
+    background: white;
+
+    color: #2e1e5d;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+#homeSignupForm input:focus {
+    outline: none;
+
+    border-color: #7654bb;
+
+    box-shadow: 0 0 0 3px rgba(118, 84, 187, 0.12);
+}
+
+
+/* =========================================
+   JOIN BUTTON
+   ========================================= */
+
+.join-button {
+    width: 100%;
+
+    margin-top: 25px;
+    padding: 15px;
+
+    border: none;
+    border-radius: 25px;
+
+    background: linear-gradient(
+        135deg,
+        #ff8a3d,
+        #e04b7a
+    );
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.join-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(224, 75, 122, 0.25);
+}
+
+
+/* =========================================
+   OR DIVIDER
+   ========================================= */
+
+.join-divider {
+    display: flex;
+
+    align-items: center;
+    gap: 15px;
+
+    margin: 25px 0;
+
+    color: #9a929f;
+
+    font-size: 12px;
+}
+
+
+.join-divider::before,
+.join-divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #ddd5e5;
+}
+
+
+/* =========================================
+   LOGIN LINK
+   ========================================= */
+
+.join-login {
+    color: #756c81;
+
+    font-size: 14px;
+
+    text-align: center;
+}
+
+
+.join-login a {
+    color: #a44272;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+.join-login a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   TABLET / MOBILE
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .mira-join {
+        grid-template-columns: 1fr;
+
+        margin: 70px 24px;
+    }
+
+    .join-artwork {
+        min-height: 450px;
+
+        padding: 40px;
+    }
+
+    .join-form-area {
+        padding: 50px 25px;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .mira-join {
+        margin: 50px 15px;
+
+        border-radius: 25px;
+    }
+
+    .join-artwork {
+        min-height: 350px;
+
+        padding: 30px;
+    }
+
+    .join-message h2 {
+        font-size: 36px;
+    }
+
+    .join-form-area {
+        padding: 35px 15px;
+    }
+
+    .join-card {
+        padding: 20px;
+    }
+}
+
+/* Slogan at the bottom, without overlapping content */
+/* =========================================
+   MIRA FOOTER
+   ========================================= */
+
+.mira-footer {
+    margin-top: 80px;
+    background: #171044;
+    color: white;
+}
+
+/* Main footer */
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+    gap: 60px;
+
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 65px 40px;
+}
+
+
+/* Footer headings */
+
+.footer-section h3 {
+    margin-bottom: 22px;
+
+    color: white;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+/* About MIRA */
+
+.footer-about p {
+    max-width: 300px;
+
+    color: #c8c3d8;
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* Links */
+
+.footer-section ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.footer-section li {
+    margin-bottom: 12px;
+}
+
+.footer-section a {
+    color: #c8c3d8;
+
+    font-size: 14px;
+    text-decoration: none;
+
+    transition: color 0.25s ease;
+}
+
+.footer-section a:hover {
+    color: #ff8a3d;
+}
+
+
+/* Social media */
+
+.footer-socials {
+    display: flex;
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.footer-socials a {
+    display: flex;
+
+    width: 34px;
+    height: 34px;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.footer-socials a:hover {
+    background: #a44272;
+    color: white;
+
+    transform: translateY(-3px);
+}
+
+
+/* Contact */
+
+.footer-contact p {
+    margin-bottom: 16px;
+
+    color: #c8c3d8;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* Bottom copyright area */
+
+.footer-bottom {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px 40px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    background: #100a35;
+}
+
+.footer-bottom p {
+    margin: 0;
+
+    color: #bcb6cc;
+
+    font-size: 13px;
+}
+
+.footer-slogan {
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 45px;
+
+        padding: 50px 30px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 550px) {
+
+    .footer-container {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        padding: 45px 25px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        padding: 20px;
+
+        text-align: center;
+    }
+
+    .footer-slogan {
+        font-size: 11px;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .mira-showcase {
+        padding-top: 25px;
+    }
+
+    .mira-stage {
+        height: 310px;
+    }
+
+    .mira-art {
+        top: -85px;
+        left: -60px;
+        width: 120px;
+        height: 170px;
+        border-width: 3px;
+        border-radius: 12px;
+    }
+
+    .mira-art figcaption {
+        font-size: 11px;
+    }
+
+    .showcase-intro > p:last-child {
+        font-size: 13px;
+    }
+}
+
+.mira-art {
+    border: none;
+}
+
+/* About MIRA section */
+
+.mira-about {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 80px 30px 60px;
+    text-align: center;
+}
+
+.about-label {
+    margin-bottom: 14px;
+    color: #a44272;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.mira-about h2 {
+    margin-bottom: 20px;
+    color: #2e1e5d;
+    font-size: clamp(28px, 3vw, 42px);
+    line-height: 1.2;
+}
+
+.about-description {
+    max-width: 760px;
+    margin: 0 auto;
+    color: #68616f;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.about-features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.about-features span {
+    padding: 10px 18px;
+    border: 1px solid #ded5e8;
+    border-radius: 30px;
+    background: #ffffff;
+    color: #2e1e5d;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .mira-about {
+        padding: 60px 20px 40px;
+    }
+
+    .about-description {
+        font-size: 15px;
+    }
+}
+
+/* =========================================
+   VICE CHANCELLOR MESSAGE
+   ========================================= */
+
+.vc-message {
+    padding: 70px 40px;
+}
+
+.vc-message-container {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 55px;
+    align-items: center;
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 45px;
+
+    border-radius: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #f5f1fa,
+        #fff7f2
+    );
+}
+
+.vc-image img {
+    display: block;
+    width: 100%;
+    height: 360px;
+
+    object-fit: cover;
+
+    border-radius: 22px;
+}
+
+.vc-label {
+    margin-bottom: 15px;
+
+    color: #a44272;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+.vc-content h2 {
+    margin-bottom: 22px;
+
+    color: #2e1e5d;
+
+    font-size: clamp(27px, 3vw, 40px);
+
+    line-height: 1.2;
+}
+
+.vc-quote {
+    margin-bottom: 25px;
+
+    color: #68616f;
+
+    font-size: 17px;
+
+    line-height: 1.9;
+}
+
+.vc-name {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.vc-name strong {
+    color: #2e1e5d;
+
+    font-size: 16px;
+}
+
+.vc-name span {
+    color: #8b8291;
+
+    font-size: 14px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 750px) {
+
+    .vc-message {
+        padding: 50px 20px;
+    }
+
+    .vc-message-container {
+        grid-template-columns: 1fr;
+
+        padding: 25px;
+
+        gap: 30px;
+    }
+
+    .vc-image {
+        max-width: 300px;
+
+        margin: 0 auto;
+    }
+
+    .vc-image img {
+        height: 330px;
+    }
+}
+
+/* Scrollable Vice Chancellor message */
+
+.vc-content {
+    min-width: 0;
+}
+
+/* Only the message area scrolls */
+.vc-scroll-content {
+    max-height: 210px;
+    padding-right: 20px;
+
+    overflow-y: auto;
+
+    scroll-behavior: smooth;
+}
+
+/* Scrollbar */
+.vc-scroll-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.vc-scroll-content::-webkit-scrollbar-track {
+    background: #eee8f7;
+    border-radius: 20px;
+}
+
+.vc-scroll-content::-webkit-scrollbar-thumb {
+    background: #a44272;
+    border-radius: 20px;
+}
+
+/* Categories section */
+.mira-categories {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 65px 40px 80px;
+}
+
+.categories-heading {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.categories-heading > p {
+    margin-bottom: 10px;
+    color: #a44272;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.categories-heading h2 {
+    margin: 0;
+    color: #2e1e5d;
+    font-size: clamp(26px, 3vw, 38px);
+}
+
+/* Three columns on desktop */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 32px;
+    row-gap: 60px;
+}
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+/* Large rounded images like your reference */
+.category-card > img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 6 / 5;
+    object-fit: cover;
+
+    border: none;
+    border-radius: 25px;
+    background: #eee8f7;
+    box-shadow: none;
+
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover > img {
+    transform: translateY(-5px);
+}
+
+.category-card h3 {
+    margin: 25px 0 12px;
+    color: #2e1e5d;
+    font-size: clamp(23px, 2.3vw, 30px);
+    font-weight: 600;
+}
+
+.category-card > p {
+    margin: 0 0 22px;
+    color: #68616f;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Links stay aligned at the bottom of each row */
+.category-card > a {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+
+    color: #2e1e5d;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+.category-card > a span {
+    display: inline-block;
+    font-size: 23px;
+    transition: transform 0.25s ease;
+}
+
+.category-card > a:hover {
+    color: #b33968;
+}
+
+.category-card > a:hover span {
+    transform: translateX(5px);
+}
+
+.category-card > a:focus-visible {
+    outline: 3px solid #7654bb;
+    outline-offset: 6px;
+    border-radius: 3px;
+}
+
+/* Two columns on tablets */
+@media (max-width: 900px) {
+    .categories-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .mira-categories {
+        padding: 50px 24px;
+    }
+}
+
+/* One column on phones */
+@media (max-width: 550px) {
+    .categories-grid {
+        grid-template-columns: 1fr;
+        row-gap: 40px;
+    }
+
+    .mira-categories {
+        padding: 40px 20px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .category-card > img,
+    .category-card > a span {
+        transition: none;
+    }
+
+    .category-card:hover > img,
+    .category-card > a:hover span {
+        transform: none;
+    }
+}
+
+/* =========================================
+   CATEGORY ENTRANCE ANIMATION
+   ========================================= */
+
+/*
+   IMPORTANT:
+   The normal category cards stay visible by default.
+   The animation only activates when JavaScript
+   adds "animate-ready" to .categories-grid.
+*/
+
+.categories-grid.animate-ready .category-card {
+    opacity: 0;
+
+    transition:
+        opacity 1s ease,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* Painting - enters from left */
+
+.categories-grid.animate-ready .category-card:nth-child(1) {
+    transform:
+        translateX(-150px)
+        translateY(70px)
+        scale(0.88);
+}
+
+
+/* Sketching - enters from bottom */
+
+.categories-grid.animate-ready .category-card:nth-child(2) {
+    transform:
+        translateY(140px)
+        scale(0.88);
+}
+
+
+/* Handcraft - enters from right */
+
+.categories-grid.animate-ready .category-card:nth-child(3) {
+    transform:
+        translateX(150px)
+        translateY(70px)
+        scale(0.88);
+}
+
+
+/* Photography - enters from left */
+
+.categories-grid.animate-ready .category-card:nth-child(4) {
+    transform:
+        translateX(-150px)
+        translateY(70px)
+        scale(0.88);
+}
+
+
+/* Digital Art - enters from bottom */
+
+.categories-grid.animate-ready .category-card:nth-child(5) {
+    transform:
+        translateY(140px)
+        scale(0.88);
+}
+
+
+/* Sculpture - enters from right */
+
+.categories-grid.animate-ready .category-card:nth-child(6) {
+    transform:
+        translateX(150px)
+        translateY(70px)
+        scale(0.88);
+}
+
+
+/* Final position after JavaScript adds .show */
+
+.categories-grid.animate-ready .category-card.show {
+    opacity: 1;
+
+    transform:
+        translateX(0)
+        translateY(0)
+        scale(1);
+}
+
+
+/* Reduce animation for users who prefer less motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .categories-grid.animate-ready .category-card,
+    .categories-grid.animate-ready .category-card.show {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
