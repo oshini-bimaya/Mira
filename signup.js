@@ -29,10 +29,40 @@ function checkPasswords() {
 password.addEventListener("input", checkPasswords);
 confirmPassword.addEventListener("input", checkPasswords);
 
-// Demo signup submission
-signupForm.addEventListener("submit", function (event) {
+signupForm.addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    signupStatus.textContent =
-        "Demo only: connect this form to your backend to create an account.";
-});
+    checkPasswords();
+
+    if (!signupForm.checkValidity()) {
+        signupForm.reportValidity();
+        return;
+    }
+
+    signupStatus.textContent = "Creating account...";
+
+    const formData = new FormData(signupForm);
+
+    try {
+        const response = await fetch("signup.php", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+
+        signupStatus.textContent = data.message;
+
+        if (data.success) {
+            signupForm.reset();
+
+            setTimeout(function () {
+                window.location.href = "login.html";
+            }, 1500);
+        }
+
+    } catch (error) {
+        console.error("Signup error:", error);
+        signupStatus.textContent = "Error: " + error.message;
+    }
+}); 
