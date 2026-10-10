@@ -1,0 +1,27 @@
+/* MIRA approved artwork feed: honors the site's light/dark theme. */
+:root{--mira-bg:#f5f2f7;--mira-card:#fff;--mira-text:#2e1e5d;--mira-muted:#756c81;--mira-border:#e9deef}
+html[data-theme="dark"]{--mira-bg:#151321;--mira-card:#252235;--mira-text:#f4edff;--mira-muted:#b9aecb;--mira-border:#423c55}
+body.user-home-page{background:var(--mira-bg);color:var(--mira-text)}
+.mira-live-pin{position:relative;background:var(--mira-card);box-shadow:0 10px 25px rgba(46,30,93,.08);break-inside:avoid}
+.mira-live-pin img{width:100%;height:auto;display:block}
+.mira-pin-overlay{position:absolute;bottom:0;left:0;right:0;padding:38px 15px 14px;color:white;background:linear-gradient(transparent,rgba(20,10,38,.82));display:flex;flex-direction:column;gap:4px;font-family:inherit}
+.mira-pin-overlay strong{font-size:19px;line-height:1.15}.mira-pin-overlay small{font-size:12px;opacity:.95}
+.mira-live-pin[hidden]{display:none!important}.mira-empty{padding:42px;text-align:center;background:var(--mira-card);border-radius:22px;color:var(--mira-muted);margin-top:24px}
+.mira-empty[hidden]{display:none!important}
+.mira-gallery-wrap{max-width:1450px;margin:auto;padding:24px 28px 75px}
+.mira-gallery-top{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:15px 0 30px}
+.mira-gallery-top a{color:var(--mira-text);text-decoration:none;font-weight:700}
+.mira-gallery-top>div{display:flex;align-items:center;gap:12px}
+.mira-gallery-upload{background:linear-gradient(135deg,#ff8a3d,#e04b7a);color:#fff!important;padding:11px 17px;border-radius:20px}
+.mira-gallery-heading{text-align:center;margin:30px auto 36px}
+.mira-gallery-heading p,.mira-detail-label{color:#e04b7a;letter-spacing:3px;font-size:12px;font-weight:700}
+.mira-gallery-heading h1{color:var(--mira-text);font-size:clamp(34px,5vw,58px);line-height:1.1;margin:12px 0}
+.mira-gallery-heading span{color:var(--mira-muted);font-size:17px}
+.mira-gallery-filter{display:flex;gap:12px;align-items:center;justify-content:flex-end;margin-bottom:22px;color:var(--mira-text)}
+.mira-gallery-filter select{border:1px solid var(--mira-border);border-radius:14px;background:var(--mira-card);color:var(--mira-text);padding:10px 14px;font:inherit}
+.mira-gallery-page .mira-feed-search{background:var(--mira-card);border:1px solid var(--mira-border)}
+.mira-gallery-page .mira-feed-search input{color:var(--mira-text)}
+.mira-artwork-detail{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:36px;align-items:start;background:var(--mira-card);padding:30px;border-radius:30px;margin:30px 0}
+.mira-detail-photo img{width:100%;border-radius:22px;object-fit:contain;max-height:75vh;background:var(--mira-bg)}
+.mira-detail-copy{padding:20px 8px}.mira-detail-copy h1{font-size:clamp(32px,4vw,54px);color:var(--mira-text);line-height:1.1;margin:12px 0}.mira-detail-artist,.mira-detail-date{color:var(--mira-muted)}.mira-detail-desc{color:var(--mira-text);font-size:18px;line-height:1.75;margin:24px 0;overflow-wrap:anywhere}
+@media(max-width:800px){.mira-artwork-detail{grid-template-columns:1fr;padding:17px}.mira-gallery-wrap{padding:15px}.mira-gallery-top{flex-wrap:wrap}}

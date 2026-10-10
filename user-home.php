@@ -8,7 +8,18 @@ if (!isset($_SESSION["user_id"])) {
     exit();
 }
 
-$userName = $_SESSION["full_name"];
+// Never display the student homepage to an administrator.
+// This also corrects accidental redirects caused by old links or cached scripts.
+if (strtoupper(trim((string)($_SESSION["role"] ?? ""))) === "ADMIN") {
+    header("Location: admin/dashboard.php", true, 302);
+    exit();
+}
+
+$userName = $_SESSION["full_name"] ?? 'Artist';
+require __DIR__ . '/db.php';
+require __DIR__ . '/gallery-common.php';
+$gallery = miraApprovedArtworks($conn, '', 0, 60);
+
 
 ?>
 
@@ -21,6 +32,7 @@ $userName = $_SESSION["full_name"];
     <title>MIRA | Home</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gallery.css">
     <script src="theme.js" defer></script>
 </head>
 
@@ -34,7 +46,7 @@ $userName = $_SESSION["full_name"];
 
         <!-- Logo -->
         <a href="user-home.php" class="user-nav-logo">
-            <img src="./Assests/Logo.jpeg" alt="MIRA Logo">
+            <img src="./Assets/Logo.jpeg" alt="MIRA Logo">
         </a>
 
 
@@ -45,7 +57,7 @@ $userName = $_SESSION["full_name"];
                 Home
             </a>
 
-            <a href="categories.php">
+            <a href="gallery.php">
                  Categories
             </a>
 
@@ -53,11 +65,11 @@ $userName = $_SESSION["full_name"];
                 Gallery
             </a>
 
-            <a href="artists.php">
+            <a href="gallery.php">
                 Artists
             </a>
 
-            <a href="events.php">
+            <a href="gallery.php">
                 Exhibitions
             </a>
 
@@ -119,7 +131,7 @@ $userName = $_SESSION["full_name"];
                         My Artworks
                     </a>
 
-                    <a href="submissions.php">
+                    <a href="my-artworks.php">
                         Submission History
                     </a>
 
@@ -167,153 +179,26 @@ $userName = $_SESSION["full_name"];
     </div>
 
 
-    <!-- Pinterest-style artwork grid -->
-    <section class="mira-pin-grid">
-
-
-        <!-- Artwork 1 -->
-        <a href="artwork-view.php?id=1"
-           class="mira-pin">
-
-            <img
-                src="./Assets/painting1.jpg"
-                alt="Painting"
-            >
-
-        </a>
-
-
-        <!-- Artwork 2 -->
-        <a href="artwork-view.php?id=2"
-           class="mira-pin">
-
-            <img
-                src="./Assets/sketching1.jpg"
-                alt="Sketching"
-            >
-
-        </a>
-
-
-        <!-- Artwork 3 -->
-        <a href="artwork-view.php?id=3"
-           class="mira-pin">
-
-            <img
-                src="./Assets/photography1.jpg"
-                alt="Photography"
-            >
-
-        </a>
-
-
-        <!-- Artwork 4 -->
-        <a href="artwork-view.php?id=4"
-           class="mira-pin">
-
-            <img
-                src="./Assets/handcraft1.jpg"
-                alt="Handcraft"
-            >
-
-        </a>
-
-
-        <!-- Artwork 5 -->
-        <a href="artwork-view.php?id=5"
-           class="mira-pin">
-
-            <img
-                src="./Assets/digiart1.jpg"
-                alt="Digital Art"
-            >
-
-        </a>
-
-
-        <!-- Artwork 6 -->
-        <a href="artwork-view.php?id=6"
-           class="mira-pin">
-
-            <img
-                src="./Assets/3dart.webp"
-                alt="Sculpture"
-            >
-
-        </a>
-
-
-        <!-- More sample images -->
-        <a href="artwork-view.php?id=7"
-           class="mira-pin">
-
-            <img
-                src="./Assets/art1.jpeg"
-                alt="Artwork"
-            >
-
-        </a>
-
-
-        <a href="artwork-view.php?id=8"
-           class="mira-pin">
-
-            <img
-                src="./Assets/art2.jpeg"
-                alt="Artwork"
-            >
-
-        </a>
-
-
-        <a href="artwork-view.php?id=9"
-           class="mira-pin">
-
-            <img
-                src="./Assets/art3.jpeg"
-                alt="Artwork"
-            >
-
-        </a>
-
-
-        <a href="artwork-view.php?id=10"
-           class="mira-pin">
-
-            <img
-                src="./Assets/art4.jpeg"
-                alt="Artwork"
-            >
-
-        </a>
-
-
-        <a href="artwork-view.php?id=11"
-           class="mira-pin">
-
-            <img
-                src="./Assets/art5.jpeg"
-                alt="Artwork"
-            >
-
-        </a>
-
-
-        <a href="artwork-view.php?id=12"
-           class="mira-pin">
-
-            <img
-                src="./Assets/art6.jpeg"
-                alt="Artwork"
-            >
-
-        </a>
-
+    <!-- Approved artworks only: data comes from MySQL -->
+    <section class="mira-pin-grid" id="artGrid" aria-label="Approved student artworks">
+    <?php foreach ($gallery as $art): ?>
+      <a class="mira-pin mira-live-pin" href="artwork-view.php?id=<?= (int)$art['artwork_id'] ?>"
+         data-search="<?= miraEsc(strtolower($art['title'].' '.$art['artist_name'].' '.$art['category_name'])) ?>">
+        <img loading="lazy" src="<?= miraEsc(miraArtworkImage($art['image_path'])) ?>"
+             alt="<?= miraEsc($art['title']) ?>">
+        <span class="mira-pin-overlay"><strong><?= miraEsc($art['title']) ?></strong>
+          <small><?= miraEsc($art['artist_name']) ?> · <?= miraEsc($art['category_name']) ?></small></span>
+      </a>
+    <?php endforeach; ?>
     </section>
+    <p id="noResults" class="mira-empty" <?= $gallery ? 'hidden' : '' ?>>
+      <?= $gallery ? 'No artworks match your search.' : 'No approved artworks yet. Once an administrator approves a submission, it will appear here.' ?>
+    </p>
 
 </main>
 
 
+    <script src="gallery-search.js" defer></script>
     <script>
 
         const profileButton =
