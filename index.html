@@ -6,7 +6,31 @@
 
     <title>MIRA | NSBM ArtCraft</title>
 
+    <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
+    <script src="theme.js" defer></script>
+
+    <!-- Start the flower opening -->
+<script>
+    if (!window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches) {
+        document.documentElement.classList.add(
+            "mira-intro-pending"
+        );
+
+        // Show the homepage if the animation fails to load.
+        window.miraIntroFallback = setTimeout(function () {
+            document.documentElement.classList.remove(
+                "mira-intro-pending"
+            );
+        }, 6500);
+    }
+</script>
+
     <script src="carousel.js" defer></script>
 </head>
 
@@ -14,7 +38,7 @@
 
     <header class="header">
         <a href="index.html">
-            <img src="./Assests\Logo.jpeg"
+            <img src="./Assets\Logo.jpeg"
                  alt="MIRA NSBM"
                  class="header-logo">
         </a>
@@ -42,27 +66,27 @@
             <div class="mira-orbit" id="artOrbit">
 
                 <figure class="mira-art">
-                    <img src="./Assests\art1.jpeg" alt="Student painting">
+                    <img src="./Assets\art1.jpeg" alt="Student painting">
                 </figure>
 
                 <figure class="mira-art">
-                    <img src="./Assests\art2.jpeg" alt="Student pencil sketch">
+                    <img src="./Assets\art2.jpeg" alt="Student pencil sketch">
                 </figure>
 
                 <figure class="mira-art">
-                    <img src="./Assests\art3.jpeg" alt="Student handcrafted item">
+                    <img src="./Assets\art3.jpeg" alt="Student handcrafted item">
                 </figure>
 
                 <figure class="mira-art">
-                    <img src="./Assests\art4.jpeg" alt="Student photography">
+                    <img src="./Assets\art4.jpeg" alt="Student photography">
                 </figure>
 
                 <figure class="mira-art">
-                    <img src="./Assests\art5.jpeg" alt="Student digital artwork">
+                    <img src="./Assets\art5.jpeg" alt="Student digital artwork">
                 </figure>
 
                 <figure class="mira-art">
-                    <img src="./Assests\art6.jpeg" alt="Student creative project">
+                    <img src="./Assets\art6.jpeg" alt="Student creative project">
                 </figure>
 
             </div>
@@ -106,7 +130,7 @@
 
         <!-- Photo stays fixed -->
         <div class="vc-image">
-            <img src="./Assests\vcsir.webp"
+            <img src="./Assets\vcsir.webp"
                  alt="Vice Chancellor of NSBM Green University">
         </div>
 
@@ -164,7 +188,7 @@
 
         <!-- Painting -->
         <article class="category-card">
-            <img src="./Assests\painting1.jpg"
+            <img src="./Assets\painting1.jpg"
                  alt="Colourful painting"
                  loading="lazy">
 
@@ -182,7 +206,7 @@
 
         <!-- Sketching -->
         <article class="category-card">
-            <img src="./Assests\sketching1.jpg"
+            <img src="./Assets\sketching1.jpg"
                  alt="Detailed pencil sketch"
                  loading="lazy">
 
@@ -200,7 +224,7 @@
 
         <!-- Handcraft -->
         <article class="category-card">
-            <img src="./Assests\handcraft1.jpg"
+            <img src="./Assets\handcraft1.jpg"
                  alt="Handmade craft creation"
                  loading="lazy">
 
@@ -218,7 +242,7 @@
 
         <!-- Photography -->
         <article class="category-card">
-            <img src="./Assests\photography1.jpg"
+            <img src="./Assets\photography1.jpg"
                  alt="Creative student photograph"
                  loading="lazy">
 
@@ -236,7 +260,7 @@
 
         <!-- Digital art -->
         <article class="category-card">
-            <img src="./Assests\digiart1.jpg"
+            <img src="./Assets\digiart1.jpg"
                  alt="Digital illustration"
                  loading="lazy">
 
@@ -254,7 +278,7 @@
 
         <!-- Sculpture -->
         <article class="category-card">
-            <img src="./Assests\3dart.webp"
+            <img src="./Assets\3dart.webp"
                  alt="Handmade sculpture"
                  loading="lazy">
 
@@ -293,7 +317,7 @@
     <div class="join-card">
 
         <img
-            src="./Assests\Logo.jpeg"
+            src="./Assets\Logo.jpeg"
             alt="MIRA Logo"
             class="join-logo"
         >

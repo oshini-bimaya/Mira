@@ -7,8 +7,19 @@
 
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background: #fcfbfa;
+    background: #f5f2f7;
     color: #2e1e5d;
+}
+
+/* Font throughout the website */
+body,
+body * {
+    font-family: "Cormorant Garamond", serif;
+}
+
+body {
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 button,
@@ -24,12 +35,7 @@ input {
     gap: 20px;
     padding: 15px 40px;
 
-    background: linear-gradient(
-        135deg,
-        rgba(46, 30, 93, 0.05),
-        rgba(224, 75, 122, 0.08),
-        rgba(255, 138, 61, 0.08)
-    );
+    background: #f5f2f7;
 
     border-bottom: 1px solid rgba(224, 75, 122, 0.15);
 }
@@ -96,7 +102,7 @@ input {
     justify-content: center;
     align-items: center;
     padding: 24px;
-    background: linear-gradient(135deg, #eee8f7, #fff0e8);
+    background: #f5f2f7;
 }
 
 .login-card {
@@ -107,7 +113,7 @@ input {
     max-width: 100%;
     overflow: hidden;
     border-radius: 24px;
-    background: white;
+    background: #f5f2f7;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
 }
 
@@ -228,7 +234,7 @@ input {
     justify-content: center;
     align-items: center;
     padding: 55px 32px;
-    background: linear-gradient(135deg, #f1edf8, #fff1eb);
+    background: #f5f2f7;
     text-align: center;
 }
 
@@ -240,7 +246,7 @@ input {
     margin-bottom: 24px;
     border: 2px dashed #b4a4cf;
     border-radius: 20px;
-    background: white;
+    background: #f5f2f7;
     color: #75658b;
     line-height: 1.6;
 }
@@ -331,7 +337,7 @@ input {
     min-height: 100svh;
     display: flex;
     flex-direction: column;
-    background: #fcfbfa;
+    background: #f5f2f7;
 }
 
 .mira-home .header {
@@ -446,7 +452,7 @@ input {
     padding: 6px 14px;   /* smaller button */
     border: 1px solid #d7cce4;
     border-radius: 20px;
-    background: white;
+    background: #f5f2f7;
     color: #2e1e5d;
     font: inherit;
     font-size: 11px;     /* smaller text */
@@ -484,11 +490,10 @@ input {
     border-radius: 35px;
 
     /* Background covers the ENTIRE section */
-    background-image: url("./Assests/bgimage.jpeg");
+    background-image: url("./Assets/bgimage.jpeg");
     background-size: cover;
     background-position: center;
 }
-
 
 /* =========================================
    DARK TRANSPARENT BACKGROUND
@@ -504,7 +509,6 @@ input {
     z-index: 1;
 }
 
-
 /* =========================================
    LEFT TEXT
    ========================================= */
@@ -518,7 +522,6 @@ input {
     color: white;
 }
 
-
 .join-message p {
     margin-bottom: 18px;
 
@@ -530,7 +533,6 @@ input {
     letter-spacing: 4px;
 }
 
-
 .join-message h2 {
     margin: 0;
 
@@ -541,7 +543,6 @@ input {
 
     line-height: 1.08;
 }
-
 
 /* =========================================
    WHITE SIGNUP CARD
@@ -558,11 +559,10 @@ input {
 
     border-radius: 32px;
 
-    background: rgba(255, 255, 255, 0.97);
+    background: #f5f2f7;
 
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
 }
-
 
 /* =========================================
    LOGO
@@ -576,7 +576,6 @@ input {
 
     margin: 0 auto 15px;
 }
-
 
 /* =========================================
    FORM HEADING
@@ -592,7 +591,6 @@ input {
     text-align: center;
 }
 
-
 .join-subtitle {
     max-width: 330px;
 
@@ -606,7 +604,6 @@ input {
 
     text-align: center;
 }
-
 
 /* =========================================
    FORM LABELS
@@ -623,7 +620,6 @@ input {
     font-weight: 600;
 }
 
-
 /* =========================================
    INPUTS
    ========================================= */
@@ -636,14 +632,13 @@ input {
     border: 1px solid #d7cce4;
     border-radius: 14px;
 
-    background: white;
+    background: #f5f2f7;
 
     color: #2e1e5d;
 
     font: inherit;
     font-size: 14px;
 }
-
 
 #homeSignupForm input:focus {
     outline: none;
@@ -652,7 +647,6 @@ input {
 
     box-shadow: 0 0 0 3px rgba(118, 84, 187, 0.12);
 }
-
 
 /* =========================================
    JOIN BUTTON
@@ -685,13 +679,11 @@ input {
         box-shadow 0.25s ease;
 }
 
-
 .join-button:hover {
     transform: translateY(-2px);
 
     box-shadow: 0 8px 20px rgba(224, 75, 122, 0.3);
 }
-
 
 /* =========================================
    OR DIVIDER
@@ -703,13 +695,12 @@ input {
     align-items: center;
     gap: 15px;
 
-    margin: 25px 0 20px;
+    margin: 25px 0;
 
     color: #9a929f;
 
     font-size: 12px;
 }
-
 
 .join-divider::before,
 .join-divider::after {
@@ -721,7 +712,6 @@ input {
 
     background: #ddd5e5;
 }
-
 
 /* =========================================
    LOGIN
@@ -737,7 +727,6 @@ input {
     text-align: center;
 }
 
-
 .join-login a {
     color: #a44272;
 
@@ -746,11 +735,9 @@ input {
     text-decoration: none;
 }
 
-
 .join-login a:hover {
     text-decoration: underline;
 }
-
 
 /* =========================================
    TABLET
@@ -777,7 +764,6 @@ input {
         max-width: 480px;
     }
 }
-
 
 /* =========================================
    MOBILE
@@ -807,188 +793,6 @@ input {
     }
 }
 
-
-/* Logo */
-
-.join-logo {
-    display: block;
-
-    width: 70px;
-    height: auto;
-
-    margin: 0 auto 18px;
-}
-
-
-/* Heading */
-
-.join-card h2 {
-    margin-bottom: 10px;
-
-    color: #2e1e5d;
-
-    font-size: 34px;
-
-    text-align: center;
-}
-
-
-/* Description */
-
-.join-subtitle {
-    margin-bottom: 30px;
-
-    color: #756c81;
-
-    font-size: 14px;
-
-    line-height: 1.6;
-
-    text-align: center;
-}
-
-
-/* Labels */
-
-#homeSignupForm label {
-    display: block;
-
-    margin: 15px 0 7px;
-
-    color: #2e1e5d;
-
-    font-size: 13px;
-    font-weight: 600;
-}
-
-
-/* Inputs */
-
-#homeSignupForm input {
-    width: 100%;
-
-    padding: 15px 17px;
-
-    border: 1px solid #d7cce4;
-    border-radius: 14px;
-
-    background: white;
-
-    color: #2e1e5d;
-
-    font-size: 14px;
-
-    transition:
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-
-#homeSignupForm input:focus {
-    outline: none;
-
-    border-color: #7654bb;
-
-    box-shadow: 0 0 0 3px rgba(118, 84, 187, 0.12);
-}
-
-
-/* =========================================
-   JOIN BUTTON
-   ========================================= */
-
-.join-button {
-    width: 100%;
-
-    margin-top: 25px;
-    padding: 15px;
-
-    border: none;
-    border-radius: 25px;
-
-    background: linear-gradient(
-        135deg,
-        #ff8a3d,
-        #e04b7a
-    );
-
-    color: white;
-
-    font-size: 15px;
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-
-.join-button:hover {
-    transform: translateY(-2px);
-
-    box-shadow: 0 8px 20px rgba(224, 75, 122, 0.25);
-}
-
-
-/* =========================================
-   OR DIVIDER
-   ========================================= */
-
-.join-divider {
-    display: flex;
-
-    align-items: center;
-    gap: 15px;
-
-    margin: 25px 0;
-
-    color: #9a929f;
-
-    font-size: 12px;
-}
-
-
-.join-divider::before,
-.join-divider::after {
-    content: "";
-
-    flex: 1;
-
-    height: 1px;
-
-    background: #ddd5e5;
-}
-
-
-/* =========================================
-   LOGIN LINK
-   ========================================= */
-
-.join-login {
-    color: #756c81;
-
-    font-size: 14px;
-
-    text-align: center;
-}
-
-
-.join-login a {
-    color: #a44272;
-
-    font-weight: 700;
-
-    text-decoration: none;
-}
-
-
-.join-login a:hover {
-    text-decoration: underline;
-}
-
-
 /* =========================================
    TABLET / MOBILE
    ========================================= */
@@ -1011,7 +815,6 @@ input {
         padding: 50px 25px;
     }
 }
-
 
 @media (max-width: 550px) {
 
@@ -1047,8 +850,8 @@ input {
 
 .mira-footer {
     margin-top: 80px;
-    background: #171044;
-    color: white;
+    background: #f5f2f7;
+    color: #2e1e5d;
 }
 
 /* Main footer */
@@ -1063,30 +866,27 @@ input {
     padding: 65px 40px;
 }
 
-
 /* Footer headings */
 
 .footer-section h3 {
     margin-bottom: 22px;
 
-    color: white;
+    color: #2e1e5d;
 
     font-size: 18px;
     font-weight: 600;
 }
-
 
 /* About MIRA */
 
 .footer-about p {
     max-width: 300px;
 
-    color: #c8c3d8;
+    color: #2e1e5d;
 
     font-size: 14px;
     line-height: 1.8;
 }
-
 
 /* Links */
 
@@ -1102,7 +902,7 @@ input {
 }
 
 .footer-section a {
-    color: #c8c3d8;
+    color: #2e1e5d;
 
     font-size: 14px;
     text-decoration: none;
@@ -1113,7 +913,6 @@ input {
 .footer-section a:hover {
     color: #ff8a3d;
 }
-
 
 /* Social media */
 
@@ -1153,18 +952,16 @@ input {
     transform: translateY(-3px);
 }
 
-
 /* Contact */
 
 .footer-contact p {
     margin-bottom: 16px;
 
-    color: #c8c3d8;
+    color: #2e1e5d;
 
     font-size: 14px;
     line-height: 1.7;
 }
-
 
 /* Bottom copyright area */
 
@@ -1180,13 +977,13 @@ input {
 
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 
-    background: #100a35;
+    background: #f5f2f7;
 }
 
 .footer-bottom p {
     margin: 0;
 
-    color: #bcb6cc;
+    color: #2e1e5d;
 
     font-size: 13px;
 }
@@ -1194,7 +991,6 @@ input {
 .footer-slogan {
     letter-spacing: 2px;
 }
-
 
 /* =========================================
    TABLET
@@ -1211,7 +1007,6 @@ input {
     }
 
 }
-
 
 /* =========================================
    MOBILE
@@ -1316,7 +1111,7 @@ input {
     padding: 10px 18px;
     border: 1px solid #ded5e8;
     border-radius: 30px;
-    background: #ffffff;
+    background: #f5f2f7;
     color: #2e1e5d;
     font-size: 14px;
     font-weight: 600;
@@ -1352,11 +1147,7 @@ input {
 
     border-radius: 30px;
 
-    background: linear-gradient(
-        135deg,
-        #f5f1fa,
-        #fff7f2
-    );
+    background: #f5f2f7;
 }
 
 .vc-image img {
@@ -1418,7 +1209,6 @@ input {
 
     font-size: 14px;
 }
-
 
 /* Mobile */
 
@@ -1642,7 +1432,6 @@ input {
         transform 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-
 /* Painting - enters from left */
 
 .categories-grid.animate-ready .category-card:nth-child(1) {
@@ -1652,7 +1441,6 @@ input {
         scale(0.88);
 }
 
-
 /* Sketching - enters from bottom */
 
 .categories-grid.animate-ready .category-card:nth-child(2) {
@@ -1660,7 +1448,6 @@ input {
         translateY(140px)
         scale(0.88);
 }
-
 
 /* Handcraft - enters from right */
 
@@ -1671,7 +1458,6 @@ input {
         scale(0.88);
 }
 
-
 /* Photography - enters from left */
 
 .categories-grid.animate-ready .category-card:nth-child(4) {
@@ -1681,7 +1467,6 @@ input {
         scale(0.88);
 }
 
-
 /* Digital Art - enters from bottom */
 
 .categories-grid.animate-ready .category-card:nth-child(5) {
@@ -1689,7 +1474,6 @@ input {
         translateY(140px)
         scale(0.88);
 }
-
 
 /* Sculpture - enters from right */
 
@@ -1699,7 +1483,6 @@ input {
         translateY(70px)
         scale(0.88);
 }
-
 
 /* Final position after JavaScript adds .show */
 
@@ -1712,7 +1495,6 @@ input {
         scale(1);
 }
 
-
 /* Reduce animation for users who prefer less motion */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1724,3 +1506,1742 @@ input {
         transition: none;
     }
 }
+
+/* =========================================================
+   MIRA LOGGED-IN USER HOME
+   ========================================================= */
+
+.user-home-page {
+    min-height: 100vh;
+    margin: 0;
+
+    background: #f5f2f7;
+
+    color: #2e1e5d;
+}
+
+/* =========================================================
+   LIQUID GLASS NAVBAR
+   ========================================================= */
+
+.user-navbar {
+
+    position: sticky;
+    top: 18px;
+    z-index: 1000;
+
+    width: calc(100% - 70px);
+    max-width: 1350px;
+
+    height: 76px;
+
+    margin: 18px auto 0;
+    padding: 10px 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* Liquid glass */
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.72),
+            rgba(255, 255, 255, 0.38)
+        );
+
+    backdrop-filter: blur(22px) saturate(170%);
+    -webkit-backdrop-filter: blur(22px) saturate(170%);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 15px 40px rgba(46, 30, 93, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+
+}
+
+/* subtle glass highlight */
+
+.user-navbar::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 5%;
+
+    width: 90%;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.95),
+        transparent
+    );
+
+}
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.user-nav-logo {
+
+    display: flex;
+    align-items: center;
+
+}
+
+.user-nav-logo img {
+
+    display: block;
+
+    width: 58px;
+    height: 58px;
+
+    object-fit: contain;
+
+    border-radius: 16px;
+
+}
+
+/* =========================================================
+   CENTER NAVIGATION
+   ========================================================= */
+
+.user-nav-links {
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 6px;
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.28);
+
+}
+
+.user-nav-links a {
+
+    position: relative;
+
+    padding: 11px 18px;
+
+    border-radius: 18px;
+
+    color: #5f5570;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+
+}
+
+.user-nav-links a:hover {
+
+    color: #2e1e5d;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    transform: translateY(-1px);
+
+}
+
+/* Active Page */
+
+.user-nav-links a.active {
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7654bb,
+            #a44272
+        );
+
+    box-shadow:
+        0 6px 16px rgba(118, 84, 187, 0.25);
+
+}
+
+/* =========================================================
+   RIGHT SIDE
+   ========================================================= */
+
+.user-nav-actions {
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+/* =========================================================
+   UPLOAD BUTTON
+   ========================================================= */
+
+.upload-nav-button {
+
+    padding: 12px 20px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff8a3d,
+            #e04b7a
+        );
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 7px 18px rgba(224, 75, 122, 0.22);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+.upload-nav-button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(224, 75, 122, 0.32);
+
+}
+
+/* =========================================================
+   NOTIFICATION
+   ========================================================= */
+
+.notification-button {
+
+    position: relative;
+
+    width: 44px;
+    height: 44px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.45);
+
+    color: #2e1e5d;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+}
+
+.notification-button:hover {
+
+    background: rgba(255, 255, 255, 0.8);
+
+}
+
+.notification-dot {
+
+    position: absolute;
+
+    top: 7px;
+    right: 7px;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #e04b7a;
+
+    border: 2px solid white;
+
+}
+
+/* =========================================================
+   PROFILE
+   ========================================================= */
+
+.profile-menu {
+
+    position: relative;
+
+}
+
+.profile-button {
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 5px 12px 5px 5px;
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.45);
+
+    color: #2e1e5d;
+
+    cursor: pointer;
+
+}
+
+.profile-button:hover {
+
+    background: rgba(255, 255, 255, 0.8);
+
+}
+
+.profile-avatar {
+
+    width: 36px;
+    height: 36px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7654bb,
+            #e04b7a
+        );
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+
+}
+
+.profile-name {
+
+    font-size: 13px;
+    font-weight: 700;
+
+}
+
+.profile-arrow {
+
+    color: #756c81;
+
+    font-size: 12px;
+
+}
+
+/* =========================================================
+   PROFILE DROPDOWN - GLASS
+   ========================================================= */
+
+.profile-dropdown {
+
+    position: absolute;
+
+    top: 58px;
+    right: 0;
+
+    width: 220px;
+
+    padding: 10px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(255, 255, 255, 0.82);
+
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.75);
+
+    box-shadow:
+        0 20px 50px rgba(46, 30, 93, 0.15);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(-8px);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s;
+
+}
+
+.profile-dropdown.show-profile-menu {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+
+}
+
+.profile-dropdown a {
+
+    display: block;
+
+    padding: 11px 13px;
+
+    border-radius: 13px;
+
+    color: #50465d;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+}
+
+.profile-dropdown a:hover {
+
+    background:
+        rgba(118, 84, 187, 0.09);
+
+    color: #2e1e5d;
+
+}
+
+.dropdown-line {
+
+    height: 1px;
+
+    margin: 7px 5px;
+
+    background:
+        rgba(46, 30, 93, 0.1);
+
+}
+
+.profile-dropdown .logout-link {
+
+    color: #d13d67;
+
+}
+
+/* =========================================================
+   WELCOME / HERO
+   ========================================================= */
+
+.user-main {
+
+    width: calc(100% - 70px);
+    max-width: 1350px;
+
+    margin: 0 auto;
+
+}
+
+.user-welcome {
+
+    min-height: 520px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 80px 20px;
+
+    text-align: center;
+
+}
+
+.welcome-small {
+
+    margin-bottom: 16px;
+
+    color: #a44272;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+}
+
+.user-welcome h1 {
+
+    margin: 0 0 18px;
+
+    color: #2e1e5d;
+
+    font-size: clamp(42px, 6vw, 76px);
+
+    line-height: 1.05;
+
+}
+
+.user-welcome h1 span {
+
+    background:
+        linear-gradient(
+            135deg,
+            #7654bb,
+            #e04b7a,
+            #ff8a3d
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+}
+
+.welcome-description {
+
+    max-width: 620px;
+
+    margin: 0 auto;
+
+    color: #756c81;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+}
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.welcome-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-top: 32px;
+
+}
+
+.welcome-upload,
+.welcome-gallery {
+
+    padding: 14px 24px;
+
+    border-radius: 22px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+}
+
+.welcome-upload {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff8a3d,
+            #e04b7a
+        );
+
+    color: white;
+
+    box-shadow:
+        0 8px 22px rgba(224, 75, 122, 0.25);
+
+}
+
+.welcome-gallery {
+
+    border:
+        1px solid rgba(118, 84, 187, 0.18);
+
+    background:
+        rgba(255, 255, 255, 0.55);
+
+    backdrop-filter: blur(14px);
+
+    color: #2e1e5d;
+
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .user-navbar {
+
+        width: calc(100% - 30px);
+
+    }
+
+    .user-nav-links {
+
+        display: none;
+
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .user-navbar {
+
+        top: 10px;
+
+        height: 65px;
+
+        margin-top: 10px;
+
+        padding: 7px 10px;
+
+        border-radius: 22px;
+
+    }
+
+    .user-nav-logo img {
+
+        width: 48px;
+        height: 48px;
+
+    }
+
+    .profile-name,
+    .profile-arrow {
+
+        display: none;
+
+    }
+
+    .upload-nav-button {
+
+        padding: 10px 13px;
+
+        font-size: 12px;
+
+    }
+
+    .notification-button {
+
+        width: 39px;
+        height: 39px;
+
+    }
+
+    .user-main {
+
+        width: calc(100% - 30px);
+
+    }
+
+    .user-welcome {
+
+        min-height: 480px;
+
+    }
+
+    .welcome-buttons {
+
+        flex-direction: column;
+
+        width: 100%;
+
+        max-width: 280px;
+
+    }
+
+}
+
+/* =====================================================
+   MIRA PINTEREST STYLE USER FEED
+===================================================== */
+
+.mira-feed-page {
+    width: 100%;
+    max-width: 1700px;
+
+    margin: 0 auto;
+    padding: 30px 25px 80px;
+}
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.mira-feed-search {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+
+    margin-bottom: 28px;
+    padding: 15px 20px;
+
+    border-radius: 25px;
+
+    background: #f0eef2;
+}
+
+.search-icon {
+    color: #6f6876;
+    font-size: 24px;
+}
+
+.mira-feed-search input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #2e1e5d;
+
+    font-size: 15px;
+}
+
+.mira-feed-search input::placeholder {
+    color: #8d8792;
+}
+
+/* =====================================================
+   PINTEREST MASONRY GRID
+===================================================== */
+
+.mira-pin-grid {
+    column-count: 5;
+    column-gap: 18px;
+}
+
+/* =====================================================
+   INDIVIDUAL ARTWORK
+===================================================== */
+
+.mira-pin {
+    position: relative;
+
+    display: inline-block;
+
+    width: 100%;
+
+    margin-bottom: 18px;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    break-inside: avoid;
+
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Artwork image */
+
+.mira-pin img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    border-radius: 18px;
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+/* Hover */
+
+.mira-pin:hover img {
+    transform: scale(1.02);
+
+    filter: brightness(0.82);
+}
+
+/* Small View button when hovering */
+
+.mira-pin::after {
+    content: "View";
+
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    padding: 9px 16px;
+
+    border-radius: 22px;
+
+    background: linear-gradient(
+        135deg,
+        #ff8a3d,
+        #e04b7a
+    );
+
+    color: white;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    opacity: 0;
+
+    transform: translateY(-5px);
+
+    transition: 0.25s;
+}
+
+.mira-pin:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1300px) {
+
+    .mira-pin-grid {
+        column-count: 4;
+    }
+
+}
+
+@media (max-width: 1000px) {
+
+    .mira-pin-grid {
+        column-count: 3;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .mira-pin-grid {
+        column-count: 2;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .mira-feed-page {
+        padding: 20px 12px 50px;
+    }
+
+    .mira-pin-grid {
+        column-count: 2;
+        column-gap: 10px;
+    }
+
+    .mira-pin {
+        margin-bottom: 10px;
+        border-radius: 13px;
+    }
+
+    .mira-pin img {
+        border-radius: 13px;
+    }
+
+}
+
+/* =====================================================
+   ARTWORK DETAIL PAGE
+===================================================== */
+
+.artwork-view-page {
+    min-height: 100vh;
+
+    background: #f5f2f7;
+}
+
+.artwork-view-container {
+    max-width: 1450px;
+
+    margin: 0 auto;
+    padding: 35px;
+}
+
+/* Back */
+
+.artwork-back {
+    display: inline-grid;
+    place-items: center;
+
+    width: 45px;
+    height: 45px;
+
+    margin-bottom: 20px;
+
+    border-radius: 50%;
+
+    color: #2e1e5d;
+
+    font-size: 28px;
+
+    text-decoration: none;
+}
+
+.artwork-back:hover {
+    background: #eeeaf1;
+}
+
+/* Main card */
+
+.artwork-detail-card {
+    display: grid;
+
+    grid-template-columns:
+        minmax(350px, 0.9fr)
+        minmax(420px, 1.1fr);
+
+    max-width: 1200px;
+
+    min-height: 700px;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    border: 1px solid #e7e1ea;
+    border-radius: 28px;
+
+    background: #f5f2f7;
+
+    box-shadow:
+        0 15px 45px
+        rgba(46, 30, 93, 0.08);
+}
+
+/* Image */
+
+.artwork-detail-image {
+    background: #f2eff4;
+}
+
+.artwork-detail-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+/* Information */
+
+.artwork-detail-info {
+    display: flex;
+    flex-direction: column;
+
+    padding: 30px;
+}
+
+/* Actions */
+
+.artwork-top-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 30px;
+}
+
+.artwork-action {
+    padding: 10px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #2e1e5d;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.artwork-action:hover {
+    background: #f4f0f6;
+
+    border-radius: 50%;
+}
+
+.artwork-action.liked {
+    color: #e04b7a;
+}
+
+/* Save */
+
+.artwork-save {
+    margin-left: auto;
+
+    padding: 12px 22px;
+
+    border: none;
+    border-radius: 24px;
+
+    background: linear-gradient(
+        135deg,
+        #ff8a3d,
+        #e04b7a
+    );
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+/* Artist */
+
+.artwork-artist {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding-bottom: 22px;
+
+    border-bottom: 1px solid #eee9f1;
+}
+
+.artwork-artist-avatar,
+.comment-avatar {
+    display: grid;
+    place-items: center;
+
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #7654bb,
+        #e04b7a
+    );
+
+    color: white;
+
+    font-weight: 700;
+}
+
+.artwork-artist strong {
+    color: #2e1e5d;
+}
+
+.artwork-artist p {
+    margin-top: 3px;
+
+    color: #8b8292;
+
+    font-size: 12px;
+}
+
+/* Follow */
+
+.follow-button {
+    margin-left: auto;
+
+    padding: 9px 17px;
+
+    border: none;
+    border-radius: 20px;
+
+    background: #eee9f1;
+
+    color: #2e1e5d;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+/* Description */
+
+.artwork-description {
+    padding: 25px 0;
+
+    border-bottom: 1px solid #eee9f1;
+}
+
+.artwork-description h1 {
+    margin-bottom: 10px;
+
+    color: #2e1e5d;
+
+    font-size: 25px;
+}
+
+.artwork-description p {
+    color: #756c81;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Comments */
+
+.artwork-comments {
+    flex: 1;
+
+    padding: 22px 0;
+
+    overflow-y: auto;
+}
+
+.artwork-comments h3 {
+    margin-bottom: 20px;
+
+    color: #2e1e5d;
+}
+
+.comment-item {
+    display: flex;
+    gap: 11px;
+
+    margin-bottom: 18px;
+}
+
+.comment-avatar {
+    width: 35px;
+    height: 35px;
+
+    font-size: 12px;
+}
+
+.comment-item strong {
+    color: #2e1e5d;
+
+    font-size: 13px;
+}
+
+.comment-item p {
+    margin-top: 3px;
+
+    color: #5f5767;
+
+    font-size: 13px;
+}
+
+/* Add comment */
+
+.add-comment {
+    display: flex;
+    gap: 10px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #eee9f1;
+}
+
+.add-comment input {
+    flex: 1;
+
+    padding: 13px 17px;
+
+    border: 1px solid #ddd6e2;
+    border-radius: 25px;
+
+    outline: none;
+
+    font-size: 13px;
+}
+
+.add-comment input:focus {
+    border-color: #a44272;
+}
+
+.add-comment button {
+    padding: 11px 19px;
+
+    border: none;
+    border-radius: 22px;
+
+    background: #2e1e5d;
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+/* Responsive */
+
+@media (max-width: 850px) {
+
+    .artwork-detail-card {
+        grid-template-columns: 1fr;
+    }
+
+    .artwork-detail-image img {
+        max-height: 650px;
+
+        object-fit: contain;
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .artwork-view-container {
+        padding: 15px;
+    }
+
+    .artwork-detail-card {
+        border-radius: 20px;
+    }
+
+    .artwork-detail-info {
+        padding: 20px;
+    }
+
+}
+
+/* ==============================
+   MIRA FLOWER OPENING ANIMATION
+   ============================== */
+
+/* Prevent scrolling during the opening */
+html.mira-intro-pending,
+html.mira-intro-running {
+    overflow: hidden;
+}
+
+/* Hide the homepage until the opening is ready */
+html.mira-intro-pending body > :not(.mira-opening) {
+    visibility: hidden;
+}
+
+/* Full-screen beige background */
+.mira-opening {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+
+    display: grid;
+    place-items: center;
+
+    overflow: hidden;
+    isolation: isolate;
+
+    background: #f5f2f7;
+    color: #7654bb;
+
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Decorative rings behind the flower */
+.mira-opening__halo {
+    position: absolute;
+
+    width: min(92vw, 740px);
+    aspect-ratio: 1;
+
+    border: 1px solid #7654bb;
+    border-radius: 50%;
+
+    opacity: 0.4;
+}
+
+.mira-opening__halo::before,
+.mira-opening__halo::after {
+    content: "";
+
+    position: absolute;
+    inset: 12%;
+
+    border: 1px solid #7654bb;
+    border-radius: inherit;
+}
+
+.mira-opening__halo::after {
+    inset: -12%;
+}
+
+/* Flower size and position */
+.mira-opening__art {
+    position: absolute;
+
+    width: min(64vw, 440px);
+    height: auto;
+    aspect-ratio: 1;
+
+    overflow: visible;
+
+    transform-origin: center;
+}
+
+/* Petals bloom from the flower centre */
+.mira-opening__petal,
+.mira-opening__seed {
+    transform-box: view-box;
+    transform-origin: 50% 50%;
+}
+
+.mira-opening__petal > path:first-child {
+    stroke: #7654bb;
+}
+
+/* Orange centre with pink details */
+.mira-opening__seed circle:first-child {
+    fill: #ff8a3d;
+    stroke: #7654bb;
+}
+
+.mira-opening__seed circle:not(:first-child) {
+    stroke: #e04b7a;
+}
+
+/* Text below the flower */
+.mira-opening__copy {
+    position: absolute;
+    top: calc(50% + min(32vw, 220px) + 16px);
+
+    width: 100%;
+    padding: 0 24px;
+
+    text-align: center;
+}
+
+.mira-opening__title {
+    margin: 0;
+
+    color: #7654bb;
+
+    font-size: clamp(28px, 5vw, 46px);
+    font-weight: 400;
+    line-height: 1.2;
+
+    letter-spacing: 0.32em;
+    text-indent: 0.32em;
+}
+
+.mira-opening__tagline {
+    margin: 12px 0 0;
+
+    color: #7654bb;
+
+    font-size: 11px;
+    line-height: 1.7;
+
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+}
+
+/* Small label at the top */
+.mira-opening__label {
+    position: absolute;
+
+    top: max(28px, env(safe-area-inset-top));
+    left: 30px;
+    right: 30px;
+
+    color: #7654bb;
+
+    font-size: 10px;
+    line-height: 1.6;
+    letter-spacing: 0.24em;
+}
+
+/* Skip button */
+.mira-opening__skip {
+    position: absolute;
+
+    right: 28px;
+    bottom: max(28px, env(safe-area-inset-bottom));
+
+    z-index: 2;
+
+    padding: 10px 18px;
+
+    border: 1px solid #7654bb;
+    border-radius: 30px;
+
+    background: #f5f2f7;
+    color: #7654bb;
+
+    font: inherit;
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.mira-opening__skip:hover {
+    background: #7654bb;
+    color: #f5f2f7;
+}
+
+.mira-opening__skip:focus-visible {
+    outline: 2px solid #e04b7a;
+    outline-offset: 5px;
+}
+
+/* Short screens and landscape phones */
+@media (max-height: 560px) {
+    .mira-opening__art {
+        width: min(46vh, 260px);
+    }
+
+    .mira-opening__copy {
+        top: calc(50% + 23vh + 10px);
+    }
+
+    .mira-opening__title {
+        font-size: 26px;
+    }
+
+    .mira-opening__tagline {
+        font-size: 9px;
+        letter-spacing: 0.16em;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    html.mira-intro-pending,
+    html.mira-intro-running {
+        overflow: auto;
+    }
+
+    html.mira-intro-pending body > :not(.mira-opening) {
+        visibility: visible;
+    }
+
+    .mira-opening {
+        display: none;
+    }
+
+    .mira-opening__skip {
+        transition: none;
+    }
+}
+
+/* ==============================
+   LIQUID GLASS NAVBAR
+   ============================== */
+
+.user-navbar {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.28),
+        rgba(255, 255, 255, 0.08)
+    );
+
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+
+    box-shadow:
+        0 12px 35px rgba(118, 84, 187, 0.12),
+        inset 0 1px 1px rgba(255, 255, 255, 0.85),
+        inset 0 -1px 1px rgba(255, 255, 255, 0.25);
+}
+
+/* Soft reflection across the glass */
+.user-navbar::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    width: auto;
+    height: auto;
+
+    border-radius: inherit;
+
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.35),
+        transparent 35%,
+        transparent 65%,
+        rgba(255, 255, 255, 0.12)
+    );
+
+    pointer-events: none;
+}
+
+/* Keep navigation above the reflection */
+.user-navbar > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Glass-style selected navigation item */
+.user-nav-links a.active {
+    color: #7654bb;
+
+    background: linear-gradient(
+        135deg,
+        rgba(118, 84, 187, 0.18),
+        rgba(224, 75, 122, 0.14)
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.6);
+
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.75),
+        0 4px 12px rgba(118, 84, 187, 0.12);
+}
+
+/* Translucent profile and notification buttons */
+.profile-button,
+.notification-button {
+    background: rgba(255, 255, 255, 0.22);
+
+    border: 1px solid rgba(255, 255, 255, 0.55);
+
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+/* =====================================================
+   MIRA FINAL PALETTE — SOFT LAVENDER WHITE + WHITE CARDS
+   Main background: #f5f2f7
+   Cards and inputs: #ffffff
+   Headings: #2e1e5d
+   Existing art images, motion, and accent gradients retained
+   ===================================================== */
+:root {
+    --mira-page-bg: #f5f2f7;
+    --mira-card-bg: #ffffff;
+    --mira-ink: #2e1e5d;
+}
+
+html, body, .mira-home, .mira-showcase, .mira-stage,
+.login-page, .mira-about, .mira-categories, .vc-message,
+.user-home-page, .artwork-view-page, .mira-opening {
+    background: var(--mira-page-bg);
+}
+
+/* Keep the signup collage visible; only the card becomes white. */
+.login-card, .login-panel, .side-panel, .join-card,
+.vc-message-container, .artwork-detail-card,
+.about-features span {
+    background: var(--mira-card-bg);
+}
+
+#homeSignupForm input, #signupForm input, #loginForm input {
+    background: var(--mira-card-bg);
+}
+
+/* Soft footer matching the page while preserving readable links. */
+.mira-footer, .footer-bottom {
+    background: var(--mira-page-bg);
+    color: var(--mira-ink);
+}
+.footer-section h3, .footer-about p, .footer-section a,
+.footer-contact p, .footer-bottom p {
+    color: var(--mira-ink);
+}
+.footer-bottom {
+    border-top: 1px solid #ddd5e5;
+}
+
+
+/* ==========================================================
+   MIRA LIGHT / DARK THEME
+   Theme is selected with data-theme on the html element.
+   ========================================================== */
+:root,
+html[data-theme="light"] {
+    color-scheme: light;
+    --mira-page-bg: #f5f2f7;
+    --mira-card-bg: #ffffff;
+    --mira-ink: #2e1e5d;
+    --mira-muted: #756c81;
+    --mira-border: #ded5e8;
+    --mira-input-bg: #ffffff;
+    --mira-glass: rgba(255,255,255,.65);
+    --mira-glass-edge: rgba(255,255,255,.75);
+    --mira-hover: #eee8f7;
+}
+html[data-theme="dark"] {
+    color-scheme: dark;
+    --mira-page-bg: #151321;
+    --mira-card-bg: #252235;
+    --mira-ink: #f4edff;
+    --mira-muted: #b9aecb;
+    --mira-border: #484158;
+    --mira-input-bg: #302b42;
+    --mira-glass: rgba(37,34,53,.75);
+    --mira-glass-edge: rgba(210,192,236,.18);
+    --mira-hover: #343047;
+}
+
+/* Main section surfaces */
+html, body, .mira-home, .mira-showcase, .mira-stage,
+.login-page, .mira-about, .mira-categories, .vc-message,
+.user-home-page, .artwork-view-page, .mira-opening,
+.mira-feed-page, .header {
+    background: var(--mira-page-bg);
+    color: var(--mira-ink);
+}
+.login-card, .login-panel, .side-panel, .join-card,
+.vc-message-container, .artwork-detail-card,
+.about-features span {
+    background: var(--mira-card-bg);
+    color: var(--mira-ink);
+}
+/* Do not overwrite the join collage or its dark overlay. */
+
+/* Text throughout light/dark surfaces */
+.showcase-intro h1, .showcase-intro > p:last-child,
+.join-card h2, #homeSignupForm label, #signupForm label,
+#loginForm label, .login-panel h1, .side-panel h2,
+.mira-about h2, .about-description, .about-features span,
+.vc-content h2, .vc-name strong, .vc-name span,
+.categories-heading h2, .category-card h3, .category-card > a,
+.user-welcome h1, .user-nav-links a, .user-nav-links a.active,
+.profile-name, .profile-arrow, .profile-dropdown a,
+.mira-feed-search input, .footer-section h3,
+.footer-about p, .footer-section a, .footer-contact p,
+.footer-bottom p, .mira-footer, .footer-bottom {
+    color: var(--mira-ink);
+}
+.join-subtitle, .subtitle, .join-login, .join-divider,
+.vc-quote, .about-description, .category-card > p,
+.welcome-description, .side-panel p, .vc-name span {
+    color: var(--mira-muted);
+}
+#homeSignupForm input, #signupForm input, #loginForm input,
+.mira-feed-search input {
+    background: var(--mira-input-bg);
+    color: var(--mira-ink);
+    border-color: var(--mira-border);
+}
+#homeSignupForm input::placeholder, #signupForm input::placeholder,
+#loginForm input::placeholder, .mira-feed-search input::placeholder {
+    color: var(--mira-muted);
+}
+.about-features span, .login-link, .mira-motion-button {
+    background: var(--mira-card-bg);
+    color: var(--mira-ink);
+    border-color: var(--mira-border);
+}
+.mira-motion-button:hover, .login-link:hover { background: var(--mira-hover); }
+.mira-footer, .footer-bottom { background: var(--mira-page-bg); }
+.footer-bottom { border-top: 1px solid var(--mira-border); }
+.vc-scroll-content::-webkit-scrollbar-track { background: var(--mira-hover); }
+.mira-feed-search { background: var(--mira-card-bg); }
+
+/* Glass header and user controls */
+.user-navbar, .user-nav-links, .profile-dropdown {
+    background: var(--mira-glass);
+    border-color: var(--mira-glass-edge);
+    backdrop-filter: blur(22px) saturate(150%);
+    -webkit-backdrop-filter: blur(22px) saturate(150%);
+}
+.profile-button, .notification-button, .welcome-gallery {
+    background: var(--mira-glass);
+    border-color: var(--mira-glass-edge);
+    color: var(--mira-ink);
+}
+.profile-button:hover, .notification-button:hover,
+.user-nav-links a:hover, .profile-dropdown a:hover {
+    background: var(--mira-hover);
+    color: var(--mira-ink);
+}
+/* Preserve the signature gradient CTA buttons and text readability. */
+.signup-link, .submit-login, .join-button,
+.upload-nav-button, .welcome-upload { color: #ffffff; }
+
+/* Additional dark contrast tuning */
+html[data-theme="dark"] .mira-art { background: #302b42; }
+html[data-theme="dark"] .vc-scroll-content::-webkit-scrollbar-thumb { background: #987ac2; }
+html[data-theme="dark"] .user-navbar::before { opacity: .23; }
+html[data-theme="dark"] .profile-dropdown .logout-link { color: #ff93b4; }
+html[data-theme="dark"] .join-login a,
+html[data-theme="dark"] .footer-section a:hover { color: #ff93b4; }
+html[data-theme="dark"] .user-welcome h1 span {
+    background: linear-gradient(135deg,#c5adff,#ff92b0,#ffac75);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+/* Let users identify inputs without blue autofill surfaces. */
+html[data-theme="dark"] input:-webkit-autofill {
+    -webkit-text-fill-color: #f4edff;
+    -webkit-box-shadow: 0 0 0 1000px #302b42 inset;
+    caret-color: #f4edff;
+}
+
+/* Button added by theme.js; lives in either public or user navbar. */
+.mira-theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    flex: 0 0 auto;
+    border: 1px solid var(--mira-border);
+    border-radius: 999px;
+    background: var(--mira-card-bg);
+    color: var(--mira-ink);
+    padding: 9px 12px;
+    font: inherit;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background .2s ease, transform .2s ease;
+}
+.mira-theme-toggle:hover { background: var(--mira-hover); transform: translateY(-1px); }
+.mira-theme-toggle:focus-visible { outline: 3px solid #a486d5; outline-offset: 2px; }
+.mira-theme-toggle .mira-theme-icon { font-family: system-ui, sans-serif; font-size: 18px; }
+@media (max-width: 600px) {
+    .mira-theme-toggle { padding: 9px; }
+    .mira-theme-toggle .mira-theme-text { display: none; }
+}
+
