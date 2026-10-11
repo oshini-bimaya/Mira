@@ -176,7 +176,7 @@ $stmt->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MIRA | My Profile</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="profile.css?v=<?= (int) filemtime(__DIR__ . '/profile.css') ?>">
     <script src="theme.js" defer></script>
 </head>
 <body class="user-home-page mira-profile-page">
