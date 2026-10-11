@@ -498,3 +498,238 @@ html[data-theme="dark"] .profile-status.rejected {
     background: #4a2635;
     color: #ff9fb7;
 }
+
+/* MIRA profile editor: bio field and photo upload layout */
+.profile-edit-details .profile-edit-form {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.profile-edit-details .profile-edit-form > label:not(.profile-file-field) {
+    display: block !important;
+    margin: 0;
+    color: var(--profile-text, #251452);
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.profile-edit-details .profile-edit-form textarea {
+    display: block !important;
+    width: 100% !important;
+    min-height: 160px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 14px 16px;
+    border: 1px solid var(--profile-border, #eee5f3);
+    border-radius: 14px;
+    background: var(--profile-card, #fff);
+    color: var(--profile-text, #251452);
+    font: inherit;
+    line-height: 1.65;
+    resize: vertical;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.profile-edit-details .profile-edit-form textarea:focus,
+.profile-edit-details .profile-file-field input[type="file"]:focus-visible {
+    outline: none;
+    border-color: #bd69b5;
+    box-shadow: 0 0 0 4px rgb(189 105 181 / 14%);
+}
+
+.profile-edit-details .profile-edit-form .profile-field-help {
+    display: block;
+    margin: -4px 0 4px;
+    color: var(--profile-muted, #80748f);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.profile-edit-details .profile-upload-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin: 8px 0 4px;
+}
+
+.profile-edit-details .profile-file-field {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    gap: 8px;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 16px;
+    border: 1px solid var(--profile-border, #eee5f3);
+    border-radius: 16px;
+    background: #fbf7fc;
+    color: var(--profile-text, #251452);
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.profile-edit-details .profile-file-field span {
+    display: block;
+    color: var(--profile-muted, #80748f);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.profile-edit-details .profile-file-field input[type="file"] {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    margin-top: 4px;
+    padding: 8px;
+    overflow: hidden;
+    border: 1px dashed var(--profile-border, #eee5f3);
+    border-radius: 10px;
+    background: var(--profile-card, #fff);
+    color: var(--profile-text, #251452);
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.profile-edit-details .profile-file-field input[type="file"]::file-selector-button {
+    margin: 0 10px 0 0;
+    padding: 9px 12px;
+    border: 0;
+    border-radius: 8px;
+    background: linear-gradient(105deg, #ff8844, #e34c80);
+    color: #fff;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.profile-edit-details .profile-save-btn {
+    justify-self: start;
+    margin-top: 4px;
+}
+
+@media (max-width: 700px) {
+    .profile-edit-details .profile-upload-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* Keep uploaded profile and cover photos inside their existing design */
+.mira-profile-page .profile-cover {
+    position: relative;
+    isolation: isolate;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.mira-profile-page .profile-cover img {
+    position: absolute;
+    inset: 42px 6.5% 28px;
+    z-index: 0;
+    display: block;
+    width: 87%;
+    height: calc(100% - 70px);
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 14px;
+}
+
+.mira-profile-page .profile-cover span {
+    position: absolute;
+    top: 17px;
+    right: 28px;
+    left: 28px;
+    z-index: 2;
+    text-align: right;
+    font-size: 9px;
+    line-height: 1.4;
+    letter-spacing: 2.6px;
+    font-weight: 400;
+    text-shadow: none;
+    pointer-events: none;
+}
+
+/* Pastel frame around the uploaded cover, matching the selected design. */
+.mira-profile-page .profile-cover {
+    height: 250px;
+}
+
+.mira-profile-page .profile-identity {
+    position: relative;
+    z-index: 1;
+}
+
+.mira-profile-page .profile-large-avatar {
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.mira-profile-page .profile-large-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+
+.mira-profile-page .profile-avatar {
+    position: relative;
+    display: grid;
+    flex: 0 0 38px;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.mira-profile-page .profile-avatar img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: inherit;
+}
+
+@media (max-width: 600px) {
+    .mira-profile-page .profile-cover {
+        height: 190px;
+    }
+
+    .mira-profile-page .profile-cover img {
+        inset: 38px 6% 24px;
+        width: 88%;
+        height: calc(100% - 62px);
+        border-radius: 10px;
+    }
+
+    .mira-profile-page .profile-cover span {
+        top: 14px;
+        right: 6%;
+        left: 6%;
+        font-size: 7px;
+        letter-spacing: 1.4px;
+    }
+
+    .mira-profile-page .profile-large-avatar {
+        flex-basis: 88px;
+        width: 88px;
+        height: 88px;
+    }
+}
