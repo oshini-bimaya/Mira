@@ -59,7 +59,7 @@ $initial = function_exists('mb_substr') ? mb_substr($adminName, 0, 1) : substr($
             <a class="active" href="dashboard.php" aria-current="page"><span>▦ &nbsp; Dashboard</span></a>
             <a href="artworks.php"><span>▤ &nbsp; Artworks</span></a>
             <a href="categories.php"><span>◈ &nbsp; Categories</span></a>
-            <span class="admin-nav-disabled"><span>▣ &nbsp; Exhibitions</span><small>Soon</small></span>
+            <a href="events.php">▣ Exhibitions</a>
             <span class="admin-nav-disabled"><span>✧ &nbsp; Featured Art</span><small>Soon</small></span>
             <span class="admin-nav-disabled"><span>♙ &nbsp; Students</span><small>Soon</small></span>
             <span class="admin-nav-disabled"><span>▥ &nbsp; Reports</span><small>Soon</small></span>
