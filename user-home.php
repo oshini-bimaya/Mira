@@ -69,7 +69,7 @@ $gallery = miraApprovedArtworks($conn, '', 0, 60);
                 Artists
             </a>
 
-            <a href="exhibitions.php">
+            <a href="gallery.php">
                 Exhibitions
             </a>
 
