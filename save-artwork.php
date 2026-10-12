@@ -8,7 +8,7 @@ if (!artworkIsStudent($conn,$uid)) { http_response_code(403);exit('Student acces
 if (!artworkValidCsrf()) {http_response_code(403); exit('Invalid form token. Refresh and try again.');}
 $title=trim((string)($_POST['title']??''));$description=trim((string)($_POST['description']??''));$category=filter_var($_POST['category_id']??null,FILTER_VALIDATE_INT);
 if ($title===''||strlen($title)>200||$description===''||strlen($description)>3000||!$category) {header('Location: upload-artwork.php?status=error');exit;}
-$check=$conn->prepare('SELECT category_id FROM categories WHERE category_id=?');$check->bind_param('i',$category);$check->execute();$validCat=$check->get_result()->num_rows===1;$check->close();
+$check=$conn->prepare('SELECT category_id FROM categories WHERE category_id=? AND is_active=1');$check->bind_param('i',$category);$check->execute();$validCat=$check->get_result()->num_rows===1;$check->close();
 if(!$validCat||!isset($_FILES['artwork_image'])||!is_array($_FILES['artwork_image'])||$_FILES['artwork_image']['error']!==UPLOAD_ERR_OK){header('Location: upload-artwork.php?status=error');exit;}
 $f=$_FILES['artwork_image'];
 if($f['size']<1||$f['size']>5*1024*1024||!is_uploaded_file($f['tmp_name'])){header('Location: upload-artwork.php?status=error');exit;}

@@ -5,7 +5,7 @@ require __DIR__.'/db.php';
 require __DIR__.'/artwork-common.php';
 $uid=(int)$_SESSION['user_id'];
 if (!artworkIsStudent($conn,$uid)) { http_response_code(403); exit('Student access only.'); }
-$cats=$conn->query('SELECT category_id,category_name FROM categories ORDER BY category_name');
+$cats=$conn->query('SELECT category_id,category_name FROM categories WHERE is_active = 1 ORDER BY category_name');
 $name=$_SESSION['full_name']??'Student';
 $status=$_GET['status']??'';
 ?>
