@@ -19,6 +19,13 @@ $userName = $_SESSION["full_name"] ?? 'Artist';
 require __DIR__ . '/db.php';
 require __DIR__ . '/gallery-common.php';
 $gallery = miraApprovedArtworks($conn, '', 0, 60);
+$featuredArtworks=[];
+$featuredResult=$conn->query("SELECT a.artwork_id,a.title,u.FULL_NAME AS artist_name,
+ (SELECT ai.image_path FROM artwork_images ai WHERE ai.artwork_id=a.artwork_id ORDER BY ai.image_id LIMIT 1) AS image_path
+ FROM artworks a JOIN users u ON u.USER_ID=a.user_id
+ WHERE LOWER(a.status)='approved' AND a.is_featured=1
+ ORDER BY COALESCE(a.featured_order,2147483647),a.artwork_id LIMIT 8");
+if($featuredResult)$featuredArtworks=$featuredResult->fetch_all(MYSQLI_ASSOC);
 $exhibitionPosters=[];
 $posterResult=$conn->query("SELECT event_id,title,venue,starts_at,poster_path FROM events WHERE status='published' AND ends_at >= NOW() AND poster_path IS NOT NULL AND poster_path <> '' ORDER BY starts_at ASC LIMIT 6");
 if($posterResult){$exhibitionPosters=$posterResult->fetch_all(MYSQLI_ASSOC);}
@@ -37,6 +44,7 @@ if($posterResult){$exhibitionPosters=$posterResult->fetch_all(MYSQLI_ASSOC);}
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="gallery.css">
+<link rel="stylesheet" href="featured-home.css">
     <script src="theme.js" defer></script>
 <link rel="stylesheet" href="exhibition-home.css">
 </head>
@@ -198,6 +206,8 @@ if($posterResult){$exhibitionPosters=$posterResult->fetch_all(MYSQLI_ASSOC);}
       <?= $gallery ? 'No artworks match your search.' : 'No approved artworks yet. Once an administrator approves a submission, it will appear here.' ?>
     </p>
 
+
+<section class="mira-featured-home" aria-labelledby="featuredArtTitle"><div class="mira-featured-head"><p>HANDPICKED BY MIRA</p><h2 id="featuredArtTitle">Featured student creations ✦</h2></div><div class="mira-featured-tiles"><?php foreach($featuredArtworks as $fa):?><?php $fp=miraArtworkImage($fa['image_path']);if(!$fp)continue;?><a class="mira-featured-tile" href="artwork-view.php?id=<?=(int)$fa['artwork_id']?>"><img src="<?=miraEsc($fp)?>" alt="<?=miraEsc($fa['title'])?>" loading="lazy"><div><strong><?=miraEsc($fa['title'])?></strong><small>By <?=miraEsc($fa['artist_name'])?></small></div></a><?php endforeach;?></div></section>
 
 <section class="mira-exhibition-showcase" aria-labelledby="miraExhibitHeading">
   <div class="mira-exhibition-heading"><p>UPCOMING EXHIBITIONS</p><h2 id="miraExhibitHeading">Discover what's on at MIRA ✦</h2><a href="exhibitions.php">View all exhibitions →</a></div>

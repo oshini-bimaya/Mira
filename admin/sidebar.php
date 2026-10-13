@@ -10,7 +10,7 @@ $initialLetter = function_exists('mb_substr') ? mb_substr($displayName, 0, 1) : 
     <?php foreach ([['dashboard','dashboard.php','▦ Dashboard'],['artworks','artworks.php','▤ Artworks'],['categories','categories.php','◈ Categories'],['events','events.php','▣ Exhibitions']] as $nav): ?>
       <a href="<?= htmlspecialchars($nav[1], ENT_QUOTES, 'UTF-8') ?>" <?= $activeAdminPage === $nav[0] ? 'class="active" aria-current="page"' : '' ?>><?= htmlspecialchars($nav[2], ENT_QUOTES, 'UTF-8') ?></a>
     <?php endforeach; ?>
-    <span class="admin-nav-disabled"><span>✧ &nbsp; Featured Art</span><small>Soon</small></span>
+    <a href="featured.php" <?= $activeAdminPage === "featured" ? 'class="active" aria-current="page"' : '' ?>>✧ &nbsp; Featured Art</a>
     <span class="admin-nav-disabled"><span>♙ &nbsp; Students</span><small>Soon</small></span>
     <span class="admin-nav-disabled"><span>▥ &nbsp; Reports</span><small>Soon</small></span>
   </nav>
