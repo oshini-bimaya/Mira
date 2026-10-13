@@ -11,7 +11,7 @@ $initialLetter = function_exists('mb_substr') ? mb_substr($displayName, 0, 1) : 
       <a href="<?= htmlspecialchars($nav[1], ENT_QUOTES, 'UTF-8') ?>" <?= $activeAdminPage === $nav[0] ? 'class="active" aria-current="page"' : '' ?>><?= htmlspecialchars($nav[2], ENT_QUOTES, 'UTF-8') ?></a>
     <?php endforeach; ?>
     <a href="featured.php" <?= $activeAdminPage === "featured" ? 'class="active" aria-current="page"' : '' ?>>✧ &nbsp; Featured Art</a>
-    <span class="admin-nav-disabled"><span>♙ &nbsp; Students</span><small>Soon</small></span>
+    <a href="students.php" <?= $activeAdminPage === "students" ? 'class="active" aria-current="page"' : '' ?>>♙ &nbsp; Students</a>
     <span class="admin-nav-disabled"><span>▥ &nbsp; Reports</span><small>Soon</small></span>
   </nav>
   <div class="admin-user-box"><div class="admin-user"><span class="admin-avatar" aria-hidden="true"><?= htmlspecialchars(strtoupper($initialLetter), ENT_QUOTES, 'UTF-8') ?></span><div><strong><?= htmlspecialchars($displayName, ENT_QUOTES, 'UTF-8') ?></strong><span>Administrator</span></div></div><form method="post" action="logout.php"><button class="logout-button" type="submit">↪ &nbsp; Log out</button></form></div>
