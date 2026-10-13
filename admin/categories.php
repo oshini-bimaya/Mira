@@ -11,9 +11,7 @@ $code = (string)($_GET['msg'] ?? ''); $message = $messages[$code] ?? '';
 <script>try{document.documentElement.dataset.theme=localStorage.getItem('mira-theme')==='dark'?'dark':'light'}catch(e){document.documentElement.dataset.theme='light'}</script>
 <link rel="stylesheet" href="admin.css"><link rel="stylesheet" href="categories.css"><script src="admin.js" defer></script></head>
 <body class="admin-page"><div class="admin-layout">
-<aside class="admin-sidebar"><a href="dashboard.php" class="admin-brand"><span class="brand-symbol">✦</span><span class="brand-copy">MIRA <small>ADMIN STUDIO</small></span></a>
-<nav class="admin-nav" aria-label="Admin navigation"><a href="dashboard.php">▦ Dashboard</a><a href="artworks.php">▤ Artworks</a><a href="categories.php" class="active" aria-current="page">◈ Categories</a><span class="admin-nav-disabled">▣ Exhibitions <small>Soon</small></span><span class="admin-nav-disabled">✧ Featured Art <small>Soon</small></span><span class="admin-nav-disabled">▥ Reports <small>Soon</small></span></nav>
-<div class="admin-user-box"><div class="admin-user"><span class="admin-avatar">✦</span><div><strong><?=h($adminName)?></strong><span>Administrator</span></div></div><form action="logout.php" method="post"><button class="logout-button" type="submit">Log out</button></form></div></aside>
+<?php $activeAdminPage = "categories"; require __DIR__ . "/sidebar.php"; ?>
 <main class="admin-main"><header class="admin-topbar"><p class="admin-breadcrumb">MIRA / <strong>Categories</strong></p><button id="themeToggle" class="admin-theme-toggle" type="button">☾ Dark mode</button></header>
 <section class="admin-hero"><p class="admin-hero-label">ART & CRAFT COLLECTION</p><h1>Manage categories <span>✦</span></h1><p>Create, edit, and deactivate categories without deleting existing artwork.</p></section>
 <?php if($message):?><p class="cat-message <?= in_array($code,['created','updated'],true)?'ok':'bad' ?>" role="status"><?=h($message)?></p><?php endif; ?>

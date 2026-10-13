@@ -49,32 +49,7 @@ $initial = function_exists('mb_substr') ? mb_substr($adminName, 0, 1) : substr($
 </head>
 <body class="admin-page">
 <div class="admin-layout">
-    <aside class="admin-sidebar">
-        <a class="admin-brand" href="dashboard.php" aria-label="MIRA Admin Dashboard">
-            <span class="brand-symbol" aria-hidden="true">✦</span>
-            <span class="brand-copy">MIRA <small>ADMIN STUDIO</small></span>
-        </a>
-
-        <nav class="admin-nav" aria-label="Admin sections">
-            <a class="active" href="dashboard.php" aria-current="page"><span>▦ &nbsp; Dashboard</span></a>
-            <a href="artworks.php"><span>▤ &nbsp; Artworks</span></a>
-            <a href="categories.php"><span>◈ &nbsp; Categories</span></a>
-            <span class="admin-nav-disabled"><span>▣ &nbsp; Exhibitions</span><small>Soon</small></span>
-            <span class="admin-nav-disabled"><span>✧ &nbsp; Featured Art</span><small>Soon</small></span>
-            <span class="admin-nav-disabled"><span>♙ &nbsp; Students</span><small>Soon</small></span>
-            <span class="admin-nav-disabled"><span>▥ &nbsp; Reports</span><small>Soon</small></span>
-        </nav>
-
-        <div class="admin-user-box">
-            <div class="admin-user">
-                <span class="admin-avatar" aria-hidden="true"><?= h(strtoupper($initial)) ?></span>
-                <div><strong><?= h($adminName) ?></strong><span>Administrator</span></div>
-            </div>
-            <form method="post" action="logout.php">
-                <button class="logout-button" type="submit">↪ &nbsp; Log out</button>
-            </form>
-        </div>
-    </aside>
+    <?php $activeAdminPage = "dashboard"; require __DIR__ . "/sidebar.php"; ?>
 
     <main class="admin-main">
         <header class="admin-topbar">
