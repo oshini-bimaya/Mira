@@ -113,13 +113,29 @@ $initial = function_exists('mb_substr') ? mb_substr($adminName, 0, 1) : substr($
 
             <article class="admin-panel">
                 <h2>Management workspace</h2>
-                <p class="admin-panel-subtitle">Your admin dashboard is connected. Management tools will be added in the next phases.</p>
-                <div class="admin-action-list">
-                    <div class="admin-action-item"><span class="work-icon">▤</span><div><strong>Review submissions</strong><small><?= number_format($pendingArtworks) ?> pending approval</small></div><span class="coming-soon">Soon</span></div>
-                    <div class="admin-action-item"><span class="work-icon">◈</span><div><strong>Categories</strong><small><?= number_format($categoryCount) ?> category records</small></div><span class="coming-soon">Soon</span></div>
-                    <div class="admin-action-item"><span class="work-icon">▥</span><div><strong>Reports</strong><small>Coming in Phase 4</small></div><span class="coming-soon">Soon</span></div>
-                </div>
-                <div class="admin-notice">Phase 1: Dashboard and authentication. Management actions are not enabled yet.</div>
+                <p class="admin-panel-subtitle">Quick access to your MIRA administration tools.</p>
+                <nav class="admin-action-list" aria-label="Management shortcuts">
+                    <a class="admin-action-item" href="artworks.php">
+                        <span class="work-icon" aria-hidden="true">▤</span>
+                        <span class="admin-action-text"><strong>Review submissions</strong><small><?= number_format($pendingArtworks) ?> pending approval</small></span>
+                        <span class="action-arrow" aria-hidden="true">→</span>
+                    </a>
+                    <a class="admin-action-item" href="categories.php">
+                        <span class="work-icon" aria-hidden="true">◈</span>
+                        <span class="admin-action-text"><strong>Manage categories</strong><small><?= number_format($categoryCount) ?> categories</small></span>
+                        <span class="action-arrow" aria-hidden="true">→</span>
+                    </a>
+                    <a class="admin-action-item" href="events.php">
+                        <span class="work-icon" aria-hidden="true">▣</span>
+                        <span class="admin-action-text"><strong>Manage exhibitions</strong><small>Create events and review exhibition requests</small></span>
+                        <span class="action-arrow" aria-hidden="true">→</span>
+                    </a>
+                    <a class="admin-action-item" href="featured.php">
+                        <span class="work-icon" aria-hidden="true">✧</span>
+                        <span class="admin-action-text"><strong>Featured artworks</strong><small><?= number_format($featuredCount) ?> featured artworks</small></span>
+                        <span class="action-arrow" aria-hidden="true">→</span>
+                    </a>
+                </nav>
             </article>
         </section>
         <footer class="admin-footer">© <?= date('Y') ?> MIRA · NSBM Student Arts &amp; Handcraft Showcasing System</footer>
