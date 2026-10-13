@@ -7,12 +7,13 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_
 $email = trim($_POST['email'] ?? '');
 $password = $_POST['password'] ?? '';
 if ($email === '' || $password === '') { echo json_encode(['success'=>false,'message'=>'Please enter your email and password.']); exit; }
-$stmt = $conn->prepare('SELECT USER_ID, FULL_NAME, EMAIL, PASSWORD, ROLE FROM users WHERE EMAIL = ? LIMIT 1');
+$stmt = $conn->prepare('SELECT USER_ID, FULL_NAME, EMAIL, PASSWORD, ROLE, account_status FROM users WHERE EMAIL = ? LIMIT 1');
 $stmt->bind_param('s', $email);
 $stmt->execute();
 $user = $stmt->get_result()->fetch_assoc();
 $stmt->close();
 if (!$user || !password_verify($password, $user['PASSWORD'])) { echo json_encode(['success'=>false,'message'=>'Invalid email or password.']); exit; }
+if (strtoupper((string)$user['ROLE']) === 'STUDENT' && $user['account_status'] !== 'active') { echo json_encode(['success'=>false,'message'=>'Your account has been suspended. Please contact an administrator.']); exit; }
 session_regenerate_id(true);
 $_SESSION['user_id'] = (int)$user['USER_ID'];
 $_SESSION['full_name'] = $user['FULL_NAME'];
