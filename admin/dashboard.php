@@ -56,7 +56,7 @@ $initial = function_exists('mb_substr') ? mb_substr($adminName, 0, 1) : substr($
             <p class="admin-breadcrumb">MIRA / <strong>Dashboard</strong></p>
             <div class="admin-top-actions">
                 <button id="themeToggle" class="theme-button admin-theme-toggle" type="button" aria-label="Toggle dark mode">☾ &nbsp; Dark mode</button>
-                <span class="admin-avatar admin-avatar-small" aria-hidden="true"><?= h(strtoupper($initial)) ?></span>
+                <a href="profile.php" class="admin-avatar admin-avatar-small admin-profile-link" title="View my profile" aria-label="View admin profile"><?= h(strtoupper($initial)) ?></a>
             </div>
         </header>
 
