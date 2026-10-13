@@ -19,6 +19,10 @@ $userName = $_SESSION["full_name"] ?? 'Artist';
 require __DIR__ . '/db.php';
 require __DIR__ . '/gallery-common.php';
 $gallery = miraApprovedArtworks($conn, '', 0, 60);
+$exhibitionPosters=[];
+$posterResult=$conn->query("SELECT event_id,title,venue,starts_at,poster_path FROM events WHERE status='published' AND ends_at >= NOW() AND poster_path IS NOT NULL AND poster_path <> '' ORDER BY starts_at ASC LIMIT 6");
+if($posterResult){$exhibitionPosters=$posterResult->fetch_all(MYSQLI_ASSOC);}
+
 
 
 ?>
@@ -34,6 +38,7 @@ $gallery = miraApprovedArtworks($conn, '', 0, 60);
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="gallery.css">
     <script src="theme.js" defer></script>
+<link rel="stylesheet" href="exhibition-home.css">
 </head>
 
 <body class="user-home-page">
@@ -193,6 +198,18 @@ $gallery = miraApprovedArtworks($conn, '', 0, 60);
       <?= $gallery ? 'No artworks match your search.' : 'No approved artworks yet. Once an administrator approves a submission, it will appear here.' ?>
     </p>
 
+
+<section class="mira-exhibition-showcase" aria-labelledby="miraExhibitHeading">
+  <div class="mira-exhibition-heading"><p>UPCOMING EXHIBITIONS</p><h2 id="miraExhibitHeading">Discover what's on at MIRA ✦</h2><a href="exhibitions.php">View all exhibitions →</a></div>
+  <div class="mira-exhibition-posters">
+  <?php foreach($exhibitionPosters as $poster): ?>
+    <?php if(preg_match('~^uploads/events/[a-zA-Z0-9_-]+\.(jpg|jpeg|png|webp)$~i',(string)$poster['poster_path'])): ?>
+      <a class="mira-exhibition-tile" href="exhibition-detail.php?id=<?=(int)$poster['event_id']?>"><img src="<?=htmlspecialchars($poster['poster_path'],ENT_QUOTES,'UTF-8')?>" alt="<?=htmlspecialchars($poster['title'],ENT_QUOTES,'UTF-8')?> exhibition poster" loading="lazy"><div><h3><?=htmlspecialchars($poster['title'],ENT_QUOTES,'UTF-8')?></h3><p><?=htmlspecialchars(date('M j, Y',strtotime($poster['starts_at'])),ENT_QUOTES,'UTF-8')?> · <?=htmlspecialchars($poster['venue'],ENT_QUOTES,'UTF-8')?></p></div></a>
+    <?php endif; ?>
+  <?php endforeach; ?>
+  <?php if(!$exhibitionPosters):?><p class="mira-no-exhibitions">Published exhibition posters will appear here.</p><?php endif; ?>
+  </div>
+</section>
 </main>
 
 

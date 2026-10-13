@@ -1,37 +1,22 @@
-MIRA PHASE 4 — EXHIBITIONS & EVENTS
-==================================
-1. BACK UP both your current website files and your InfinityFree MySQL database.
-2. Run sql/phase4_exhibitions.sql ONCE in phpMyAdmin on the existing MIRA database.
-   This creates events, event_registrations and event_artworks; it does not replace users, categories or artworks.
-3. Upload these new files into InfinityFree /htdocs/:
-     event-common.php
-     event.css
-     exhibitions.php
-     register-event.php
-     my-events.php
-     exhibition-detail.php
-4. Upload into /htdocs/admin/:
-     events.php
-     save-event.php
-     event-artworks.php
-   Keep existing auth.php, dashboard.php, admin.css, admin.js, artwork approval and category files.
-5. In /htdocs/admin/dashboard.php, replace the disabled Exhibitions navigation with a real link:
-     <a href="events.php">▣ Exhibitions</a>
-   Do the same in /htdocs/admin/categories.php if it shows a disabled Exhibitions link.
-6. In /htdocs/user-home.php, change the existing Exhibitions navbar href="gallery.php" to href="exhibitions.php".
-   Optionally add a "My Exhibitions" menu link to my-events.php (if present).
-7. Log in as ADMIN, open /admin/events.php. Create an event with valid future dates and publish it.
-   Select approved artwork via "Select artworks". Review registrations and mark attendance.
-8. Log in as STUDENT, open /exhibitions.php, register, then check /my-events.php.
+MIRA — Exhibition Poster & Student Artwork Requests (Phase 4 extension)
 
-SECURITY AND BEHAVIOR
-- PHP sessions, database role checks for students, admin/auth.php for admin access, CSRF on modifications.
-- Event capacity enforced inside MySQL transaction using SELECT FOR UPDATE on event row.
-- Student registrations are unique per user and event, and can be cancelled/re-registered while registration is open.
-- Cancelled/closed events do not accept new registrations.
-- Dates are interpreted in PHP server timezone; align your PHP timezone to Asia/Colombo if needed.
-- Admin should NOT mark attendance as 'attended' until participation is actually verified.
-- No email notifications are included; no automatic emails are claimed.
-- Admin views registered student email addresses; keep access limited to authorized administrators.
-- The existing student gallery and category code remain unchanged.
-- Be sure that your InfinityFree SQL export contains the latest artwork_images table and approval columns.
+Backup local code and MySQL database before installing. Latest project sidebar.php and original admin.css/admin.js remain unchanged.
+
+1. Run sql/exhibition_requests_posters.sql ONCE in the selected database via phpMyAdmin. Do this separately for local XAMPP and InfinityFree, if both are used. Do not import the old full SQL dump again.
+2. Add admin/event-requests.php and admin/review-event-request.php to admin/.
+3. Replace admin/events.php and admin/save-event.php after backing them up. Keep admin/auth.php, sidebar.php, admin.css and admin.js intact.
+4. Add request-exhibition.php, submit-exhibition-request.php, exhibition-home.css to the site root.
+5. Replace root exhibitions.php, exhibition-detail.php, event.css and user-home.php with provided files. Back up user-home.php first. If you have made additional edits since the last ZIP you provided, compare/merge the changes instead of blindly replacing it.
+6. Create uploads/events/ and put index.html and .htaccess in it.
+7. In admin/events.php create/edit a published event and upload a JPG/PNG/WebP poster up to 3MB.
+8. Login as a student. Click Exhibitions, then 'Request to exhibit my art' and select an approved artwork.
+9. Admin opens Exhibitions > Artwork requests to approve/reject. Approved requests are inserted in event_artworks and appear in exhibition detail pages.
+10. Open user-home.php to see upcoming published posters.
+
+NOTES:
+- Attending an exhibition (register button) is different from requesting to display artwork.
+- The poster upload requires PHP file uploads to be enabled. Hosting upload limits may be lower than 3MB.
+- If a poster isn't visible, check the event status, date, actual uploads/events directory and image permissions.
+- Existing manual artwork selections are preserved. Declining a previously approved request will unselect its artwork from the event.
+- Don't upload database dumps or credentials to a public folder/repository.
+- This package was syntax-checked locally but must be tested with your live database.
