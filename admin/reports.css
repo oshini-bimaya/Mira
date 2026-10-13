@@ -1,0 +1,16 @@
+/* Phase 7 - uses the color variables from admin.css */
+.report-stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin:22px 0 28px}
+.report-stat{border:1px solid var(--border);border-radius:20px;padding:18px 21px;background:var(--surface);box-shadow:var(--shadow)}
+.report-stat span{display:block;font-size:14px;color:var(--muted);margin-bottom:9px;font-weight:600}
+.report-stat strong{display:block;font-size:35px;line-height:1.2;color:var(--text)}
+.report-toolbar{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:15px;margin-bottom:18px}
+.report-toolbar h2{font-size:27px;margin:0}.report-downloads{display:flex;gap:9px;flex-wrap:wrap}
+.report-downloads a{display:inline-flex;text-decoration:none;border:1px solid var(--border);border-radius:11px;padding:10px 13px;color:var(--text);background:var(--surface);font:600 13px system-ui,sans-serif}
+.report-downloads a:hover{border-color:var(--accent-2);color:var(--accent-2)}
+.report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.report-wide{grid-column:1/-1}.report-panel{min-width:0}.report-panel h2{font-size:25px;margin-bottom:5px}.report-panel .admin-panel-subtitle{margin-bottom:18px}
+.report-bar-row{margin:0 0 17px}.report-bar-label{display:flex;justify-content:space-between;gap:12px;font-size:15px;color:var(--text);margin-bottom:7px}.report-bar-label strong{font-variant-numeric:tabular-nums}
+.report-track{height:10px;background:var(--surface-soft);border:1px solid var(--border);border-radius:100px;overflow:hidden}.report-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2))}
+.report-month-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:20px}.report-month{display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:end;min-width:0}.report-month-column{height:150px;width:100%;max-width:95px;background:var(--surface-soft);border:1px solid var(--border);border-radius:10px;display:flex;align-items:end;overflow:hidden}.report-month-fill{width:100%;background:linear-gradient(0deg,var(--accent-1),var(--accent-2));min-height:0}.report-month strong{font:700 16px system-ui,sans-serif}.report-month small{color:var(--muted);font:12px system-ui,sans-serif;text-align:center}.report-empty{color:var(--muted)}
+@media(max-width:1200px){.report-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.report-grid,.report-stat-grid{grid-template-columns:1fr}.report-wide{grid-column:auto}.report-month-grid{gap:5px}.report-month-column{height:105px}.report-month small{font-size:10px}}
