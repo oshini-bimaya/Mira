@@ -32,6 +32,9 @@ if($posterResult){$exhibitionPosters=$posterResult->fetch_all(MYSQLI_ASSOC);}
 
 
 
+$miraUnreadNotifications=0;
+$ns=$conn->prepare('SELECT COUNT(*) FROM notifications WHERE user_id=? AND is_read=0');
+$notifUid=(int)$_SESSION['user_id'];$ns->bind_param('i',$notifUid);$ns->execute();$ns->bind_result($miraUnreadNotifications);$ns->fetch();$ns->close();
 ?>
 
 <!DOCTYPE html>
@@ -47,6 +50,7 @@ if($posterResult){$exhibitionPosters=$posterResult->fetch_all(MYSQLI_ASSOC);}
 <link rel="stylesheet" href="featured-home.css">
     <script src="theme.js" defer></script>
 <link rel="stylesheet" href="exhibition-home.css">
+<style>.mira-notification-link{position:relative;display:inline-flex;align-items:center;justify-content:center;text-decoration:none}.mira-notification-count{position:absolute;top:-8px;right:-10px;background:#e04b7a;color:white;border-radius:20px;min-width:20px;height:20px;display:grid;place-items:center;font:700 11px Arial,sans-serif;padding:0 4px}</style>
 </head>
 
 <body class="user-home-page">
@@ -96,16 +100,11 @@ if($posterResult){$exhibitionPosters=$posterResult->fetch_all(MYSQLI_ASSOC);}
             </a>
 
 
-            <!-- Notification -->
-            <button class="notification-button"
-                    type="button"
-                    aria-label="Notifications">
-
-                <span>♡</span>
-
-                <span class="notification-dot"></span>
-
-            </button>
+            <!-- Notifications: real inbox, unread count -->
+            <a class="notification-button mira-notification-link" href="notifications.php" aria-label="Notifications (<?= $miraUnreadNotifications ?> unread)" title="Notifications">
+                <span aria-hidden="true">♧</span>
+                <?php if($miraUnreadNotifications>0): ?><span class="mira-notification-count"><?= $miraUnreadNotifications>99?'99+':$miraUnreadNotifications ?></span><?php endif; ?>
+            </a>
 
 
             <!-- Profile -->
