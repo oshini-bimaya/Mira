@@ -10,9 +10,9 @@ if ($categoryResults) while($cat=$categoryResults->fetch_assoc()) $categories[]=
 if ($category!==''&&!in_array($category,$categories,true)) $category='';
 $gallery=miraApprovedArtworks($conn,$category,0,200);
 ?><!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Student Gallery | MIRA</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="gallery.css"><script src="theme.js" defer></script><script src="gallery-search.js" defer></script></head>
-<body class="user-home-page mira-gallery-page"><main class="mira-gallery-wrap">
-<header class="mira-gallery-top"><a href="user-home.php">← MIRA Home</a><div><a href="upload-artwork.php" class="mira-gallery-upload">+ Upload Artwork</a><button class="theme-toggle" type="button" aria-label="Toggle theme">🌙</button></div></header>
+<title>Student Gallery | MIRA</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="gallery.css"><script src="theme.js" defer></script><script src="gallery-search.js" defer></script><link rel="stylesheet" href="mira-student-nav.css?v=2"></head>
+<body class="user-home-page mira-gallery-page"><?php require __DIR__ . "/mira-student-nav.php"; ?><main class="mira-gallery-wrap">
+
 <section class="mira-gallery-heading"><p>NSBM STUDENT ART & CRAFT</p><h1>Explore student creativity.</h1><span>Only administrator-approved work is shown here.</span></section>
 <form method="get" class="mira-gallery-filter" aria-label="Category filter"><label for="category">Category</label><select name="category" id="category" onchange="this.form.submit()"><option value="">All Categories</option>
 <?php foreach($categories as $name): ?><option value="<?= miraEsc($name) ?>" <?= $category===$name?'selected':'' ?>><?= miraEsc($name) ?></option><?php endforeach; ?></select></form>

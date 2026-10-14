@@ -10,7 +10,7 @@ function miraArtworkImage($path): string {
 function miraApprovedArtworks(mysqli $conn, string $category='', int $id=0, int $limit=100): array {
     $limit=max(1,min(200,$limit));
     $sql="SELECT a.artwork_id,a.title,a.description,a.created_at,a.is_featured,
-                 u.FULL_NAME AS artist_name,c.category_name,c.category_id,
+                 u.FULL_NAME AS artist_name,a.user_id AS artist_id,c.category_name,c.category_id,
                  (SELECT ai.image_path FROM artwork_images ai WHERE ai.artwork_id=a.artwork_id
                   ORDER BY ai.image_id ASC LIMIT 1) AS image_path
           FROM artworks a

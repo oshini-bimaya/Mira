@@ -51,122 +51,9 @@ $notifUid=(int)$_SESSION['user_id'];$ns->bind_param('i',$notifUid);$ns->execute(
     <script src="theme.js" defer></script>
 <link rel="stylesheet" href="exhibition-home.css">
 <style>.mira-notification-link{position:relative;display:inline-flex;align-items:center;justify-content:center;text-decoration:none}.mira-notification-count{position:absolute;top:-8px;right:-10px;background:#e04b7a;color:white;border-radius:20px;min-width:20px;height:20px;display:grid;place-items:center;font:700 11px Arial,sans-serif;padding:0 4px}</style>
-</head>
+<link rel="stylesheet" href="mira-student-nav.css?v=2"></head>
 
-<body class="user-home-page">
-
-    <!-- =========================
-         LIQUID GLASS NAVBAR
-    ========================== -->
-
-    <header class="user-navbar">
-
-        <!-- Logo -->
-        <a href="user-home.php" class="user-nav-logo">
-            <img src="./Assets/Logo.jpeg" alt="MIRA Logo">
-        </a>
-
-
-        <!-- Center Navigation -->
-        <nav class="user-nav-links">
-
-            <a href="user-home.php" class="active">
-                Home
-            </a>
-
-            <a href="gallery.php">
-                 Categories
-            </a>
-
-            <a href="gallery.php">
-                Gallery
-            </a>
-
-            <a href="gallery.php">
-                Artists
-            </a>
-
-            <a href="exhibitions.php">Exhibitions</a>
-
-        </nav>
-
-
-        <!-- Right Side -->
-        <div class="user-nav-actions">
-
-            <!-- Upload Artwork -->
-            <a href="upload-artwork.php" class="upload-nav-button">
-                + Upload
-            </a>
-
-
-            <!-- Notifications: real inbox, unread count -->
-            <a class="notification-button mira-notification-link" href="notifications.php" aria-label="Notifications (<?= $miraUnreadNotifications ?> unread)" title="Notifications">
-                <span aria-hidden="true">♧</span>
-                <?php if($miraUnreadNotifications>0): ?><span class="mira-notification-count"><?= $miraUnreadNotifications>99?'99+':$miraUnreadNotifications ?></span><?php endif; ?>
-            </a>
-
-
-            <!-- Profile -->
-            <div class="profile-menu">
-
-                <button class="profile-button"
-                        id="profileButton"
-                        type="button">
-
-                    <div class="profile-avatar">
-                        <?php echo strtoupper(substr($userName, 0, 1)); ?>
-                    </div>
-
-                    <span class="profile-name">
-                        <?php echo htmlspecialchars($userName); ?>
-                    </span>
-
-                    <span class="profile-arrow">
-                        ▾
-                    </span>
-
-                </button>
-
-
-                <!-- Dropdown -->
-                <div class="profile-dropdown"
-                     id="profileDropdown">
-
-                    <a href="profile.php">
-                        My Profile
-                    </a>
-
-                    <a href="my-artworks.php">
-                        My Artworks
-                    </a>
-
-                    <a href="my-artworks.php">
-                        Submission History
-                    </a>
-
-                    <a href="my-events.php">
-                        My Exhibitions
-                    </a>
-
-                    <a href="following.php">
-                        Following
-                    </a>
-
-                    <div class="dropdown-line"></div>
-
-                    <a href="logout.php"
-                       class="logout-link">
-                        Log Out
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </header>
+<body class="user-home-page"><?php require __DIR__ . "/mira-student-nav.php"; ?>
 
 
     <!-- =========================
@@ -223,35 +110,6 @@ $notifUid=(int)$_SESSION['user_id'];$ns->bind_param('i',$notifUid);$ns->execute(
 
 
     <script src="gallery-search.js" defer></script>
-    <script>
-
-        const profileButton =
-            document.getElementById("profileButton");
-
-        const profileDropdown =
-            document.getElementById("profileDropdown");
-
-
-        profileButton.addEventListener("click", function () {
-
-            profileDropdown.classList.toggle("show-profile-menu");
-
-        });
-
-
-        document.addEventListener("click", function (event) {
-
-            if (!event.target.closest(".profile-menu")) {
-
-                profileDropdown.classList.remove(
-                    "show-profile-menu"
-                );
-
-            }
-
-        });
-
-    </script>
 
 </body>
 </html>

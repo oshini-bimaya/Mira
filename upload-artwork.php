@@ -9,9 +9,9 @@ $cats=$conn->query('SELECT category_id,category_name FROM categories WHERE is_ac
 $name=$_SESSION['full_name']??'Student';
 $status=$_GET['status']??'';
 ?>
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Upload Artwork | MIRA</title><link rel="stylesheet" href="artwork-workflow.css"><script src="theme.js" defer></script></head>
-<body class="mira-workflow"><main class="workflow-wrap">
-<header class="workflow-top"><a href="user-home.php" class="back-link">← Back to gallery</a><button type="button" class="theme-toggle" aria-label="Toggle theme">🌙</button></header>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Upload Artwork | MIRA</title><link rel="stylesheet" href="artwork-workflow.css"><script src="theme.js" defer></script><link rel="stylesheet" href="mira-student-nav.css?v=2"></head>
+<body class="mira-workflow"><?php require __DIR__ . "/mira-student-nav.php"; ?><main class="workflow-wrap">
+
 <div class="workflow-heading"><p class="overline">MIRA · SHARE YOUR CREATIVITY</p><h1>Upload your artwork</h1><p>Submit your original artwork for review. Approved work can appear in the MIRA gallery.</p></div>
 <?php if($status==='success'): ?><p class="notice success" role="status">Artwork submitted successfully! It is pending admin approval.</p><?php endif; ?>
 <?php if($status==='error'): ?><p class="notice error" role="alert">Upload failed. Check your artwork details and image, then try again.</p><?php endif; ?>
