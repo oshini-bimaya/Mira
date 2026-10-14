@@ -1,0 +1,24 @@
+/* Admin profile styling, compatible with MIRA light and dark theme */
+.admin-profile-link { text-decoration:none; display:grid; place-items:center; flex-shrink:0; cursor:pointer; transition:transform .2s, box-shadow .2s; }
+.admin-profile-link:hover { transform:translateY(-2px); box-shadow:0 0 0 4px rgba(224,75,122,.18); }
+.profile-grid { display:grid; grid-template-columns:minmax(260px, 1fr) minmax(360px, 1.6fr); gap:20px; align-items:start; }
+.profile-overview { text-align:center; }
+.profile-avatar-large { width:90px; height:90px; border-radius:50%; display:grid; place-items:center; margin:4px auto 18px; background:linear-gradient(135deg,var(--accent-1),var(--accent-2)); color:#fff; font-size:40px; font-weight:700; }
+.profile-overview h2 { font-size:29px; overflow-wrap:anywhere; }
+.profile-role { display:inline-block; margin:8px 0 20px; padding:5px 13px; border-radius:999px; background:var(--surface-soft); border:1px solid var(--border); color:var(--muted); }
+.profile-facts { text-align:left; border-top:1px solid var(--border); }
+.profile-facts div { padding:13px 0; border-bottom:1px solid var(--border); display:flex; flex-direction:column; gap:4px; }
+.profile-facts span { color:var(--muted); font-size:14px; }
+.profile-facts strong { overflow-wrap:anywhere; }
+.profile-back { display:inline-block; margin-top:22px; color:var(--accent-3); font-weight:700; }
+.profile-forms { display:flex; flex-direction:column; gap:20px; }
+.profile-forms h2 { margin-bottom:4px; }
+.profile-form { display:flex; flex-direction:column; gap:10px; }
+.profile-form label { font-size:16px; font-weight:700; margin-top:5px; }
+.profile-form input { width:100%; border:1px solid var(--border); background:var(--surface-soft); color:var(--text); border-radius:13px; padding:13px 15px; font-size:15px; font-family:inherit; }
+.profile-form input:focus { outline:2px solid var(--accent-3); outline-offset:1px; }
+.profile-form button { align-self:flex-start; margin-top:12px; }
+.profile-alert { padding:13px 17px; margin-bottom:20px; border-radius:14px; border:1px solid var(--border); }
+.profile-alert-success { color:#18714a; background:#e6f9ee; }.profile-alert-error { color:#a12d4d; background:#fff0f3; }
+.admin-breadcrumb a { color:var(--muted); text-decoration:none; }
+@media(max-width:1100px){.profile-grid{grid-template-columns:1fr;}}@media(max-width:540px){.profile-grid{gap:14px;}.profile-forms .admin-panel,.profile-overview{padding:17px;}}

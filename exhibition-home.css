@@ -1,0 +1,10 @@
+/* MIRA homepage exhibition poster gallery */
+.mira-exhibition-showcase{max-width:1330px;margin:65px auto 90px;padding:0 26px;color:var(--mira-text,#2e1e5d)}
+.mira-exhibition-heading{text-align:center;margin-bottom:28px}.mira-exhibition-heading p{letter-spacing:3px;color:#e04b7a;font-size:12px;font-weight:700}
+.mira-exhibition-heading h2{font-size:clamp(30px,4vw,48px);margin:8px 0}.mira-exhibition-heading a{color:inherit}
+.mira-exhibition-posters{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.mira-exhibition-tile{color:inherit;text-decoration:none;background:var(--mira-card,#fff);border:1px solid var(--mira-border,#e9deef);border-radius:22px;overflow:hidden;box-shadow:0 12px 30px #291b4213}
+.mira-exhibition-tile img{width:100%;height:310px;object-fit:cover;display:block}.mira-exhibition-tile div{padding:15px 19px}.mira-exhibition-tile h3{font-size:23px;margin:0}.mira-exhibition-tile p{font-size:13px;opacity:.8}
+.mira-no-exhibitions{grid-column:1/-1;text-align:center;padding:30px;opacity:.7}
+html[data-theme=dark] .mira-exhibition-showcase{color:#f4edff}
+html[data-theme=dark] .mira-exhibition-tile{background:#252235;border-color:#423c55}

@@ -1,0 +1,14 @@
+.student-head{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.student-head h2,.student-detail-grid h2{margin:0;font-size:25px}
+.student-filters{display:flex;gap:10px;flex-wrap:wrap}
+.student-filters input,.student-filters select,.student-status-form textarea{border:1px solid var(--border);background:var(--surface-soft);color:var(--text);border-radius:13px;padding:12px;font:inherit;min-width:180px}
+.student-filters button,.student-status-form button{border:0;border-radius:13px;padding:12px 18px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));color:white;cursor:pointer;font-weight:700}
+.admin-table-scroll{overflow-x:auto}
+.student-link{color:var(--accent-3);font-weight:700;text-decoration:none}
+.student-link:hover{text-decoration:underline}
+.student-pill{display:inline-block;padding:5px 12px;border-radius:99px;font-size:13px;font-weight:700}
+.student-pill.is-active{background:#dbf5e5;color:#196240}.student-pill.is-suspended{background:#ffe0e0;color:#932f33}
+.student-detail-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:22px;margin-top:24px}.student-detail-grid>.admin-panel:last-child{grid-column:1/-1}
+.student-status-form{display:flex;flex-direction:column;gap:12px;margin-top:20px}.student-status-form textarea{width:100%;min-height:96px;resize:vertical}.student-status-form button{align-self:flex-start}.student-status-form .student-danger{background:#b94053}
+.student-current{margin-top:16px}.student-message{padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:12px}
+@media(max-width:950px){.student-detail-grid{grid-template-columns:1fr}.student-detail-grid>.admin-panel:last-child{grid-column:auto}}
