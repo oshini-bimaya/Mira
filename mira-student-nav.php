@@ -7,6 +7,7 @@ $navSection = match ($navCurrent) {
     'user-home.php' => 'home',
     'gallery.php', 'artwork-view.php' => 'categories',
     'artists.php', 'artist-profile.php' => 'artists',
+    'saved-artworks.php' => 'saved',
     'exhibitions.php','exhibition-detail.php','request-exhibition.php','my-events.php' => 'exhibitions',
     default => ''
 };
@@ -29,6 +30,7 @@ if (isset($conn) && $conn instanceof mysqli && isset($_SESSION['user_id'])) {
     <a href="user-home.php" <?= $navSection==='home'?'aria-current="page"':'' ?>>Home</a>
     <a href="gallery.php" <?= $navSection==='categories'?'aria-current="page"':'' ?>>Categories</a>
     <a href="artists.php" <?= $navSection==='artists'?'aria-current="page"':'' ?>>Artists</a>
+    <a href="saved-artworks.php" <?= $navSection==='saved'?'aria-current="page"':'' ?>>Saved</a>
     <a href="exhibitions.php" <?= $navSection==='exhibitions'?'aria-current="page"':'' ?>>Exhibitions</a>
   </nav>
   <div class="mira-shared-actions">
@@ -39,6 +41,7 @@ if (isset($conn) && $conn instanceof mysqli && isset($_SESSION['user_id'])) {
       <button type="button" class="mira-shared-profile-button" aria-expanded="false" aria-controls="mira-shared-dropdown"><span class="mira-shared-avatar"><?= htmlspecialchars(strtoupper(substr($navName,0,1)),ENT_QUOTES,'UTF-8') ?></span><span class="mira-shared-name"><?= htmlspecialchars($navName,ENT_QUOTES,'UTF-8') ?></span><span aria-hidden="true">⌄</span></button>
       <div id="mira-shared-dropdown" class="mira-shared-dropdown" hidden>
         <a href="profile.php">My Profile</a>
+        <a href="saved-artworks.php">Saved Artworks</a>
         <a href="my-artworks.php">My Artworks / Submission History</a>
         <a href="my-events.php">My Exhibitions</a>
         <a href="artists.php">Browse Artists</a>
