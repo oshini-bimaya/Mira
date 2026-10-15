@@ -517,3 +517,15 @@ body.admin-page {
     font-size: 20px;
     font-weight: 700;
 }
+
+
+/* MIRA universal theme-aware logos — works with existing theme.js */
+.mira-logo-for-light{display:inline-block!important}
+.mira-logo-for-dark{display:none!important}
+html[data-theme="dark"] .mira-logo-for-light{display:none!important}
+html[data-theme="dark"] .mira-logo-for-dark{display:inline-block!important}
+/* Avoid spacing from multiple images */
+.mira-shared-logo .mira-logo-for-light,.mira-shared-logo .mira-logo-for-dark{width:48px;height:43px;object-fit:contain;border-radius:6px}
+
+.mira-admin-brand-logo{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}
+.admin-brand .admin-brand-img{width:52px;height:38px;object-fit:contain;border-radius:5px}

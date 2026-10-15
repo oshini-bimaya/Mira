@@ -2,7 +2,7 @@
 session_start();if($_SERVER['REQUEST_METHOD']!=='POST'){http_response_code(405);exit;}
 if(empty($_SESSION['user_id'])){header('Location: login.html');exit;}
 require __DIR__.'/db.php';require __DIR__.'/event-common.php';
-$uid=(int)$_SESSION['user_id'];if(!eventStudent($conn,$uid)){http_response_code(403);exit('Student access only');}
+$uid=(int)$_SESSION['user_id'];if(!eventArtist($conn,$uid)){http_response_code(403);exit('Artist account required');}
 if(!eventValidToken()){http_response_code(403);exit('Invalid form token');}
 $eid=filter_var($_POST['event_id']??null,FILTER_VALIDATE_INT);$aid=filter_var($_POST['artwork_id']??null,FILTER_VALIDATE_INT);
 if(!$eid||!$aid){http_response_code(400);exit('Invalid input');}

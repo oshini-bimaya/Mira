@@ -13,7 +13,7 @@ $stmt->execute();
 $user = $stmt->get_result()->fetch_assoc();
 $stmt->close();
 if (!$user || !password_verify($password, $user['PASSWORD'])) { echo json_encode(['success'=>false,'message'=>'Invalid email or password.']); exit; }
-if (strtoupper((string)$user['ROLE']) === 'STUDENT' && $user['account_status'] !== 'active') { echo json_encode(['success'=>false,'message'=>'Your account has been suspended. Please contact an administrator.']); exit; }
+if (in_array(strtoupper((string)$user['ROLE']), ['STUDENT', 'ARTIST'], true) && strtolower((string)$user['account_status']) !== 'active') { echo json_encode(['success'=>false,'message'=>'Your account has been suspended. Please contact an administrator.']); exit; }
 session_regenerate_id(true);
 $_SESSION['user_id'] = (int)$user['USER_ID'];
 $_SESSION['full_name'] = $user['FULL_NAME'];

@@ -13,3 +13,12 @@
 .mira-shared-dropdown{position:absolute;top:calc(100% + 9px);right:0;width:225px;padding:7px;background:#fff;color:#2b2340;border:1px solid #d9d1e2;border-radius:15px;box-shadow:0 13px 40px rgba(10,5,20,.22)}.mira-shared-dropdown[hidden]{display:none!important}.mira-shared-dropdown a{display:block;padding:11px 12px;color:inherit!important;border-radius:9px;font-size:13px}.mira-shared-dropdown a:hover{background:#f2eaf7}
 html[data-theme=dark] .mira-shared-nav,body.dark-mode .mira-shared-nav{background:rgba(42,36,59,.82);color:#f8f3ff;border-color:rgba(210,195,235,.35)}html[data-theme=dark] .mira-shared-dropdown,body.dark-mode .mira-shared-dropdown{background:#30283f;color:#fff;border-color:#5b4a69}html[data-theme=dark] .mira-shared-dropdown a:hover{background:#504260}
 @media(max-width:900px){.mira-shared-nav{flex-wrap:wrap;gap:9px;justify-content:center}.mira-shared-links{order:3;width:100%;justify-content:center;overflow-x:auto}.mira-shared-actions{margin-left:auto}}@media(max-width:500px){.mira-shared-nav{width:calc(100% - 16px);padding:8px}.mira-shared-links a{padding:9px 10px;font-size:12px}.mira-shared-name{display:none}.mira-shared-actions{gap:5px}}
+
+
+/* MIRA universal theme-aware logos — works with existing theme.js */
+.mira-logo-for-light{display:inline-block!important}
+.mira-logo-for-dark{display:none!important}
+html[data-theme="dark"] .mira-logo-for-light{display:none!important}
+html[data-theme="dark"] .mira-logo-for-dark{display:inline-block!important}
+/* Avoid spacing from multiple images */
+.mira-shared-logo .mira-logo-for-light,.mira-shared-logo .mira-logo-for-dark{width:48px;height:43px;object-fit:contain;border-radius:6px}

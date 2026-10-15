@@ -13,6 +13,14 @@ if($decision==='toggle_featured'){
  $ownerStmt->bind_param('i',$id);$ownerStmt->execute();$owner=$ownerStmt->get_result()->fetch_assoc();$ownerStmt->close();
  $stmt=$conn->prepare("UPDATE artworks SET status=?, rejection_reason=?, reviewed_at=NOW(), reviewed_by=?, is_featured=0 WHERE artwork_id=? AND LOWER(status)='pending'");
  $rejection=$decision==='rejected'?$reason:null;$stmt->bind_param('ssii',$decision,$rejection,$uid,$id);$stmt->execute();$ok=$stmt->affected_rows===1;$stmt->close();$msg=$ok?$decision:'error';
+ if($ok){
+   try{
+     $log=$conn->prepare('INSERT INTO artwork_status_history (artwork_id,actor_id,action,details) VALUES (?,?,?,?)');
+     $logDetails=$decision==='rejected'?$reason:null;
+     $log->bind_param('iiss',$id,$uid,$decision,$logDetails);$log->execute();$log->close();
+   }catch(Throwable $e){error_log('MIRA status history: '.$e->getMessage());}
+ }
+
  if($ok && $owner){
    try{
      $title=$decision==='approved'?'Artwork approved':'Artwork rejected';

@@ -9,7 +9,9 @@ $code = (string)($_GET['msg'] ?? ''); $message = $messages[$code] ?? '';
 ?><!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Categories | MIRA Admin</title>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem('mira-theme')==='dark'?'dark':'light'}catch(e){document.documentElement.dataset.theme='light'}</script>
-<link rel="stylesheet" href="admin.css"><link rel="stylesheet" href="categories.css"><script src="admin.js" defer></script></head>
+<link rel="stylesheet" href="admin.css"><link rel="stylesheet" href="categories.css"><script src="admin.js" defer></script><link rel="stylesheet" href="../mira-design-system.css?v=1">
+<link rel="stylesheet" href="mira-admin-polish.css?v=1">
+</head>
 <body class="admin-page"><div class="admin-layout">
 <?php $activeAdminPage = "categories"; require __DIR__ . "/sidebar.php"; ?>
 <main class="admin-main"><header class="admin-topbar"><p class="admin-breadcrumb">MIRA / <strong>Categories</strong></p><button id="themeToggle" class="admin-theme-toggle" type="button">☾ Dark mode</button></header>

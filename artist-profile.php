@@ -1,13 +1,6 @@
 
 <?php
-session_start();
-
-if (empty($_SESSION['user_id'])) {
-    header('Location: login.html');
-    exit;
-}
-
-require __DIR__ . '/db.php';
+require __DIR__ . '/mira-view-access.php';
 require __DIR__ . '/gallery-common.php';
 
 $currentUserId = (int) $_SESSION['user_id'];
@@ -45,6 +38,7 @@ if (!$artist) {
 
 // Handle Follow / Unfollow
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    require __DIR__ . '/mira-action-access.php';
     $token = (string) ($_POST['csrf_token'] ?? '');
 
     if (!hash_equals($_SESSION['follow_csrf'], $token)) {
@@ -136,7 +130,8 @@ function artistEsc($value): string {
     <link rel="stylesheet" href="profile.css">
     <link rel="stylesheet" href="artist-enhancements.css?v=1">
     <script src="theme.js" defer></script>
-<link rel="stylesheet" href="mira-student-nav.css?v=2"></head>
+<link rel="stylesheet" href="mira-student-nav.css?v=2"><link rel="stylesheet" href="mira-design-system.css?v=1">
+</head>
 
 <body class="user-home-page mira-profile-page"><?php require __DIR__ . "/mira-student-nav.php"; ?>
 
@@ -173,14 +168,14 @@ function artistEsc($value): string {
                 <p><?= artistEsc($artist['ABOUT_ARTIST'] ?: 'Sharing creativity with MIRA.') ?></p>
             </div>
 
-            <form method="POST">
+            <?php if (!$miraAdminPreview): ?><form method="POST">
                 <input type="hidden" name="csrf_token"
                        value="<?= artistEsc($_SESSION['follow_csrf']) ?>">
 
                 <button type="submit" class="profile-primary-btn">
                     <?= $isFollowing ? '✓ Following' : '+ Follow' ?>
                 </button>
-            </form>
+            </form><?php endif; ?>
 
         </div>
     </section>

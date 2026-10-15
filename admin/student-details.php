@@ -2,7 +2,7 @@
 require __DIR__.'/auth.php';
 $id=filter_input(INPUT_GET,'id',FILTER_VALIDATE_INT);
 if(!$id){http_response_code(400);exit('Invalid student ID');}
-$stmt=$conn->prepare("SELECT USER_ID,FULL_NAME,EMAIL,CREATED_AT,account_status,suspension_reason,status_updated_at FROM users WHERE USER_ID=? AND UPPER(ROLE)='STUDENT' LIMIT 1");$stmt->bind_param('i',$id);$stmt->execute();$student=$stmt->get_result()->fetch_assoc();$stmt->close();
+$stmt=$conn->prepare("SELECT USER_ID,FULL_NAME,EMAIL,CREATED_AT,account_status,suspension_reason,status_updated_at FROM users WHERE USER_ID=? AND UPPER(ROLE) IN ('STUDENT','ARTIST') LIMIT 1");$stmt->bind_param('i',$id);$stmt->execute();$student=$stmt->get_result()->fetch_assoc();$stmt->close();
 if(!$student){http_response_code(404);exit('Student not found');}
 $stmt=$conn->prepare('SELECT artwork_id,title,status,created_at FROM artworks WHERE user_id=? ORDER BY created_at DESC,artwork_id DESC');$stmt->bind_param('i',$id);$stmt->execute();$artworks=$stmt->get_result()->fetch_all(MYSQLI_ASSOC);$stmt->close();
 $registrations=[];
@@ -13,7 +13,9 @@ if($hasEvents){
 if(empty($_SESSION['mira_student_csrf'])) $_SESSION['mira_student_csrf']=bin2hex(random_bytes(32));
 $activeAdminPage='students';
 ?><!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Student Profile | MIRA Admin</title>
-<script>try{document.documentElement.dataset.theme=localStorage.getItem('mira-theme')==='dark'?'dark':'light'}catch(e){}</script><link rel="stylesheet" href="admin.css"><link rel="stylesheet" href="students.css"><script src="admin.js" defer></script></head><body class="admin-page"><div class="admin-layout"><?php require __DIR__.'/sidebar.php';?><main class="admin-main"><header class="admin-topbar"><p class="admin-breadcrumb">MIRA / <strong>Student Profile</strong></p><button id="themeToggle" class="admin-theme-toggle" type="button">☾ Dark mode</button></header>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('mira-theme')==='dark'?'dark':'light'}catch(e){}</script><link rel="stylesheet" href="admin.css"><link rel="stylesheet" href="students.css"><script src="admin.js" defer></script><link rel="stylesheet" href="../mira-design-system.css?v=1">
+<link rel="stylesheet" href="mira-admin-polish.css?v=1">
+</head><body class="admin-page"><div class="admin-layout"><?php require __DIR__.'/sidebar.php';?><main class="admin-main"><header class="admin-topbar"><p class="admin-breadcrumb">MIRA / <strong>Student Profile</strong></p><button id="themeToggle" class="admin-theme-toggle" type="button">☾ Dark mode</button></header>
 <p><a class="student-link" href="students.php">← All students</a></p><section class="admin-hero"><h1><?=h($student['FULL_NAME'])?></h1><p><?=h($student['EMAIL'])?> · Joined <?=h(date('M j, Y',strtotime($student['CREATED_AT'])))?></p></section>
 <?php if(isset($_GET['updated'])):?><p class="student-message">Account status updated.</p><?php endif;?>
 <div class="student-detail-grid"><section class="admin-panel"><h2>Account status</h2><p class="student-current"><span class="student-pill <?=$student['account_status']==='active'?'is-active':'is-suspended'?>"><?=h(ucfirst($student['account_status']))?></span></p>

@@ -6,6 +6,7 @@
     <title>Sign Up | MIRA</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="signup-roles.css">
     <script src="signup.js" defer></script>
     <script src="theme.js" defer></script>
 </head>
@@ -20,14 +21,18 @@
         </a>
 
         <section class="login-panel" aria-labelledby="signupTitle">
-            <img src="./Assets/logo without bg.jpeg"
-                 alt="MIRA"
-                 class="login-logo">
+            <img src="Assets/mira-logo-light.jpeg" alt="MIRA" class="login-logo mira-logo-for-light"><img src="Assets/mira-logo-dark.png" alt="" aria-hidden="true" class="login-logo mira-logo-for-dark">
 
             <h1 id="signupTitle">Join MIRA</h1>
-            <p class="subtitle">Create an account to share your creativity.</p>
+            <p class="subtitle">Create an account to explore art or share your creativity.</p>
 
             <form id="signupForm">
+                <fieldset class="mira-role-choice">
+                    <legend>Choose your account type</legend>
+                    <label class="mira-role-option"><input type="radio" name="role" value="STUDENT" checked required> Viewer — Explore artworks</label>
+                    <label class="mira-role-option"><input type="radio" name="role" value="ARTIST" required> Artist — Upload and showcase art</label>
+                </fieldset>
+
                 <label for="fullName">Full Name</label>
                 <input type="text"
                        id="fullName"

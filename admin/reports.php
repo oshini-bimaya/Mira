@@ -8,7 +8,7 @@ function reportRows(mysqli $conn, string $query): array {
     return $conn->query($query)->fetch_all(MYSQLI_ASSOC);
 }
 $totals = [
-    'students' => reportCount($conn, "SELECT COUNT(*) FROM users WHERE UPPER(ROLE)='STUDENT'"),
+    'students' => reportCount($conn, "SELECT COUNT(*) FROM users WHERE UPPER(ROLE) IN ('STUDENT','ARTIST')"),
     'artworks' => reportCount($conn, 'SELECT COUNT(*) FROM artworks'),
     'approved' => reportCount($conn, "SELECT COUNT(*) FROM artworks WHERE LOWER(status)='approved'"),
     'pending' => reportCount($conn, "SELECT COUNT(*) FROM artworks WHERE LOWER(status)='pending'"),
@@ -21,7 +21,7 @@ $artworkStatuses = reportRows($conn, "SELECT LOWER(status) AS label, COUNT(*) AS
 $categoryTotals = reportRows($conn, 'SELECT c.category_name AS label, COUNT(a.artwork_id) AS total FROM categories c LEFT JOIN artworks a ON a.category_id=c.category_id GROUP BY c.category_id,c.category_name ORDER BY total DESC,c.category_name');
 $eventStatuses = reportRows($conn, "SELECT status AS label, COUNT(*) AS total FROM events GROUP BY status ORDER BY total DESC");
 $requestStatuses = reportRows($conn, "SELECT status AS label, COUNT(*) AS total FROM exhibition_requests GROUP BY status ORDER BY total DESC");
-$topArtists = reportRows($conn, "SELECT u.FULL_NAME AS label, COUNT(a.artwork_id) AS total FROM users u JOIN artworks a ON a.user_id=u.USER_ID WHERE UPPER(u.ROLE)='STUDENT' GROUP BY u.USER_ID,u.FULL_NAME ORDER BY total DESC,u.FULL_NAME LIMIT 5");
+$topArtists = reportRows($conn, "SELECT u.FULL_NAME AS label, COUNT(a.artwork_id) AS total FROM users u JOIN artworks a ON a.user_id=u.USER_ID WHERE UPPER(u.ROLE) IN ('STUDENT','ARTIST') GROUP BY u.USER_ID,u.FULL_NAME ORDER BY total DESC,u.FULL_NAME LIMIT 5");
 // Last six calendar months, including months with no submissions.
 $months=[];
 $start=new DateTimeImmutable('first day of this month 00:00:00');
@@ -50,7 +50,9 @@ function reportBars(array $items): void {
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Reports &amp; Analytics | MIRA Admin</title>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem('mira-theme')==='dark'?'dark':'light'}catch(e){document.documentElement.dataset.theme='light'}</script>
-<link rel="stylesheet" href="admin.css"><link rel="stylesheet" href="reports.css"><script src="admin.js" defer></script></head>
+<link rel="stylesheet" href="admin.css"><link rel="stylesheet" href="reports.css"><script src="admin.js" defer></script><link rel="stylesheet" href="../mira-design-system.css?v=1">
+<link rel="stylesheet" href="mira-admin-polish.css?v=1">
+</head>
 <body class="admin-page"><div class="admin-layout">
 <?php require __DIR__.'/sidebar.php'; ?>
 <main class="admin-main"><header class="admin-topbar"><p class="admin-breadcrumb">MIRA / <strong>Reports &amp; Analytics</strong></p><div class="admin-top-actions"><button id="themeToggle" class="admin-theme-toggle" type="button" aria-label="Toggle dark mode">☾ Dark mode</button></div></header>

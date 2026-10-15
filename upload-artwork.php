@@ -4,12 +4,13 @@ if (!isset($_SESSION['user_id'])) { header('Location: login.html'); exit; }
 require __DIR__.'/db.php';
 require __DIR__.'/artwork-common.php';
 $uid=(int)$_SESSION['user_id'];
-if (!artworkIsStudent($conn,$uid)) { http_response_code(403); exit('Student access only.'); }
+if (!artworkIsStudent($conn,$uid)) { http_response_code(403); exit('Artist account required to upload artwork.'); }
 $cats=$conn->query('SELECT category_id,category_name FROM categories WHERE is_active = 1 ORDER BY category_name');
 $name=$_SESSION['full_name']??'Student';
 $status=$_GET['status']??'';
 ?>
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Upload Artwork | MIRA</title><link rel="stylesheet" href="artwork-workflow.css"><script src="theme.js" defer></script><link rel="stylesheet" href="mira-student-nav.css?v=2"></head>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Upload Artwork | MIRA</title><link rel="stylesheet" href="artwork-workflow.css"><script src="theme.js" defer></script><link rel="stylesheet" href="mira-student-nav.css?v=2"><link rel="stylesheet" href="mira-design-system.css?v=1">
+</head>
 <body class="mira-workflow"><?php require __DIR__ . "/mira-student-nav.php"; ?><main class="workflow-wrap">
 
 <div class="workflow-heading"><p class="overline">MIRA · SHARE YOUR CREATIVITY</p><h1>Upload your artwork</h1><p>Submit your original artwork for review. Approved work can appear in the MIRA gallery.</p></div>

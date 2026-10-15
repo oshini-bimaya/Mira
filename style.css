@@ -3245,3 +3245,45 @@ html[data-theme="dark"] input:-webkit-autofill {
     .mira-theme-toggle .mira-theme-text { display: none; }
 }
 
+/* MIRA Light and Dark Theme Logos */
+
+.mira-shared-logo {
+    display: flex;
+    align-items: center;
+}
+
+.mira-shared-logo img {
+    width: 60px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Light Theme */
+.mira-shared-logo .mira-logo-light {
+    display: block;
+}
+
+.mira-shared-logo .mira-logo-dark {
+    display: none;
+}
+
+/* Dark Theme */
+html[data-theme="dark"] .mira-logo-light,
+body[data-theme="dark"] .mira-logo-light,
+body.dark .mira-logo-light {
+    display: none;
+}
+
+html[data-theme="dark"] .mira-logo-dark,
+body[data-theme="dark"] .mira-logo-dark,
+body.dark .mira-logo-dark {
+    display: block;
+}
+
+/* MIRA universal theme-aware logos — works with existing theme.js */
+.mira-logo-for-light{display:inline-block!important}
+.mira-logo-for-dark{display:none!important}
+html[data-theme="dark"] .mira-logo-for-light{display:none!important}
+html[data-theme="dark"] .mira-logo-for-dark{display:inline-block!important}
+/* Avoid spacing from multiple images */
+.mira-shared-logo .mira-logo-for-light,.mira-shared-logo .mira-logo-for-dark{width:48px;height:43px;object-fit:contain;border-radius:6px}

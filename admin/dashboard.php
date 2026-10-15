@@ -6,7 +6,7 @@ function countQuery(mysqli $conn, string $sql): int {
     return $result ? (int) $result->fetch_row()[0] : 0;
 }
 
-$totalStudents = countQuery($conn, "SELECT COUNT(*) FROM users WHERE ROLE = 'STUDENT'");
+$totalStudents = countQuery($conn, "SELECT COUNT(*) FROM users WHERE ROLE IN ('STUDENT','ARTIST')");
 $totalArtworks = countQuery($conn, 'SELECT COUNT(*) FROM artworks');
 $pendingArtworks = countQuery($conn, "SELECT COUNT(*) FROM artworks WHERE LOWER(status) = 'pending'");
 $approvedArtworks = countQuery($conn, "SELECT COUNT(*) FROM artworks WHERE LOWER(status) = 'approved'");
@@ -46,6 +46,8 @@ $initial = function_exists('mb_substr') ? mb_substr($adminName, 0, 1) : substr($
     </script>
     <link rel="stylesheet" href="admin.css">
     <script src="admin.js" defer></script>
+<link rel="stylesheet" href="../mira-design-system.css?v=1">
+<link rel="stylesheet" href="mira-admin-polish.css?v=1">
 </head>
 <body class="admin-page">
 <div class="admin-layout">

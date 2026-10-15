@@ -9,7 +9,7 @@ function artworkValidCsrf(): bool {
     return isset($_POST['csrf'], $_SESSION['artwork_csrf']) && hash_equals($_SESSION['artwork_csrf'], (string)$_POST['csrf']);
 }
 function artworkIsStudent(mysqli $conn, int $uid): bool {
-    $stmt=$conn->prepare('SELECT ROLE FROM users WHERE USER_ID=? LIMIT 1');
+    $stmt=$conn->prepare('SELECT ROLE, account_status FROM users WHERE USER_ID=? LIMIT 1');
     $stmt->bind_param('i',$uid); $stmt->execute(); $r=$stmt->get_result()->fetch_assoc();$stmt->close();
-    return $r && strtoupper($r['ROLE'])==='STUDENT';
+    return $r && strtoupper((string)$r['ROLE'])==='ARTIST' && strtolower((string)$r['account_status'])==='active';
 }

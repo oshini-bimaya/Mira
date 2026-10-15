@@ -1,7 +1,5 @@
 <?php
-session_start();
-if (empty($_SESSION['user_id'])) { header('Location: login.html'); exit; }
-require __DIR__ . '/db.php';
+require __DIR__ . '/mira-view-access.php';
 require __DIR__ . '/gallery-common.php';
 $artists = $conn->query("SELECT u.USER_ID, u.FULL_NAME, u.ABOUT_ARTIST, u.PROFILE_PHOTO,
     COUNT(DISTINCT a.artwork_id) AS artworks,
@@ -18,6 +16,7 @@ function miraProfilePhoto($path): string {
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Artists | MIRA</title>
 <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="gallery.css"><link rel="stylesheet" href="mira-student-nav.css?v=2"><link rel="stylesheet" href="artist-enhancements.css?v=1"><script src="theme.js" defer></script>
+<link rel="stylesheet" href="mira-design-system.css?v=1">
 </head><body class="user-home-page mira-gallery-page mira-artists-directory">
 <?php require __DIR__ . '/mira-student-nav.php'; ?>
 <main class="mira-gallery-wrap">

@@ -1,7 +1,5 @@
 <?php
-session_start();
-if (empty($_SESSION['user_id'])) { header('Location: login.html'); exit; }
-require __DIR__.'/db.php';
+require __DIR__ . '/mira-view-access.php';
 require __DIR__.'/gallery-common.php';
 $category=trim((string)($_GET['category']??''));
 $categories=[];
@@ -10,7 +8,8 @@ if ($categoryResults) while($cat=$categoryResults->fetch_assoc()) $categories[]=
 if ($category!==''&&!in_array($category,$categories,true)) $category='';
 $gallery=miraApprovedArtworks($conn,$category,0,200);
 ?><!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Student Gallery | MIRA</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="gallery.css"><script src="theme.js" defer></script><script src="gallery-search.js" defer></script><link rel="stylesheet" href="mira-student-nav.css?v=2"></head>
+<title>Student Gallery | MIRA</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="gallery.css"><script src="theme.js" defer></script><script src="gallery-search.js" defer></script><link rel="stylesheet" href="mira-student-nav.css?v=2"><link rel="stylesheet" href="mira-design-system.css?v=1">
+</head>
 <body class="user-home-page mira-gallery-page"><?php require __DIR__ . "/mira-student-nav.php"; ?><main class="mira-gallery-wrap">
 
 <section class="mira-gallery-heading"><p>NSBM STUDENT ART & CRAFT</p><h1>Explore student creativity.</h1><span>Only administrator-approved work is shown here.</span></section>

@@ -12,7 +12,8 @@ $stmt=$conn->prepare("SELECT a.artwork_id,a.title,u.FULL_NAME AS artist_name,c.c
  WHERE s.user_id=? AND LOWER(a.status)='approved' ORDER BY s.saved_at DESC,a.artwork_id DESC");
 $stmt->bind_param('i',$uid);$stmt->execute();$saved=$stmt->get_result()->fetch_all(MYSQLI_ASSOC);$stmt->close();
 $saved=array_values(array_filter($saved,fn($a)=>miraArtworkImage($a['image_path'])!==''));
-?><!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Saved Artworks | MIRA</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="gallery.css"><link rel="stylesheet" href="mira-student-nav.css?v=3"><link rel="stylesheet" href="saved-artworks.css"><script src="theme.js" defer></script></head>
+?><!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Saved Artworks | MIRA</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="gallery.css"><link rel="stylesheet" href="mira-student-nav.css?v=3"><link rel="stylesheet" href="saved-artworks.css"><script src="theme.js" defer></script><link rel="stylesheet" href="mira-design-system.css?v=1">
+</head>
 <body class="user-home-page mira-gallery-page"><?php require __DIR__.'/mira-student-nav.php'; ?><main class="mira-gallery-wrap mira-saved-page">
 <section class="mira-gallery-heading"><p>YOUR COLLECTION</p><h1>Saved Artworks</h1><span>Explore the artworks you have bookmarked (<?= count($saved) ?>).</span></section>
 <?php if (!$saved): ?><section class="mira-saved-empty"><h2>Nothing saved yet</h2><p>Explore categories and save the artworks that inspire you.</p><a href="gallery.php">Explore artworks →</a></section><?php else: ?>

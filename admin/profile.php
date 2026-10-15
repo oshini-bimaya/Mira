@@ -32,6 +32,8 @@ $isError = $status !== '' && !in_array($status, ['saved','password'], true);
 <link rel="stylesheet" href="admin.css">
 <link rel="stylesheet" href="profile.css">
 <script src="admin.js" defer></script>
+<link rel="stylesheet" href="../mira-design-system.css?v=1">
+<link rel="stylesheet" href="mira-admin-polish.css?v=1">
 </head>
 <body class="admin-page">
 <div class="admin-layout">

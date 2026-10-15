@@ -1,0 +1,115 @@
+<?php
+
+require __DIR__ . '/student-access.php';
+
+// Prevent users from opening this page without logging in
+if (!isset($_SESSION["user_id"])) {
+    header("Location: login.html");
+    exit();
+}
+
+// Never display the student homepage to an administrator.
+// This also corrects accidental redirects caused by old links or cached scripts.
+if (strtoupper(trim((string)($_SESSION["role"] ?? ""))) === "ADMIN") {
+    header("Location: admin/dashboard.php", true, 302);
+    exit();
+}
+
+$userName = $_SESSION["full_name"] ?? 'Artist';
+require __DIR__ . '/db.php';
+require __DIR__ . '/gallery-common.php';
+$gallery = miraApprovedArtworks($conn, '', 0, 60);
+$featuredArtworks=[];
+$featuredResult=$conn->query("SELECT a.artwork_id,a.title,u.FULL_NAME AS artist_name,
+ (SELECT ai.image_path FROM artwork_images ai WHERE ai.artwork_id=a.artwork_id ORDER BY ai.image_id LIMIT 1) AS image_path
+ FROM artworks a JOIN users u ON u.USER_ID=a.user_id
+ WHERE LOWER(a.status)='approved' AND a.is_featured=1
+ ORDER BY COALESCE(a.featured_order,2147483647),a.artwork_id LIMIT 8");
+if($featuredResult)$featuredArtworks=$featuredResult->fetch_all(MYSQLI_ASSOC);
+$exhibitionPosters=[];
+$posterResult=$conn->query("SELECT event_id,title,venue,starts_at,poster_path FROM events WHERE status='published' AND ends_at >= NOW() AND poster_path IS NOT NULL AND poster_path <> '' ORDER BY starts_at ASC LIMIT 6");
+if($posterResult){$exhibitionPosters=$posterResult->fetch_all(MYSQLI_ASSOC);}
+
+
+
+$miraUnreadNotifications=0;
+$ns=$conn->prepare('SELECT COUNT(*) FROM notifications WHERE user_id=? AND is_read=0');
+$notifUid=(int)$_SESSION['user_id'];$ns->bind_param('i',$notifUid);$ns->execute();$ns->bind_result($miraUnreadNotifications);$ns->fetch();$ns->close();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MIRA | Home</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gallery.css">
+<link rel="stylesheet" href="featured-home.css">
+    <script src="theme.js" defer></script>
+<link rel="stylesheet" href="exhibition-home.css">
+<style>.mira-notification-link{position:relative;display:inline-flex;align-items:center;justify-content:center;text-decoration:none}.mira-notification-count{position:absolute;top:-8px;right:-10px;background:#e04b7a;color:white;border-radius:20px;min-width:20px;height:20px;display:grid;place-items:center;font:700 11px Arial,sans-serif;padding:0 4px}</style>
+<link rel="stylesheet" href="mira-student-nav.css?v=2"></head>
+
+<body class="user-home-page"><?php require __DIR__ . "/mira-student-nav.php"; ?>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <main class="mira-feed-page">
+
+    <!-- Search bar -->
+    <div class="mira-feed-search">
+
+        <span class="search-icon">⌕</span>
+
+        <input
+            type="text"
+            id="artSearch"
+            placeholder="Search artworks..."
+        >
+
+    </div>
+
+
+    <!-- Approved artworks only: data comes from MySQL -->
+    <section class="mira-pin-grid" id="artGrid" aria-label="Approved student artworks">
+    <?php foreach ($gallery as $art): ?>
+      <a class="mira-pin mira-live-pin" href="artwork-view.php?id=<?= (int)$art['artwork_id'] ?>"
+         data-search="<?= miraEsc(strtolower($art['title'].' '.$art['artist_name'].' '.$art['category_name'])) ?>">
+        <img loading="lazy" src="<?= miraEsc(miraArtworkImage($art['image_path'])) ?>"
+             alt="<?= miraEsc($art['title']) ?>">
+        <span class="mira-pin-overlay"><strong><?= miraEsc($art['title']) ?></strong>
+          <small><?= miraEsc($art['artist_name']) ?> · <?= miraEsc($art['category_name']) ?></small></span>
+      </a>
+    <?php endforeach; ?>
+    </section>
+    <p id="noResults" class="mira-empty" <?= $gallery ? 'hidden' : '' ?>>
+      <?= $gallery ? 'No artworks match your search.' : 'No approved artworks yet. Once an administrator approves a submission, it will appear here.' ?>
+    </p>
+
+
+<section class="mira-featured-home" aria-labelledby="featuredArtTitle"><div class="mira-featured-head"><p>HANDPICKED BY MIRA</p><h2 id="featuredArtTitle">Featured student creations ✦</h2></div><div class="mira-featured-tiles"><?php foreach($featuredArtworks as $fa):?><?php $fp=miraArtworkImage($fa['image_path']);if(!$fp)continue;?><a class="mira-featured-tile" href="artwork-view.php?id=<?=(int)$fa['artwork_id']?>"><img src="<?=miraEsc($fp)?>" alt="<?=miraEsc($fa['title'])?>" loading="lazy"><div><strong><?=miraEsc($fa['title'])?></strong><small>By <?=miraEsc($fa['artist_name'])?></small></div></a><?php endforeach;?></div></section>
+
+<section class="mira-exhibition-showcase" aria-labelledby="miraExhibitHeading">
+  <div class="mira-exhibition-heading"><p>UPCOMING EXHIBITIONS</p><h2 id="miraExhibitHeading">Discover what's on at MIRA ✦</h2><a href="exhibitions.php">View all exhibitions →</a></div>
+  <div class="mira-exhibition-posters">
+  <?php foreach($exhibitionPosters as $poster): ?>
+    <?php if(preg_match('~^uploads/events/[a-zA-Z0-9_-]+\.(jpg|jpeg|png|webp)$~i',(string)$poster['poster_path'])): ?>
+      <a class="mira-exhibition-tile" href="exhibition-detail.php?id=<?=(int)$poster['event_id']?>"><img src="<?=htmlspecialchars($poster['poster_path'],ENT_QUOTES,'UTF-8')?>" alt="<?=htmlspecialchars($poster['title'],ENT_QUOTES,'UTF-8')?> exhibition poster" loading="lazy"><div><h3><?=htmlspecialchars($poster['title'],ENT_QUOTES,'UTF-8')?></h3><p><?=htmlspecialchars(date('M j, Y',strtotime($poster['starts_at'])),ENT_QUOTES,'UTF-8')?> · <?=htmlspecialchars($poster['venue'],ENT_QUOTES,'UTF-8')?></p></div></a>
+    <?php endif; ?>
+  <?php endforeach; ?>
+  <?php if(!$exhibitionPosters):?><p class="mira-no-exhibitions">Published exhibition posters will appear here.</p><?php endif; ?>
+  </div>
+</section>
+</main>
+
+
+    <script src="gallery-search.js" defer></script>
+
+</body>
+</html>

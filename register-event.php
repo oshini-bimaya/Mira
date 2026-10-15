@@ -1,7 +1,8 @@
 <?php
 session_start();if($_SERVER['REQUEST_METHOD']!=='POST'){http_response_code(405);exit;}
 if(empty($_SESSION['user_id'])){header('Location: login.html');exit;}
-require __DIR__.'/db.php';require __DIR__.'/event-common.php';
+require __DIR__.'/db.php';
+require_once __DIR__ . '/mira-action-access.php';require __DIR__.'/event-common.php';
 $uid=(int)$_SESSION['user_id'];if(!eventStudent($conn,$uid)){http_response_code(403);exit('Student access only');}
 if(!eventValidToken()){http_response_code(403);exit('Invalid form token');}
 $eid=filter_var($_POST['event_id']??null,FILTER_VALIDATE_INT);$action=$_POST['action']??'';if(!$eid||!in_array($action,['register','cancel'],true))eventGo('exhibitions.php?msg=error');

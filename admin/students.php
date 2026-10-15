@@ -8,7 +8,7 @@ $like='%'.$search.'%';
 $query = "SELECT u.USER_ID, u.FULL_NAME, u.EMAIL, u.CREATED_AT, u.account_status,
  (SELECT COUNT(*) FROM artworks a WHERE a.user_id=u.USER_ID) artwork_count,
  (SELECT COUNT(*) FROM artworks a WHERE a.user_id=u.USER_ID AND LOWER(a.status)='approved') approved_count
- FROM users u WHERE UPPER(u.ROLE)='STUDENT' AND (u.FULL_NAME LIKE ? OR u.EMAIL LIKE ?)";
+ FROM users u WHERE UPPER(u.ROLE) IN ('STUDENT','ARTIST') AND (u.FULL_NAME LIKE ? OR u.EMAIL LIKE ?)";
 if ($status !== 'all') $query.=' AND u.account_status=?';
 $query.=' ORDER BY u.CREATED_AT DESC, u.USER_ID DESC';
 $stmt=$conn->prepare($query);
@@ -17,7 +17,9 @@ $stmt->execute();$students=$stmt->get_result()->fetch_all(MYSQLI_ASSOC);$stmt->c
 $activeAdminPage='students';
 ?><!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Students | MIRA Admin</title>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem('mira-theme')==='dark'?'dark':'light'}catch(e){}</script>
-<link rel="stylesheet" href="admin.css"><link rel="stylesheet" href="students.css"><script src="admin.js" defer></script></head>
+<link rel="stylesheet" href="admin.css"><link rel="stylesheet" href="students.css"><script src="admin.js" defer></script><link rel="stylesheet" href="../mira-design-system.css?v=1">
+<link rel="stylesheet" href="mira-admin-polish.css?v=1">
+</head>
 <body class="admin-page"><div class="admin-layout"><?php require __DIR__.'/sidebar.php'; ?><main class="admin-main">
 <header class="admin-topbar"><p class="admin-breadcrumb">MIRA / <strong>Students</strong></p><button id="themeToggle" class="admin-theme-toggle" type="button">☾ Dark mode</button></header>
 <section class="admin-hero"><p class="admin-hero-label">MIRA · ADMIN STUDIO</p><h1>Student management ✦</h1><p>Explore student accounts and review their activity.</p></section>

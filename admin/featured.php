@@ -15,7 +15,9 @@ $message=['added'=>'Artwork added to featured collection.','removed'=>'Artwork r
 function featuredImg($p): string {return preg_match('~^uploads/artworks/[a-zA-Z0-9_-]+\.(jpg|jpeg|png|webp)$~i',(string)$p)?'../'.$p:'';}
 ?><!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Featured Art | MIRA Admin</title>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem('mira-theme')==='dark'?'dark':'light'}catch(e){}</script>
-<link rel="stylesheet" href="admin.css"><link rel="stylesheet" href="featured.css"><script src="admin.js" defer></script></head>
+<link rel="stylesheet" href="admin.css"><link rel="stylesheet" href="featured.css"><script src="admin.js" defer></script><link rel="stylesheet" href="../mira-design-system.css?v=1">
+<link rel="stylesheet" href="mira-admin-polish.css?v=1">
+</head>
 <body class="admin-page"><div class="admin-layout"><?php $activeAdminPage='featured';require __DIR__.'/sidebar.php'; ?>
 <main class="admin-main"><header class="admin-topbar"><p class="admin-breadcrumb">MIRA / <strong>Featured Art</strong></p><button id="themeToggle" class="admin-theme-toggle" type="button">☾ Dark mode</button></header>
 <section class="admin-hero"><p class="admin-hero-label">MIRA · CURATED COLLECTION</p><h1>Featured artworks ✦</h1><p>Choose approved artwork for the homepage and arrange its order.</p></section>

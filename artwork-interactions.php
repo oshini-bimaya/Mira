@@ -12,6 +12,7 @@ if (empty($_SESSION['user_id'])) {
 }
 
 require __DIR__ . '/db.php';
+require_once __DIR__ . '/mira-action-access.php';
 require __DIR__ . '/gallery-common.php';
 
 $userId = (int) $_SESSION['user_id'];
