@@ -1,0 +1,39 @@
+<?php
+    error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+require __DIR__ . '/student-access.php'; // Phase 6: login, role and suspension check; loads db.php
+$uid = (int)$_SESSION['user_id'];
+if (empty($_SESSION['profile_csrf'])) $_SESSION['profile_csrf'] = bin2hex(random_bytes(32));
+$stmt = $conn->prepare('SELECT FULL_NAME, EMAIL, ROLE, CREATED_AT, profile_image FROM users WHERE USER_ID=? LIMIT 1');
+$stmt->bind_param('i', $uid); $stmt->execute(); $user = $stmt->get_result()->fetch_assoc(); $stmt->close();
+if (!$user) { http_response_code(404); exit('Account not found.'); }
+function pe($v): string { return htmlspecialchars((string)$v, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); }
+$stmt=$conn->prepare("SELECT COUNT(*) AS total, COALESCE(SUM(LOWER(status)='approved'),0) AS approved, COALESCE(SUM(LOWER(status)='pending'),0) AS pending FROM artworks WHERE user_id=?");
+$stmt->bind_param('i',$uid);$stmt->execute();$artStats=$stmt->get_result()->fetch_assoc();$stmt->close();
+$stmt=$conn->prepare('SELECT artwork_id,title,status,created_at FROM artworks WHERE user_id=? ORDER BY created_at DESC LIMIT 8');
+$stmt->bind_param('i',$uid);$stmt->execute();$artworks=$stmt->get_result()->fetch_all(MYSQLI_ASSOC);$stmt->close();
+$regCount=0; $requests=[];
+if ($conn->query("SHOW TABLES LIKE 'event_registrations'")->num_rows) {
+ $stmt=$conn->prepare("SELECT COUNT(*) FROM event_registrations WHERE user_id=? AND status <> 'cancelled'");
+ $stmt->bind_param('i',$uid);$stmt->execute();$regCount=(int)$stmt->get_result()->fetch_row()[0];$stmt->close();
+}
+if ($conn->query("SHOW TABLES LIKE 'exhibition_requests'")->num_rows) {
+ $stmt=$conn->prepare('SELECT e.title, r.status, r.requested_at FROM exhibition_requests r JOIN events e ON e.event_id=r.event_id WHERE r.user_id=? ORDER BY r.requested_at DESC LIMIT 5');
+ $stmt->bind_param('i',$uid);$stmt->execute();$requests=$stmt->get_result()->fetch_all(MYSQLI_ASSOC);$stmt->close();
+}
+$msg=$_SESSION['profile_flash']??null;unset($_SESSION['profile_flash']);
+$avatar=(string)($user['profile_image']??'');
+$avatarOk=(bool)preg_match('~^uploads/profiles/[a-f0-9]{32}\.(jpg|png|webp)$~',$avatar);
+$initial=function_exists('mb_substr')?mb_substr($user['FULL_NAME'],0,1):substr($user['FULL_NAME'],0,1);
+?><!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>My Profile | MIRA</title><script>try{document.documentElement.dataset.theme=localStorage.getItem('mira-theme')==='dark'?'dark':'light'}catch(e){}</script><link rel="stylesheet" href="profile.css"><script src="theme.js" defer></script><link rel="stylesheet" href="mira-design-system.css?v=1">
+</head><body class="mira-profile-page">
+<header class="profile-top"><a class="profile-brand" href="user-home.php">✦ MIRA</a><nav aria-label="Student navigation"><a href="user-home.php">Home</a><a href="gallery.php">Categories</a><a href="exhibitions.php">Exhibitions</a><a href="notifications.php">Notifications</a></nav><button type="button" id="themeToggle" class="profile-theme">Toggle theme</button></header>
+<main class="profile-container"><div class="profile-heading"><div><p class="profile-eyebrow">YOUR CREATIVE SPACE</p><h1>My Profile ✦</h1><p>Manage your account, artwork and exhibition activity.</p></div><a class="profile-button secondary" href="user-home.php">← Back to Home</a></div>
+<?php if($msg):?><div class="profile-alert <?=($msg['ok']??false)?'success':'error'?>" role="status"><?=pe($msg['text']??'')?></div><?php endif;?>
+<section class="profile-grid"><div class="profile-card profile-account"><div class="profile-identity"><?php if($avatarOk):?><img class="profile-picture" src="<?=pe($avatar)?>" alt="Profile picture"><?php else:?><div class="profile-picture profile-fallback"><?=pe(strtoupper($initial))?></div><?php endif;?><div><h2><?=pe($user['FULL_NAME'])?></h2><p><?=pe($user['EMAIL'])?></p><small>Student · Joined <?=pe(date('M Y',strtotime($user['CREATED_AT'])))?></small></div></div>
+<form action="update-profile.php" method="post" enctype="multipart/form-data" class="profile-form"><input type="hidden" name="csrf" value="<?=pe($_SESSION['profile_csrf'])?>"><input type="hidden" name="action" value="avatar"><label for="profile_photo">Profile picture (JPG, PNG, WebP; max 2 MB)</label><input id="profile_photo" type="file" name="profile_photo" accept="image/jpeg,image/png,image/webp" required><button class="profile-button" type="submit">Upload picture</button></form></div>
+<div class="profile-card"><h2>Edit Personal Details</h2><form method="post" action="update-profile.php" class="profile-form"><input type="hidden" name="csrf" value="<?=pe($_SESSION['profile_csrf'])?>"><input type="hidden" name="action" value="details"><label for="fullname">Full name</label><input id="fullname" name="full_name" maxlength="100" required value="<?=pe($user['FULL_NAME'])?>"><label for="email">Email address</label><input id="email" type="email" name="email" maxlength="190" required value="<?=pe($user['EMAIL'])?>"><button class="profile-button" type="submit">Save changes</button></form></div>
+<div class="profile-card"><h2>Change Password</h2><form method="post" action="update-profile.php" class="profile-form"><input type="hidden" name="csrf" value="<?=pe($_SESSION['profile_csrf'])?>"><input type="hidden" name="action" value="password"><label for="current">Current password</label><input id="current" type="password" name="current_password" autocomplete="current-password" required><label for="newpass">New password (at least 8 characters)</label><input id="newpass" type="password" name="new_password" minlength="8" autocomplete="new-password" required><label for="confirm">Confirm new password</label><input id="confirm" type="password" name="confirm_password" minlength="8" autocomplete="new-password" required><button class="profile-button" type="submit">Change password</button></form></div></section>
+<section class="profile-stats" aria-label="Student statistics"><div><span>Total uploads</span><strong><?=(int)$artStats['total']?></strong></div><div><span>Approved artworks</span><strong><?=(int)$artStats['approved']?></strong></div><div><span>Pending approval</span><strong><?=(int)$artStats['pending']?></strong></div><div><span>Exhibitions joined</span><strong><?=$regCount?></strong></div></section>
+<div class="profile-bottom"><section class="profile-card"><div class="profile-card-heading"><h2>My Portfolio</h2><a href="my-artworks.php">See all →</a></div><?php if(!$artworks):?><p>No artworks uploaded yet.</p><?php else:?><div class="profile-activity"><?php foreach($artworks as $art):?><div><a href="my-artworks.php"><?=pe($art['title'])?></a><span class="profile-status"><?=pe(ucfirst($art['status']))?></span></div><?php endforeach;?></div><?php endif;?><a class="profile-button secondary" href="upload-artwork.php">+ Upload artwork</a></section><section class="profile-card"><div class="profile-card-heading"><h2>My Exhibitions</h2><a href="my-events.php">Registrations →</a></div><p><?=$regCount?> active exhibition registration(s).</p><h3>Artwork participation requests</h3><?php if(!$requests):?><p>No exhibition artwork requests yet.</p><?php else:?><div class="profile-activity"><?php foreach($requests as $req):?><div><span><?=pe($req['title'])?></span><span class="profile-status"><?=pe(ucfirst($req['status']))?></span></div><?php endforeach;?></div><?php endif;?><a class="profile-button secondary" href="exhibitions.php">Browse exhibitions</a></section></div></main></body></html>

@@ -1,0 +1,28 @@
+/* MIRA Professional Design — shared page refresh, layer after the existing page styles. */
+:root{--design-bg:#f7f5f8;--design-card:#fff;--design-ink:#302741;--design-muted:#746a80;--design-border:#e9e2ed;--design-purple:#7352ae;--design-shadow:0 14px 42px rgba(38,28,59,.055)}
+html[data-theme="dark"]{--design-bg:#151321;--design-card:#252235;--design-ink:#f5f0fd;--design-muted:#c1b6cf;--design-border:#433c55;--design-purple:#b39be8;--design-shadow:0 14px 38px rgba(0,0,0,.13)}
+body.mira-gallery-page,body.event-page,body.mira-profile-page,body.admin-page{background:var(--design-bg)!important;color:var(--design-ink)}
+body.mira-gallery-page,body.event-page,body.mira-profile-page{font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+.mira-gallery-wrap,.event-container,.mira-profile-container,.profile-container{max-width:1240px!important;padding-left:clamp(18px,3.3vw,42px)!important;padding-right:clamp(18px,3.3vw,42px)!important;margin-left:auto!important;margin-right:auto!important}
+.mira-gallery-heading{text-align:left!important;max-width:850px;margin:42px 0 44px!important}
+.mira-gallery-heading h1,.event-container>h1,.profile-heading h1,.mira-profile-container .profile-hero h1{font-family:Georgia,'Times New Roman',serif!important;color:var(--design-ink)!important;letter-spacing:-1.3px;font-size:clamp(38px,4.5vw,61px)!important;line-height:1.12!important}
+.mira-gallery-heading>p,.event-eyebrow,.profile-eyebrow,.profile-kicker{color:#b25883!important;font-size:11px!important;font-weight:800!important;letter-spacing:2.2px!important;text-transform:uppercase}
+.mira-gallery-heading>span,.event-muted,.profile-heading p{color:var(--design-muted)!important}
+.mira-shared-nav{max-width:1240px!important;border-radius:18px!important;box-shadow:var(--design-shadow)!important}
+.mira-artist-grid{grid-template-columns:repeat(auto-fit,minmax(225px,1fr))!important;gap:22px!important}
+.mira-artist-card,.event-card,.profile-card,.profile-panel,.admin-panel,.stat-card{background:var(--design-card)!important;color:var(--design-ink)!important;border:1px solid var(--design-border)!important;border-radius:20px!important;box-shadow:var(--design-shadow)!important}
+.mira-artist-card{padding:30px 22px!important;gap:12px!important}.mira-artist-card h2{font-family:Georgia,'Times New Roman',serif;font-size:25px!important}.mira-artist-avatar{width:84px!important;height:84px!important;font-size:34px!important}
+.mira-artist-button,.event-primary,.profile-button:not(.secondary){background:#7352ae!important;border-radius:11px!important;box-shadow:none!important;color:#fff!important}
+.mira-gallery-page .mira-pin-grid{gap:22px!important}.mira-live-pin{border-radius:18px!important;overflow:hidden;box-shadow:var(--design-shadow)!important;transition:transform .2s ease}.mira-live-pin:hover{transform:translateY(-4px)}
+.event-public-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))!important;gap:22px!important}.event-card{padding:22px!important}.event-poster{height:280px!important;border-radius:13px!important;object-fit:cover!important}.event-card h2{font-family:Georgia,'Times New Roman',serif!important;font-size:27px!important}.event-card p{overflow-wrap:anywhere}
+.event-artlink,.event-card a:not(.event-primary){text-underline-offset:4px}.event-detail-poster{max-height:470px!important;object-fit:contain!important}
+.event-form input,.event-form textarea,.event-form select,.profile-form input,.profile-form textarea{border-radius:11px!important;border-color:var(--design-border)!important;font-family:Arial,Helvetica,sans-serif!important}
+.mira-profile-page .profile-panel,.profile-container .profile-card{padding:clamp(20px,3vw,32px)!important}.profile-container .profile-grid{gap:20px!important}
+.admin-main{max-width:1700px;width:100%;min-width:0;padding:clamp(18px,2.5vw,34px)!important}.admin-hero h1,.admin-hero h2{font-family:Georgia,'Times New Roman',serif!important;letter-spacing:-1.1px;line-height:1.12!important}
+.admin-stats,.admin-grid{gap:18px!important}.admin-panel,.stat-card{padding:clamp(18px,2.1vw,28px)!important}.admin-panel h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(23px,2vw,30px);line-height:1.25!important;margin-bottom:7px}.admin-table-scroll,.event-tablewrap{overflow-x:auto}
+.admin-nav a{border-radius:12px!important;transition:background .18s,transform .18s}.admin-nav a:hover{transform:translateX(2px)}.admin-topbar{gap:15px!important}
+.admin-action-item{min-width:0}.admin-action-item .admin-action-text{min-width:0;flex:1}.admin-action-item strong{overflow-wrap:anywhere}
+:where(a,button,input,select,textarea):focus-visible{outline:3px solid #9c72d4!important;outline-offset:3px}
+@media(max-width:900px){.admin-grid{grid-template-columns:1fr!important}.event-public-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:620px){.mira-gallery-heading{margin:25px 0 30px!important}.event-public-grid,.mira-artist-grid{grid-template-columns:1fr!important}.admin-main{padding:16px!important}.admin-topbar{flex-wrap:wrap}.admin-table th,.admin-table td{white-space:nowrap}.event-container,.mira-gallery-wrap,.profile-container{padding-left:16px!important;padding-right:16px!important}}
+@media(prefers-reduced-motion:reduce){.mira-live-pin,.mira-artist-card,.admin-nav a{transition:none!important}}

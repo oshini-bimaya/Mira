@@ -1,0 +1,9 @@
+DirectoryIndex index.html index.php
+Options -Indexes
+
+<FilesMatch "^(db\.php|.*\.sql)$">
+  Require all denied
+</FilesMatch>
+<Files "brevo-config.php">
+    Require all denied
+</Files>

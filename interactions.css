@@ -1,0 +1,50 @@
+/* MIRA student artwork interactions and artist cards.
+   Works with the existing data-theme attribute and gallery.css variables. */
+.mira-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:22px 0}
+.mira-actions form{margin:0}
+.mira-action-btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:22px;padding:11px 19px;color:#fff!important;background:linear-gradient(110deg,#ff8a3d,#e04b7a);font:600 14px Arial,sans-serif;text-decoration:none;cursor:pointer;transition:filter .2s,transform .2s}
+.mira-action-btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+/* Use the SAME variables as gallery.css, instead of --card-bg/--text-color. */
+.mira-gallery-page .mira-rating-box,
+.mira-gallery-page .mira-comment-box{background:var(--mira-card,#fff);border:1px solid var(--mira-border,#e9deef);box-shadow:0 12px 32px rgba(0,0,0,.06);border-radius:20px;padding:24px;margin:24px auto;max-width:920px;color:var(--mira-text,#2e1e5d)}
+.mira-gallery-page .mira-rating-box{margin:24px 0;max-width:none}
+.mira-gallery-page .mira-rating-box h2,
+.mira-gallery-page .mira-comment-box h2{font-size:clamp(22px,2vw,28px);margin:0 0 12px;color:var(--mira-text,#2e1e5d)}
+.mira-gallery-page .mira-rating-box p,
+.mira-gallery-page .mira-comment-box p,
+.mira-gallery-page .mira-comment-box label,
+.mira-gallery-page .mira-rating-box label{color:var(--mira-text,#2e1e5d)}
+.mira-gallery-page .mira-rating-box form{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:12px}
+.mira-gallery-page .mira-rating-box select,
+.mira-gallery-page .mira-comment-box textarea{background:var(--mira-bg,#f5f2f7);color:var(--mira-text,#2e1e5d);border:1px solid var(--mira-border,#e9deef);border-radius:12px;padding:11px 13px;font:inherit}
+.mira-gallery-page .mira-rating-box select{min-width:110px;cursor:pointer}
+.mira-gallery-page .mira-comment-box textarea{display:block;width:100%;box-sizing:border-box;resize:vertical;min-height:105px;margin:10px 0 14px}
+.mira-gallery-page .mira-comment-box textarea::placeholder{color:var(--mira-muted,#756c81)}
+.mira-comment{border-top:1px solid var(--mira-border,#e9deef);margin-top:18px;padding-top:16px}
+.mira-comment strong{color:var(--mira-text,#2e1e5d)}
+.mira-comment small{display:block;color:var(--mira-muted,#756c81);margin-top:4px}
+.mira-delete{border:0;background:none;color:#e04b7a;cursor:pointer;padding:0;text-decoration:underline}
+.mira-detail-artist a{color:#dd75dc;font-weight:700}
+/* Artists listing uses .mira-comment-box for each individual artist card. */
+.mira-gallery-page .mira-gallery-heading + div > .mira-comment-box{max-width:none;min-width:0;display:flex;flex-direction:column;gap:5px;padding:23px}
+.mira-gallery-page .mira-gallery-heading + div > .mira-comment-box h2{overflow-wrap:anywhere;margin-bottom:4px}
+.mira-gallery-page .mira-gallery-heading + div > .mira-comment-box p{margin:0 0 4px;font-size:15px;line-height:1.5}
+.mira-gallery-page .mira-gallery-heading + div > .mira-comment-box .mira-action-btn{align-self:flex-start;margin-top:auto}
+@media(max-width:600px){.mira-gallery-page .mira-rating-box,.mira-gallery-page .mira-comment-box{padding:18px}.mira-actions{gap:8px}.mira-action-btn{padding:10px 14px}}
+
+
+/* Artwork details: separate form from comment cards, matching the MIRA reference. */
+.mira-gallery-page .mira-artwork-comments{max-width:920px;padding:28px;background:var(--mira-card,#fff)}
+.mira-gallery-page .mira-artwork-comments > h2{margin-bottom:16px}
+.mira-gallery-page .mira-artwork-comments > form{margin-bottom:32px}
+.mira-gallery-page .mira-artwork-comments > form label{display:block;margin-bottom:12px}
+.mira-gallery-page .mira-artwork-comments .mira-comments-list{margin-top:30px;padding-top:10px;border-top:1px solid var(--mira-border,#e9deef)}
+.mira-gallery-page .mira-artwork-comments .mira-comments-list > h2{font-size:clamp(22px,2.5vw,32px);margin:14px 0 24px}
+.mira-gallery-page .mira-artwork-comments .mira-comment{background:var(--mira-card,#fff);border:1px solid var(--mira-border,#e9deef);border-radius:18px;margin:16px 0 22px;padding:24px;box-shadow:0 6px 16px rgba(0,0,0,.035)}
+.mira-gallery-page .mira-artwork-comments .mira-comment strong{display:block;font-size:20px;margin-bottom:18px}
+.mira-gallery-page .mira-artwork-comments .mira-comment p{font-size:17px;line-height:1.6;margin:0 0 24px;overflow-wrap:anywhere}
+.mira-gallery-page .mira-artwork-comments .mira-comment small{font-size:13px;color:var(--mira-muted,#756c81);margin-bottom:13px}
+.mira-gallery-page .mira-artwork-comments .mira-delete{background:linear-gradient(110deg,#ff8a3d,#e04b7a);border:0;border-radius:999px;padding:11px 24px;color:white;cursor:pointer;font-weight:600;font-size:14px;text-decoration:none}
+.mira-gallery-page .mira-artwork-comments .mira-delete:hover{filter:brightness(1.08)}
+.mira-gallery-page .mira-artwork-comments .mira-no-comments{color:var(--mira-muted,#756c81)}
+@media(max-width:600px){.mira-gallery-page .mira-artwork-comments{padding:17px}.mira-gallery-page .mira-artwork-comments .mira-comment{padding:18px}}

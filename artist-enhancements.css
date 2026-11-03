@@ -1,0 +1,24 @@
+/* MIRA Artist Directory and Portfolio — light/dark themed */
+.mira-artist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:22px;margin:32px 0 90px}
+.mira-artist-card{background:var(--profile-card,#fff);color:var(--profile-text,#251452);border:1px solid var(--profile-border,#eee5f3);border-radius:24px;padding:26px 23px;display:flex;align-items:center;flex-direction:column;text-align:center;gap:12px;box-shadow:0 8px 24px #0000000b;transition:transform .2s,border-color .2s}
+.mira-artist-card:hover{transform:translateY(-4px);border-color:#be8bbd}
+.mira-artist-avatar{height:96px;width:96px;border-radius:50%;background:linear-gradient(135deg,#7654bb,#e04b7a);display:grid;place-items:center;color:white;font-size:40px;overflow:hidden;border:3px solid #b997d580}
+.mira-artist-avatar img{width:100%;height:100%;object-fit:cover}
+.mira-artist-card h2{font-size:23px;margin:0;overflow-wrap:anywhere;color:inherit}
+.mira-artist-bio{font-size:14px;line-height:1.6;color:var(--profile-muted,#80748f);margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:3em;overflow-wrap:anywhere}
+.mira-artist-metrics{display:flex;gap:14px;justify-content:center;color:var(--profile-muted,#80748f);font-size:13px;flex-wrap:wrap}
+.mira-artist-metrics strong{color:var(--profile-text,#251452)}
+.mira-artist-button{display:inline-flex;margin-top:auto;padding:12px 18px;border-radius:26px;background:linear-gradient(110deg,#ff8a3d,#e04b7a);color:#fff!important;text-decoration:none;font-size:13px;font-weight:700}
+.mira-artist-button:hover{filter:brightness(1.09)}
+.mira-portfolio-link{text-decoration:none;display:block;overflow:hidden}
+.mira-portfolio-link:hover{transform:translateY(-3px)}
+.mira-portfolio-link:focus-visible,.mira-artist-button:focus-visible{outline:3px solid #e04b7a;outline-offset:3px}
+.mira-profile-page .profile-cover{position:relative;overflow:hidden}
+.mira-profile-page .profile-cover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mira-profile-page .profile-cover>span{position:relative;z-index:1}
+.mira-profile-page .profile-large-avatar{overflow:hidden}
+.mira-profile-page .profile-large-avatar img{width:100%;height:100%;object-fit:cover}
+.mira-artist-empty{text-align:center;padding:30px}
+html[data-theme=dark] .mira-artists-directory{--profile-card:#251e32;--profile-text:#f4eaff;--profile-border:#433750;--profile-muted:#b9aacb}
+html[data-theme=light] .mira-artists-directory{--profile-card:#fff;--profile-text:#251452;--profile-border:#eee5f3;--profile-muted:#80748f}
+@media(max-width:600px){.mira-artist-grid{grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}.mira-artist-card{padding:20px}}

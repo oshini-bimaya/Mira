@@ -1,0 +1,8 @@
+<?php
+session_start();if($_SERVER['REQUEST_METHOD']!=='POST'){http_response_code(405);exit('Method not allowed');}if(!isset($_SESSION['user_id'])){header('Location: login.html');exit;}
+require __DIR__.'/db.php';require __DIR__.'/artwork-common.php';$uid=(int)$_SESSION['user_id'];if(!artworkIsStudent($conn,$uid)){http_response_code(403);exit('Student only');}if(!artworkValidCsrf()){http_response_code(403);exit('Invalid form token');}
+$id=filter_var($_POST['artwork_id']??null,FILTER_VALIDATE_INT);if(!$id){http_response_code(400);exit('Invalid artwork');}
+try{$conn->begin_transaction();$s=$conn->prepare("SELECT status,rejection_reason,reviewed_at FROM artworks WHERE artwork_id=? AND user_id=? FOR UPDATE");$s->bind_param('ii',$id,$uid);$s->execute();$old=$s->get_result()->fetch_assoc();$s->close();if(!$old||strtolower($old['status'])!=='rejected')throw new RuntimeException('Not eligible for resubmission');
+$s=$conn->prepare("INSERT INTO artwork_status_history (artwork_id,actor_id,action,details) VALUES (?,?,'resubmitted',?)");$details='Previous rejection: '.($old['rejection_reason']??'No reason provided');$s->bind_param('iis',$id,$uid,$details);$s->execute();$s->close();
+$s=$conn->prepare("UPDATE artworks SET status='pending',rejection_reason=NULL,reviewed_at=NULL,reviewed_by=NULL,is_featured=0 WHERE artwork_id=? AND user_id=? AND LOWER(status)='rejected'");$s->bind_param('ii',$id,$uid);$s->execute();if($s->affected_rows!==1)throw new RuntimeException('Status update failed');$s->close();$conn->commit();header('Location: my-artworks.php?message=resubmitted');exit;
+}catch(Throwable $e){$conn->rollback();error_log('MIRA resubmit: '.$e->getMessage());header('Location: my-artworks.php?message=error');exit;}
